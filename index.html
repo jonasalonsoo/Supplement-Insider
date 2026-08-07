@@ -1058,7 +1058,7 @@
       <div id="nlFormState">
         <p class="eyebrow">Newsletter</p>
         <h3>Stay updated with the latest supplement research</h3>
-        <form class="nl-form" id="nlForm" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="nlHiddenFrame">
+        <form class="nl-form" id="nlForm" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
           <input type="email" name="EMAIL" id="nlEmailInput" placeholder="Your email address" required>
           <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
           <input type="hidden" name="locale" value="en">
@@ -1073,13 +1073,15 @@
         <h3 style="color:#fff;font-size:19px;margin-bottom:8px;">You're on the list!</h3>
         <p style="color:#BFE1D2;font-size:13.5px;line-height:1.6;margin:0;">Check your inbox at <strong id="nlEmailDisplay" style="color:#fff;"></strong> to confirm your subscription — that's where the good stuff starts.</p>
       </div>
-      <iframe name="nlHiddenFrame" style="display:none;" title="newsletter submission"></iframe>
     </div>
 
     <script>
-      document.getElementById('nlForm').addEventListener('submit', function() {
+      document.getElementById('nlForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = e.target;
         var email = document.getElementById('nlEmailInput').value;
         document.getElementById('nlEmailDisplay').textContent = email;
+        fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
         setTimeout(function() {
           var formState = document.getElementById('nlFormState');
           var successState = document.getElementById('nlSuccessState');
@@ -1091,6 +1093,9 @@
             successState.style.opacity = 0;
             successState.style.transition = 'opacity .3s ease';
             requestAnimationFrame(function() { successState.style.opacity = 1; });
+          }, 250);
+        }, 200);
+      });
           }, 250);
         }, 600);
       });
@@ -1163,7 +1168,7 @@
     <div id="fnlFormindex">
       <h4>Get the latest supplement research in your inbox</h4>
       <p>Join 25,000+ readers. No spam, unsubscribe anytime.</p>
-      <form class="footer-nl-form" id="fnlFormElindex" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="fnlFrameindex">
+      <form class="footer-nl-form" id="fnlFormElindex" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
         <input type="email" name="EMAIL" id="fnlEmailindex" placeholder="Your email address" required>
         <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
         <input type="hidden" name="locale" value="en">
@@ -1171,16 +1176,18 @@
       </form>
     </div>
     <div id="fnlSuccessindex" class="footer-nl-success" style="display:none;">✓ You're on the list! Check <strong id="fnlEmailDispindex"></strong> to confirm.</div>
-    <iframe name="fnlFrameindex" style="display:none;" title="newsletter"></iframe>
   </div>
 </div>
 <script>
-  document.getElementById('fnlFormElindex').addEventListener('submit', function() {
+  document.getElementById('fnlFormElindex').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
     document.getElementById('fnlEmailDispindex').textContent = document.getElementById('fnlEmailindex').value;
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormindex').style.display = 'none';
       document.getElementById('fnlSuccessindex').style.display = 'block';
-    }, 600);
+    }, 200);
   });
 </script>
 

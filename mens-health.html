@@ -733,7 +733,7 @@
         <div id="inlFormmenshealth">
           <h4>Want more evidence-based breakdowns like this?</h4>
           <p>Get new research summaries and ingredient guides straight to your inbox.</p>
-          <form class="inline-nl-form" id="inlFormElmenshealth" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="inlFramemenshealth">
+          <form class="inline-nl-form" id="inlFormElmenshealth" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
             <input type="email" name="EMAIL" id="inlEmailmenshealth" placeholder="Your email address" required>
             <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
             <input type="hidden" name="locale" value="en">
@@ -741,15 +741,17 @@
           </form>
         </div>
         <div id="inlSuccessmenshealth" class="inline-nl-success" style="display:none;">✓ You're on the list! Check <strong id="inlEmailDispmenshealth"></strong> to confirm.</div>
-        <iframe name="inlFramemenshealth" style="display:none;" title="newsletter"></iframe>
       </div>
       <script>
-        document.getElementById('inlFormElmenshealth').addEventListener('submit', function() {
+        document.getElementById('inlFormElmenshealth').addEventListener('submit', function(e) {
+          e.preventDefault();
+          var form = e.target;
           document.getElementById('inlEmailDispmenshealth').textContent = document.getElementById('inlEmailmenshealth').value;
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormmenshealth').style.display = 'none';
             document.getElementById('inlSuccessmenshealth').style.display = 'block';
-          }, 600);
+          }, 200);
         });
       </script>
 
@@ -886,7 +888,7 @@
     <div id="fnlFormmenshealth">
       <h4>Get the latest supplement research in your inbox</h4>
       <p>Join 25,000+ readers. No spam, unsubscribe anytime.</p>
-      <form class="footer-nl-form" id="fnlFormElmenshealth" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="fnlFramemenshealth">
+      <form class="footer-nl-form" id="fnlFormElmenshealth" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
         <input type="email" name="EMAIL" id="fnlEmailmenshealth" placeholder="Your email address" required>
         <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
         <input type="hidden" name="locale" value="en">
@@ -894,16 +896,18 @@
       </form>
     </div>
     <div id="fnlSuccessmenshealth" class="footer-nl-success" style="display:none;">✓ You're on the list! Check <strong id="fnlEmailDispmenshealth"></strong> to confirm.</div>
-    <iframe name="fnlFramemenshealth" style="display:none;" title="newsletter"></iframe>
   </div>
 </div>
 <script>
-  document.getElementById('fnlFormElmenshealth').addEventListener('submit', function() {
+  document.getElementById('fnlFormElmenshealth').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
     document.getElementById('fnlEmailDispmenshealth').textContent = document.getElementById('fnlEmailmenshealth').value;
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormmenshealth').style.display = 'none';
       document.getElementById('fnlSuccessmenshealth').style.display = 'block';
-    }, 600);
+    }, 200);
   });
 </script>
 

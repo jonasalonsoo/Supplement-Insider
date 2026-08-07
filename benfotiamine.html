@@ -684,7 +684,7 @@
     <div id="fnlFormbenfotiamine">
       <h4>Get the latest supplement research in your inbox</h4>
       <p>Join 25,000+ readers. No spam, unsubscribe anytime.</p>
-      <form class="footer-nl-form" id="fnlFormElbenfotiamine" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="fnlFramebenfotiamine">
+      <form class="footer-nl-form" id="fnlFormElbenfotiamine" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
         <input type="email" name="EMAIL" id="fnlEmailbenfotiamine" placeholder="Your email address" required>
         <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
         <input type="hidden" name="locale" value="en">
@@ -692,16 +692,18 @@
       </form>
     </div>
     <div id="fnlSuccessbenfotiamine" class="footer-nl-success" style="display:none;">✓ You're on the list! Check <strong id="fnlEmailDispbenfotiamine"></strong> to confirm.</div>
-    <iframe name="fnlFramebenfotiamine" style="display:none;" title="newsletter"></iframe>
   </div>
 </div>
 <script>
-  document.getElementById('fnlFormElbenfotiamine').addEventListener('submit', function() {
+  document.getElementById('fnlFormElbenfotiamine').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
     document.getElementById('fnlEmailDispbenfotiamine').textContent = document.getElementById('fnlEmailbenfotiamine').value;
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormbenfotiamine').style.display = 'none';
       document.getElementById('fnlSuccessbenfotiamine').style.display = 'block';
-    }, 600);
+    }, 200);
   });
 </script>
 

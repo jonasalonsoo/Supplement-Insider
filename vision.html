@@ -732,7 +732,7 @@
         <div id="inlFormvision">
           <h4>Want more evidence-based breakdowns like this?</h4>
           <p>Get new research summaries and ingredient guides straight to your inbox.</p>
-          <form class="inline-nl-form" id="inlFormElvision" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="inlFramevision">
+          <form class="inline-nl-form" id="inlFormElvision" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
             <input type="email" name="EMAIL" id="inlEmailvision" placeholder="Your email address" required>
             <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
             <input type="hidden" name="locale" value="en">
@@ -740,15 +740,17 @@
           </form>
         </div>
         <div id="inlSuccessvision" class="inline-nl-success" style="display:none;">✓ You're on the list! Check <strong id="inlEmailDispvision"></strong> to confirm.</div>
-        <iframe name="inlFramevision" style="display:none;" title="newsletter"></iframe>
       </div>
       <script>
-        document.getElementById('inlFormElvision').addEventListener('submit', function() {
+        document.getElementById('inlFormElvision').addEventListener('submit', function(e) {
+          e.preventDefault();
+          var form = e.target;
           document.getElementById('inlEmailDispvision').textContent = document.getElementById('inlEmailvision').value;
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormvision').style.display = 'none';
             document.getElementById('inlSuccessvision').style.display = 'block';
-          }, 600);
+          }, 200);
         });
       </script>
 
@@ -869,7 +871,7 @@
     <div id="fnlFormvision">
       <h4>Get the latest supplement research in your inbox</h4>
       <p>Join 25,000+ readers. No spam, unsubscribe anytime.</p>
-      <form class="footer-nl-form" id="fnlFormElvision" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="fnlFramevision">
+      <form class="footer-nl-form" id="fnlFormElvision" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
         <input type="email" name="EMAIL" id="fnlEmailvision" placeholder="Your email address" required>
         <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
         <input type="hidden" name="locale" value="en">
@@ -877,16 +879,18 @@
       </form>
     </div>
     <div id="fnlSuccessvision" class="footer-nl-success" style="display:none;">✓ You're on the list! Check <strong id="fnlEmailDispvision"></strong> to confirm.</div>
-    <iframe name="fnlFramevision" style="display:none;" title="newsletter"></iframe>
   </div>
 </div>
 <script>
-  document.getElementById('fnlFormElvision').addEventListener('submit', function() {
+  document.getElementById('fnlFormElvision').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
     document.getElementById('fnlEmailDispvision').textContent = document.getElementById('fnlEmailvision').value;
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormvision').style.display = 'none';
       document.getElementById('fnlSuccessvision').style.display = 'block';
-    }, 600);
+    }, 200);
   });
 </script>
 

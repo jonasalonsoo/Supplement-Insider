@@ -727,7 +727,7 @@
         <div id="inlFormskinrejuvenation">
           <h4>Want more evidence-based breakdowns like this?</h4>
           <p>Get new research summaries and ingredient guides straight to your inbox.</p>
-          <form class="inline-nl-form" id="inlFormElskinrejuvenation" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="inlFrameskinrejuvenation">
+          <form class="inline-nl-form" id="inlFormElskinrejuvenation" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
             <input type="email" name="EMAIL" id="inlEmailskinrejuvenation" placeholder="Your email address" required>
             <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
             <input type="hidden" name="locale" value="en">
@@ -735,15 +735,17 @@
           </form>
         </div>
         <div id="inlSuccessskinrejuvenation" class="inline-nl-success" style="display:none;">✓ You're on the list! Check <strong id="inlEmailDispskinrejuvenation"></strong> to confirm.</div>
-        <iframe name="inlFrameskinrejuvenation" style="display:none;" title="newsletter"></iframe>
       </div>
       <script>
-        document.getElementById('inlFormElskinrejuvenation').addEventListener('submit', function() {
+        document.getElementById('inlFormElskinrejuvenation').addEventListener('submit', function(e) {
+          e.preventDefault();
+          var form = e.target;
           document.getElementById('inlEmailDispskinrejuvenation').textContent = document.getElementById('inlEmailskinrejuvenation').value;
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormskinrejuvenation').style.display = 'none';
             document.getElementById('inlSuccessskinrejuvenation').style.display = 'block';
-          }, 600);
+          }, 200);
         });
       </script>
 
@@ -864,7 +866,7 @@
     <div id="fnlFormskinrejuvenation">
       <h4>Get the latest supplement research in your inbox</h4>
       <p>Join 25,000+ readers. No spam, unsubscribe anytime.</p>
-      <form class="footer-nl-form" id="fnlFormElskinrejuvenation" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="fnlFrameskinrejuvenation">
+      <form class="footer-nl-form" id="fnlFormElskinrejuvenation" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
         <input type="email" name="EMAIL" id="fnlEmailskinrejuvenation" placeholder="Your email address" required>
         <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
         <input type="hidden" name="locale" value="en">
@@ -872,16 +874,18 @@
       </form>
     </div>
     <div id="fnlSuccessskinrejuvenation" class="footer-nl-success" style="display:none;">✓ You're on the list! Check <strong id="fnlEmailDispskinrejuvenation"></strong> to confirm.</div>
-    <iframe name="fnlFrameskinrejuvenation" style="display:none;" title="newsletter"></iframe>
   </div>
 </div>
 <script>
-  document.getElementById('fnlFormElskinrejuvenation').addEventListener('submit', function() {
+  document.getElementById('fnlFormElskinrejuvenation').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
     document.getElementById('fnlEmailDispskinrejuvenation').textContent = document.getElementById('fnlEmailskinrejuvenation').value;
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormskinrejuvenation').style.display = 'none';
       document.getElementById('fnlSuccessskinrejuvenation').style.display = 'block';
-    }, 600);
+    }, 200);
   });
 </script>
 
