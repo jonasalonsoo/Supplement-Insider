@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gut Health — Supplement Insider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1E5D4E;
+    --green-dark:#154238;
+    --green-tint:#E9F1EE;
+    --navy:#22313F;
+    --blue:#4DA3FF;
+    --blue-tint:#EAF4FF;
+    --amber:#C98A3E;
+    --amber-tint:#FBF1E4;
+    --bg:#FFFFFF;
+    --card:#F7F8FA;
+    --text:#232323;
+    --muted:#6B7280;
+    --border:#E7E9EC;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--navy);
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14.5px;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:all .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--green);color:#fff;}
+  .btn-primary:hover{background:var(--green-dark);}
+  .btn-outline{background:transparent;border-color:var(--navy);color:var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-sm{padding:9px 18px;font-size:13.5px;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(155deg,var(--green) 0%, #2f7d67 100%);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-text{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--navy);line-height:1.1;}
+  .logo-text span{display:block;font-size:11px;font-weight:500;color:var(--green);letter-spacing:.06em;text-transform:uppercase;font-family:'Inter',sans-serif;}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--navy);opacity:.82;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .icon-btn{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--border);
+    cursor:pointer;
+    color:var(--navy);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(180deg,#FBFCFB 0%, #ffffff 100%);
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  .hero h1{
+    font-size:47px;line-height:1.09;
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--green);
+  }
+  .hero p.lead{
+    font-size:17.5px;color:var(--muted);max-width:490px;margin-bottom:30px;
+  }
+  .search-bar{
+    display:flex;align-items:center;gap:0;
+    background:#fff;border:1.5px solid var(--border);
+    border-radius:14px;
+    padding:6px 6px 6px 20px;
+    box-shadow:0 2px 10px rgba(30,93,78,0.05);
+    margin-bottom:14px;
+    max-width:520px;
+  }
+  .search-bar input{
+    border:none;outline:none;flex:1;font-size:15px;font-family:'Inter',sans-serif;padding:10px 0;color:var(--text);
+  }
+  .search-bar input::placeholder{color:#9CA3AF;}
+  .search-bar button{
+    background:var(--green);border:none;color:#fff;
+    width:40px;height:40px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+  }
+  .search-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+  .search-tags span{
+    font-size:12.5px;color:var(--muted);padding:5px 12px;
+    border:1px solid var(--border);border-radius:999px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+  .hero-visual{
+    position:relative;aspect-ratio:1/0.92;
+    border-radius:28px;
+    background:radial-gradient(circle at 30% 20%, #F3FBF7 0%, var(--green-tint) 55%, #E1EFE9 100%);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(30,93,78,.09) 1.5px, transparent 1.5px);
+    background-size:22px 22px;
+    opacity:.5;
+  }
+  .float-card{
+    position:absolute;background:#fff;border-radius:16px;
+    box-shadow:0 12px 30px rgba(20,50,42,.14);
+    padding:14px 16px;display:flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:600;color:var(--navy);
+  }
+  .fc1{top:14%;left:8%;}
+  .fc2{bottom:16%;right:6%;}
+  .fc-dot{width:9px;height:9px;border-radius:50%;background:var(--green);}
+
+  /* ===== TRUST BAR ===== */
+  .trust{padding:42px 0;border-bottom:1px solid var(--border);}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  .trust-item{display:flex;gap:14px;align-items:flex-start;}
+  .trust-icon{
+    width:42px;height:42px;border-radius:11px;background:var(--green-tint);
+    display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;
+  }
+  .trust-item h4{font-size:14.5px;margin-bottom:3px;}
+  .trust-item p{font-size:13px;color:var(--muted);margin:0;}
+
+  /* ===== SECTION HEADINGS ===== */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;
+  }
+  .section-head h2{font-size:29px;}
+  .section-head .view-all{font-size:13.5px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:5px;}
+
+  /* ===== GOALS ===== */
+  .goals-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  }
+  .goal-card{
+    display:block;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:22px 14px;
+    text-align:center;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+    cursor:pointer;
+  }
+  .goal-card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:0 10px 24px rgba(30,93,78,.08);}
+  .goal-icon{
+    width:44px;height:44px;margin:0 auto 12px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .goal-card p{font-size:13px;font-weight:600;color:var(--navy);margin:0;}
+
+  /* ===== ARTICLES ===== */
+  .articles-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .art-card{
+    display:block;
+    border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
+    background:#fff;transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .art-card:hover{box-shadow:0 16px 32px rgba(20,40,35,.08);transform:translateY(-2px);}
+  .art-media{
+    aspect-ratio:16/10;position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .art-tag{
+    position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);
+    font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;color:var(--navy);
+  }
+  .art-body{padding:20px 22px 22px;}
+  .art-body h3{font-size:17.5px;line-height:1.3;margin-bottom:9px;}
+  .art-body p{font-size:14px;color:var(--muted);margin:0 0 14px;}
+  .art-meta{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#9CA3AF;}
+  .evidence{
+    display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;color:var(--green);
+    background:var(--green-tint);padding:3px 9px;border-radius:999px;
+  }
+
+  /* ===== INGREDIENTS ===== */
+  .ing-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;}
+  .ing-card{text-align:center;cursor:pointer;}
+  .ing-media{
+    aspect-ratio:1/1;border-radius:18px;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .18s ease;
+  }
+  .ing-card:hover .ing-media{transform:translateY(-3px);}
+  .ing-card h4{font-size:14px;color:var(--navy);margin-bottom:2px;}
+  .ing-card span{font-size:12px;color:var(--muted);}
+
+  /* ===== THREE COLUMN: NEWSLETTER / RESEARCH / PICK ===== */
+  .trio{display:grid;grid-template-columns:1.15fr 1.15fr 0.9fr;gap:22px;}
+  .newsletter-box{
+    background:linear-gradient(155deg,var(--green) 0%, #154439 100%);
+    border-radius:var(--radius-lg);
+    padding:34px 30px;color:#fff;position:relative;overflow:hidden;
+  }
+  .newsletter-box::after{
+    content:'';position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;
+    border-radius:50%;background:rgba(255,255,255,.06);
+  }
+  .newsletter-box .eyebrow{color:#B9E4D3;}
+  .newsletter-box h3{color:#fff;font-size:22px;margin:10px 0 20px;line-height:1.25;}
+  .nl-form{display:flex;gap:8px;position:relative;z-index:1;}
+  .nl-form input{
+    flex:1;border:none;border-radius:10px;padding:12px 14px;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;
+  }
+  .nl-form button{
+    background:#fff;color:var(--green-dark);border:none;border-radius:10px;padding:0 18px;font-weight:700;font-size:13.5px;cursor:pointer;
+  }
+  .newsletter-box .fine{font-size:11.5px;color:#BFE1D2;margin-top:12px;position:relative;z-index:1;}
+
+  .research-box{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 26px 10px;
+  }
+  .research-box h3{font-size:19px;margin-bottom:16px;}
+  .research-item{
+    display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);
+  }
+  .research-item:first-of-type{border-top:none;}
+  .r-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:7px;flex-shrink:0;
+  }
+  .research-item h5{font-size:14px;font-weight:600;color:var(--navy);margin:0 0 4px;line-height:1.3;}
+  .research-item span{font-size:12px;color:var(--muted);}
+
+  .pick-box{
+    background:var(--amber-tint);border:1px solid #EFDDBD;border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;
+  }
+  .pick-box .eyebrow{color:var(--amber);}
+  .pick-media{
+    aspect-ratio:1/0.85;border-radius:14px;background:linear-gradient(155deg,#2b2b2b,#3f3f3f);
+    display:flex;align-items:center;justify-content:center;margin:14px 0 16px;
+  }
+  .pick-box h4{font-size:16px;margin-bottom:6px;}
+  .pick-box p{font-size:12.5px;color:var(--muted);margin:0 0 14px;flex-grow:1;}
+  .pick-box a.view{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:5px;}
+
+  /* ===== TRUSTED BAR ===== */
+  .trusted{padding:52px 0;text-align:center;border-top:1px solid var(--border);}
+  .trusted p{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9CA3AF;font-weight:600;margin-bottom:26px;}
+  .trusted-logos{display:flex;justify-content:center;align-items:center;gap:52px;flex-wrap:wrap;opacity:.5;}
+  .trusted-logos span{font-family:'Fraunces',serif;font-size:19px;color:var(--navy);font-weight:600;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy);color:#C9D2D8;padding:60px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:34px;margin-bottom:44px;}
+  .foot-brand .logo-text{color:#fff;}
+  .foot-brand p{font-size:13.5px;color:#95A4AD;margin:16px 0 20px;max-width:270px;}
+  .foot-social{display:flex;gap:10px;}
+  .foot-social a{
+    width:34px;height:34px;border-radius:50%;border:1px solid #3B4B57;
+    display:flex;align-items:center;justify-content:center;color:#C9D2D8;
+  }
+  footer h5{color:#fff;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:16px;letter-spacing:.02em;}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+  footer ul a{font-size:13.5px;color:#95A4AD;}
+  footer ul a:hover{color:#fff;}
+  .foot-bottom{
+    border-top:1px solid #33424D;padding-top:22px;
+    display:flex;justify-content:space-between;font-size:12.5px;color:#7C8B94;flex-wrap:wrap;gap:10px;
+  }
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;aspect-ratio:16/9;}
+    .goals-grid{grid-template-columns:repeat(3,1fr);}
+    .ing-grid{grid-template-columns:repeat(3,1fr);}
+    .articles-row{grid-template-columns:1fr;}
+    .trio{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{display:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:34px;}
+    .condition-grid{grid-template-columns:1fr;}
+    .toc{position:static;}
+  }
+
+  /* ===== CONDITION / NICHE PAGE ===== */
+  .breadcrumb{
+    padding:18px 0;font-size:13px;color:var(--muted);
+  }
+  .breadcrumb a{color:var(--muted);}
+  .breadcrumb a:hover{color:var(--green);}
+  .breadcrumb span.sep{margin:0 6px;color:#C7CDD2;}
+  .breadcrumb span.current{color:var(--navy);font-weight:600;}
+
+  .cond-hero{
+    padding:8px 0 48px;border-bottom:1px solid var(--border);
+  }
+  .cond-eyebrow-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .cond-hero h1{font-size:40px;line-height:1.12;max-width:720px;margin-bottom:16px;}
+  .cond-hero .lead{font-size:17px;color:var(--muted);max-width:660px;}
+  .cond-meta-row{display:flex;gap:22px;margin-top:22px;flex-wrap:wrap;}
+  .cond-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+  .cond-meta-item strong{color:var(--navy);font-weight:600;}
+
+  .quick-answer{
+    background:var(--green-tint);border:1px solid #D6E9E2;border-radius:var(--radius-md);
+    padding:20px 24px;margin:28px 0 0;
+  }
+  .quick-answer p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.6;}
+  .quick-answer strong{color:var(--green-dark);}
+
+  .condition-grid{
+    display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;
+  }
+  .cond-main h2{font-size:24px;margin:44px 0 16px;}
+  .cond-main h2:first-child{margin-top:0;}
+  .cond-main p{font-size:15.5px;color:#3A3A3A;margin:0 0 16px;}
+  .cond-main ul{margin:0 0 16px;padding-left:20px;}
+  .cond-main li{font-size:15px;color:#3A3A3A;margin-bottom:8px;}
+
+  .toc{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:18px 20px;margin:24px 0 36px;
+  }
+  .toc h5{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px;font-weight:700;}
+  .toc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .toc a{font-size:14px;color:var(--navy);font-weight:500;}
+  .toc a:hover{color:var(--green);}
+
+  .evidence-table{
+    width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;
+    border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  }
+  .evidence-table th{
+    background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);
+    border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;
+  }
+  .evidence-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .evidence-table tr:last-child td{border-bottom:none;}
+  .ev-badge{
+    display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;
+  }
+  .ev-strong{background:var(--green-tint);color:var(--green-dark);}
+  .ev-moderate{background:var(--blue-tint);color:#2A6FBE;}
+  .ev-limited{background:var(--amber-tint);color:#9C6A26;}
+
+  .stars{color:#E0A93E;font-size:14px;letter-spacing:1px;}
+
+  .sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;}
+  .side-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;
+  }
+  .side-card h5{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:14px;font-weight:700;}
+  .rec-product{
+    background:#fff;border-radius:12px;padding:18px;text-align:center;border:1px solid var(--border);
+  }
+  .rec-media{background:#F7F8FA !important;padding:10px;
+    aspect-ratio:1/0.85;border-radius:10px;background:linear-gradient(155deg,#1a3a68,#2e5a94);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+  .rec-product h4{font-size:15.5px;margin-bottom:4px;}
+  .rec-product .rec-tag{font-size:11.5px;color:var(--muted);margin-bottom:10px;display:block;}
+  .rec-product p{font-size:12.5px;color:var(--muted);margin:0 0 14px;line-height:1.5;}
+
+  .disclaimer-box{
+    background:#FBFBFB;border:1px dashed var(--border);border-radius:10px;padding:14px 16px;
+    font-size:12px;color:#8A8F94;line-height:1.5;
+  }
+
+  .mfg-badges{display:flex;flex-direction:column;gap:8px;}
+  .mfg-badge{
+    display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+    padding:8px 12px;border-radius:8px;
+  }
+  .mfg-badge.on{background:var(--green-tint);color:var(--green-dark);}
+
+  .faq-item{border-top:1px solid var(--border);padding:18px 0;}
+  .faq-item:first-of-type{border-top:none;}
+  .faq-item h4{font-size:15.5px;margin-bottom:8px;color:var(--navy);}
+  .faq-item p{font-size:14.5px;color:var(--muted);margin:0;}
+
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px;}
+
+  .rating-row{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--navy);}
+  .rating-row .stars{color:#E0A93E;font-size:15px;letter-spacing:1px;}
+  .rating-row .rnum{font-weight:700;}
+  .rating-row .rcount{color:var(--muted);font-weight:500;}
+
+
+  .dosage-table{width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .dosage-table th{background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;}
+  .dosage-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .dosage-table tr:last-child td{border-bottom:none;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0 30px;}
+  .who-box{border-radius:12px;padding:18px 20px;}
+  .who-use{background:var(--green-tint);border:1px solid #D6E9E2;}
+  .who-avoid{background:#FDF2F0;border:1px solid #F3D9D4;}
+  .who-box h4{font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .who-box ul{margin:0;padding-left:18px;}
+  .who-box li{font-size:13.5px;margin-bottom:6px;line-height:1.5;color:#3A3A3A;}
+  @media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
+
+
+  .takeaways-box{background:var(--navy);border-radius:14px;padding:24px 26px;margin:32px 0 8px;}
+  .takeaways-box h4{color:#fff;font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .takeaways-box ul{margin:0;padding-left:18px;}
+  .takeaways-box li{color:#D6DEE3;font-size:14px;line-height:1.6;margin-bottom:8px;}
+  .takeaways-box li:last-child{margin-bottom:0;}
+
+
+  .lede-hook{font-size:18px;font-style:italic;color:var(--navy);line-height:1.5;margin:0 0 28px;padding-left:16px;border-left:3px solid var(--green);}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://supplementinsider.example.com/index-en.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Health Goals",
+      "item": "https://supplementinsider.example.com/index-en.html#goals"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Gut Health",
+      "item": "https://supplementinsider.example.com/gut-health.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gut Health",
+  "author": {
+    "@type": "Organization",
+    "name": "Supplement Insider Health Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Supplement Insider",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://supplementinsider.example.com/logo.png"
+    }
+  },
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://supplementinsider.example.com/gut-health.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are all probiotics the same?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 effects are strain-specific. A strain studied for IBS may do nothing for a different digestive issue, which is why the specific strains on a label matter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a probiotic if I eat fermented foods?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fermented foods can contribute beneficial bacteria, but supplements provide more standardized, measurable strains and doses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do probiotics take to work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many trials show effects within 2-4 weeks, though this varies by strain and condition."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can gut supplements fix food intolerances?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They may support overall digestion, but true food intolerances usually require identifying and managing the specific trigger food."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8V17" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="logo-text">Supplement Insider<span>Evidence-Based Wellness</span></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Learn</a>
+      <a href="#">Ingredients</a>
+      <a href="#">Health Goals</a>
+      <a href="#">Conditions</a>
+      <a href="#">Research</a>
+      <a href="#">Compare</a>
+      <a href="#">Reviews</a>
+      <a href="buyers-guide.html">Buyer's Guide</a>
+    </nav>
+    <div class="nav-right">
+      <div class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <a href="#" class="btn btn-primary btn-sm">Newsletter</a>
+    </div>
+  </div>
+</header>
+<div class="wrap breadcrumb">
+  <a href="index-en.html">Home</a><span class="sep">/</span><a href="index-en.html#goals">Health Goals</a><span class="sep">/</span><span class="current">Gut Health</span>
+</div>
+
+<section class="cond-hero">
+  <div class="wrap">
+    <div class="cond-eyebrow-row">
+      <span class="eyebrow">Health Goal</span>
+      <div class="rating-row"><span class="stars">★★★★⯪</span><span class="rnum">4.8</span><span class="rcount">(14,200+ reviews)</span></div>
+    </div>
+    <h1>Gut Health</h1>
+    <p class="lead">The gut microbiome has become one of the most studied areas in nutrition science. Here's what actually has evidence behind it.</p>
+    <div class="cond-meta-row">
+      <div class="cond-meta-item">Reviewed by our <strong>Medical Review Board</strong></div>
+      <div class="cond-meta-item">Updated <strong>May 2026</strong></div>
+      <div class="cond-meta-item">8 min read</div>
+    </div>
+    <div class="quick-answer">
+      <p><strong>Quick answer:</strong> Probiotics have strong, strain-specific evidence for certain digestive issues, though benefits don't generalize across all strains and conditions. Prebiotic fiber has strong evidence for feeding beneficial gut bacteria. Ingredients like L-glutamine and zinc carnosine have more limited human data.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0;">
+  <div class="wrap condition-grid">
+
+    <div class="cond-main">
+
+      <div class="toc">
+        <h5>On This Page</h5>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#causes">What Affects Gut Health</a></li>
+          <li><a href="#symptoms">Common Symptoms</a></li>
+          <li><a href="#lifestyle">Lifestyle &amp; Nutrition</a></li>
+          <li><a href="#supplements">Supplements With Evidence</a></li>
+          <li><a href="#dosage">Dosage &amp; Side Effects</a></li>
+          <li><a href="#who">Who Should Use This</a></li>
+          <li><a href="#doctor">When to See a Doctor</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <p class="lede-hook">Your gut affects more than digestion — which is why fixing it usually starts with understanding it, not adding another pill to the pile.</p>
+
+      <h2 id="overview">Overview</h2>
+      <p>The gut microbiome — trillions of bacteria living in the digestive tract — plays a role in digestion, immune function, and even mood regulation. Gut health supplements range from well-studied probiotic strains to ingredients with much thinner evidence.</p>
+
+      <h2 id="causes">What Affects Gut Health</h2>
+      <ul>
+        <li><strong>Diet diversity</strong> — a limited, low-fiber diet is associated with reduced microbiome diversity.</li>
+        <li><strong>Antibiotic use</strong> — antibiotics can significantly disrupt gut bacteria balance, sometimes for months.</li>
+        <li><strong>Chronic stress</strong> — the gut-brain connection means stress can directly affect digestive function.</li>
+        <li><strong>Processed food intake</strong> — diets high in processed food and emulsifiers are linked to altered gut bacteria in research.</li>
+        <li><strong>Sleep quality</strong> — poor sleep has been linked to changes in gut microbiome composition.</li>
+      </ul>
+
+      <h2 id="symptoms">Common Symptoms</h2>
+      <ul>
+        <li>Bloating or gas after eating</li>
+        <li>Irregular bowel movements</li>
+        <li>Food sensitivities or intolerances</li>
+        <li>Fatigue linked to digestive discomfort</li>
+        <li>Frequent stomach discomfort</li>
+      </ul>
+
+      <h2 id="lifestyle">Lifestyle &amp; Nutrition</h2>
+      <p>A diverse, fiber-rich diet with a variety of plant foods is the single most consistent driver of a healthy gut microbiome in research. Fermented foods, adequate hydration, regular movement, and stress management all support digestive health as well.</p>
+
+      <h2 id="supplements">Supplements With Evidence</h2>
+      <p>Here's how common gut-health ingredients compare on the evidence.</p>
+
+      <table class="evidence-table">
+        <tr><th>Ingredient</th><th>Proposed Role</th><th>Evidence</th></tr>
+        <tr><td>Probiotics (Multi-strain)</td><td>Live bacteria studied for digestive regularity and specific conditions like IBS, strain-dependent</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Prebiotic Fiber (Inulin)</td><td>Feeds beneficial gut bacteria; well-established fermentation and short-chain fatty acid production</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Peppermint Oil</td><td>Studied specifically for IBS-related bloating and discomfort</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Digestive Enzymes</td><td>Helpful for specific enzyme deficiencies; less evidence for general digestive support</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Ginger</td><td>Well-studied for nausea and mild digestive discomfort</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Zinc Carnosine</td><td>Studied for gut lining support, mostly in smaller or older trials</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>L-Glutamine</td><td>Amino acid studied for intestinal lining integrity, evidence still developing</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+      </table>
+
+
+      <h2 id="dosage">Dosage &amp; Side Effects</h2>
+      <p>Typical doses reflect amounts commonly used in clinical research — always follow the label on the specific product you're using, and check with a doctor if you're on medication.</p>
+      <table class="dosage-table">
+        <tr><th>Ingredient</th><th>Typical Studied Dose</th><th>Common Side Effects</th></tr>
+        <tr><td>Probiotics (Multi-strain)</td><td>1–20 billion CFU daily depending on strain/product</td><td>Temporary bloating or gas when starting</td></tr>
+        <tr><td>Prebiotic Fiber (Inulin)</td><td>5–10 g daily, increased gradually</td><td>Bloating and gas, especially at higher starting doses</td></tr>
+        <tr><td>Peppermint Oil</td><td>0.2–0.4 mL enteric-coated capsules, up to 3x daily</td><td>Heartburn if not enteric-coated; avoid with acid reflux</td></tr>
+        <tr><td>Zinc Carnosine</td><td>75 mg, 2x daily</td><td>Generally well tolerated</td></tr>
+      </table>
+
+      <h2 id="who">Who Should Use This — and Who Shouldn't</h2>
+      <div class="who-grid">
+        <div class="who-box who-use">
+          <h4>✅ Generally a good fit for</h4>
+          <ul>
+            <li>Adults with occasional bloating or digestive irregularity</li>
+            <li>Those who recently completed a course of antibiotics</li>
+            <li>People looking to diversify their gut bacteria alongside diet changes</li>
+          </ul>
+        </div>
+        <div class="who-box who-avoid">
+          <h4>⚠️ Best to avoid or check with a doctor first</h4>
+          <ul>
+            <li>Those with acid reflux (non-enteric-coated peppermint oil)</li>
+            <li>Immunocompromised individuals (check with a doctor before probiotics)</li>
+            <li>Anyone with a suspected SIBO diagnosis without medical guidance</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="doctor">When to See a Doctor</h2>
+      <p>See a doctor for persistent digestive symptoms lasting more than a few weeks, unexplained weight loss, blood in stool, or severe pain — these require medical evaluation and are not appropriate to self-treat with supplements.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>Are all probiotics the same?</h4>
+        <p>No — effects are strain-specific. A strain studied for IBS may do nothing for a different digestive issue, which is why the specific strains on a label matter.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I need a probiotic if I eat fermented foods?</h4>
+        <p>Fermented foods can contribute beneficial bacteria, but supplements provide more standardized, measurable strains and doses.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How long do probiotics take to work?</h4>
+        <p>Many trials show effects within 2-4 weeks, though this varies by strain and condition.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can gut supplements fix food intolerances?</h4>
+        <p>They may support overall digestion, but true food intolerances usually require identifying and managing the specific trigger food.</p>
+      </div>
+
+      <div class="takeaways-box">
+        <h4>🔑 Key Takeaways</h4>
+        <ul>
+          <li>Probiotic effects are strain-specific — not all products work for all issues.</li>
+          <li>Prebiotic fiber is just as important as probiotics for a healthy microbiome.</li>
+          <li>Diet diversity is the single strongest driver of gut bacteria diversity.</li>
+          <li>Persistent digestive symptoms deserve medical evaluation, not just supplementation.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <aside class="sidebar">
+      <div class="side-card">
+        <h5>Recommended Formula</h5>
+        <div class="rec-product">
+          <div class="rec-media" style="background:linear-gradient(155deg,#1a3a68,#2e5a94);"><img src="data:image/jpeg;base64,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" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h4>Harmo Gut</h4>
+          <span class="rec-tag">Digestive Support Formula · 30 Capsules</span>
+          <p>Formulated with multi-strain probiotics, prebiotic fiber, and digestive enzymes.</p>
+          <a href="/products/harmo-gut" class="btn btn-primary btn-sm" style="width:100%;">View Product</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h5>Related Ingredients</h5>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="probiotics.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Probiotics →</a></li>
+          <li><a href="prebiotic-fiber.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Prebiotic Fiber →</a></li>
+          <li><a href="peppermint-oil.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Peppermint Oil →</a></li>
+          <li><a href="zinc-carnosine.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Zinc Carnosine →</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h5>Manufacturing Standards</h5>
+        <div class="mfg-badges">
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Third-party lab tested</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Made in an FDA-registered facility</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>GMP certified</span>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Related Articles</h2>
+      <a href="#" class="view-all">View all articles →</a>
+    </div>
+    <div class="related-grid">
+
+      <a href="inflammation.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,#EAF4FF,#D5E9FF);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#4DA3FF" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#4DA3FF"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Inflammation: Complete Guide</h3>
+          <p>How diet and key compounds affect chronic inflammation.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="weight.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--green-tint),#DCEDE6);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#1E5D4E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#1E5D4E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Weight Management: Complete Guide</h3>
+          <p>What's proven to help — and what's mostly marketing.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="skin-rejuvenation.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--amber-tint),#F3E3C4);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#C98A3E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#C98A3E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Skin & Rejuvenation: Complete Guide</h3>
+          <p>Collagen, hydration, and what the skin research shows.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="logo-text">Supplement Insider</div>
+        </div>
+        <p>We simplify supplement science so you can make informed decisions for a healthier life.</p>
+        <div class="foot-social">
+          <a href="#">f</a><a href="#">in</a><a href="#">yt</a>
+        </div>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="#">Ingredients</a></li><li><a href="#">Health Goals</a></li><li><a href="#">Conditions</a></li><li><a href="#">Research</a></li><li><a href="#">Compare</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Our Team</a></li><li><a href="editorial-policy.html">Editorial Policy</a></li><li><a href="#">Medical Review</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="#">Newsletter</a></li><li><a href="#">Blog</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Calculators</a></li><li><a href="buyers-guide.html">Buyer's Guide</a></li><li><a href="#">FAQs</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li><li><a href="medical-disclaimer.html">Medical Disclaimer</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Supplement Insider. All rights reserved.</span>
+      <span>Built with a focus on transparency and science.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

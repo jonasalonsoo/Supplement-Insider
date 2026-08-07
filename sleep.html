@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep — Supplement Insider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1E5D4E;
+    --green-dark:#154238;
+    --green-tint:#E9F1EE;
+    --navy:#22313F;
+    --blue:#4DA3FF;
+    --blue-tint:#EAF4FF;
+    --amber:#C98A3E;
+    --amber-tint:#FBF1E4;
+    --bg:#FFFFFF;
+    --card:#F7F8FA;
+    --text:#232323;
+    --muted:#6B7280;
+    --border:#E7E9EC;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--navy);
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14.5px;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:all .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--green);color:#fff;}
+  .btn-primary:hover{background:var(--green-dark);}
+  .btn-outline{background:transparent;border-color:var(--navy);color:var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-sm{padding:9px 18px;font-size:13.5px;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(155deg,var(--green) 0%, #2f7d67 100%);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-text{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--navy);line-height:1.1;}
+  .logo-text span{display:block;font-size:11px;font-weight:500;color:var(--green);letter-spacing:.06em;text-transform:uppercase;font-family:'Inter',sans-serif;}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--navy);opacity:.82;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .icon-btn{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--border);
+    cursor:pointer;
+    color:var(--navy);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(180deg,#FBFCFB 0%, #ffffff 100%);
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  .hero h1{
+    font-size:47px;line-height:1.09;
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--green);
+  }
+  .hero p.lead{
+    font-size:17.5px;color:var(--muted);max-width:490px;margin-bottom:30px;
+  }
+  .search-bar{
+    display:flex;align-items:center;gap:0;
+    background:#fff;border:1.5px solid var(--border);
+    border-radius:14px;
+    padding:6px 6px 6px 20px;
+    box-shadow:0 2px 10px rgba(30,93,78,0.05);
+    margin-bottom:14px;
+    max-width:520px;
+  }
+  .search-bar input{
+    border:none;outline:none;flex:1;font-size:15px;font-family:'Inter',sans-serif;padding:10px 0;color:var(--text);
+  }
+  .search-bar input::placeholder{color:#9CA3AF;}
+  .search-bar button{
+    background:var(--green);border:none;color:#fff;
+    width:40px;height:40px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+  }
+  .search-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+  .search-tags span{
+    font-size:12.5px;color:var(--muted);padding:5px 12px;
+    border:1px solid var(--border);border-radius:999px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+  .hero-visual{
+    position:relative;aspect-ratio:1/0.92;
+    border-radius:28px;
+    background:radial-gradient(circle at 30% 20%, #F3FBF7 0%, var(--green-tint) 55%, #E1EFE9 100%);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(30,93,78,.09) 1.5px, transparent 1.5px);
+    background-size:22px 22px;
+    opacity:.5;
+  }
+  .float-card{
+    position:absolute;background:#fff;border-radius:16px;
+    box-shadow:0 12px 30px rgba(20,50,42,.14);
+    padding:14px 16px;display:flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:600;color:var(--navy);
+  }
+  .fc1{top:14%;left:8%;}
+  .fc2{bottom:16%;right:6%;}
+  .fc-dot{width:9px;height:9px;border-radius:50%;background:var(--green);}
+
+  /* ===== TRUST BAR ===== */
+  .trust{padding:42px 0;border-bottom:1px solid var(--border);}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  .trust-item{display:flex;gap:14px;align-items:flex-start;}
+  .trust-icon{
+    width:42px;height:42px;border-radius:11px;background:var(--green-tint);
+    display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;
+  }
+  .trust-item h4{font-size:14.5px;margin-bottom:3px;}
+  .trust-item p{font-size:13px;color:var(--muted);margin:0;}
+
+  /* ===== SECTION HEADINGS ===== */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;
+  }
+  .section-head h2{font-size:29px;}
+  .section-head .view-all{font-size:13.5px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:5px;}
+
+  /* ===== GOALS ===== */
+  .goals-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  }
+  .goal-card{
+    display:block;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:22px 14px;
+    text-align:center;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+    cursor:pointer;
+  }
+  .goal-card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:0 10px 24px rgba(30,93,78,.08);}
+  .goal-icon{
+    width:44px;height:44px;margin:0 auto 12px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .goal-card p{font-size:13px;font-weight:600;color:var(--navy);margin:0;}
+
+  /* ===== ARTICLES ===== */
+  .articles-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .art-card{
+    display:block;
+    border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
+    background:#fff;transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .art-card:hover{box-shadow:0 16px 32px rgba(20,40,35,.08);transform:translateY(-2px);}
+  .art-media{
+    aspect-ratio:16/10;position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .art-tag{
+    position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);
+    font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;color:var(--navy);
+  }
+  .art-body{padding:20px 22px 22px;}
+  .art-body h3{font-size:17.5px;line-height:1.3;margin-bottom:9px;}
+  .art-body p{font-size:14px;color:var(--muted);margin:0 0 14px;}
+  .art-meta{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#9CA3AF;}
+  .evidence{
+    display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;color:var(--green);
+    background:var(--green-tint);padding:3px 9px;border-radius:999px;
+  }
+
+  /* ===== INGREDIENTS ===== */
+  .ing-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;}
+  .ing-card{text-align:center;cursor:pointer;}
+  .ing-media{
+    aspect-ratio:1/1;border-radius:18px;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .18s ease;
+  }
+  .ing-card:hover .ing-media{transform:translateY(-3px);}
+  .ing-card h4{font-size:14px;color:var(--navy);margin-bottom:2px;}
+  .ing-card span{font-size:12px;color:var(--muted);}
+
+  /* ===== THREE COLUMN: NEWSLETTER / RESEARCH / PICK ===== */
+  .trio{display:grid;grid-template-columns:1.15fr 1.15fr 0.9fr;gap:22px;}
+  .newsletter-box{
+    background:linear-gradient(155deg,var(--green) 0%, #154439 100%);
+    border-radius:var(--radius-lg);
+    padding:34px 30px;color:#fff;position:relative;overflow:hidden;
+  }
+  .newsletter-box::after{
+    content:'';position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;
+    border-radius:50%;background:rgba(255,255,255,.06);
+  }
+  .newsletter-box .eyebrow{color:#B9E4D3;}
+  .newsletter-box h3{color:#fff;font-size:22px;margin:10px 0 20px;line-height:1.25;}
+  .nl-form{display:flex;gap:8px;position:relative;z-index:1;}
+  .nl-form input{
+    flex:1;border:none;border-radius:10px;padding:12px 14px;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;
+  }
+  .nl-form button{
+    background:#fff;color:var(--green-dark);border:none;border-radius:10px;padding:0 18px;font-weight:700;font-size:13.5px;cursor:pointer;
+  }
+  .newsletter-box .fine{font-size:11.5px;color:#BFE1D2;margin-top:12px;position:relative;z-index:1;}
+
+  .research-box{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 26px 10px;
+  }
+  .research-box h3{font-size:19px;margin-bottom:16px;}
+  .research-item{
+    display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);
+  }
+  .research-item:first-of-type{border-top:none;}
+  .r-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:7px;flex-shrink:0;
+  }
+  .research-item h5{font-size:14px;font-weight:600;color:var(--navy);margin:0 0 4px;line-height:1.3;}
+  .research-item span{font-size:12px;color:var(--muted);}
+
+  .pick-box{
+    background:var(--amber-tint);border:1px solid #EFDDBD;border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;
+  }
+  .pick-box .eyebrow{color:var(--amber);}
+  .pick-media{
+    aspect-ratio:1/0.85;border-radius:14px;background:linear-gradient(155deg,#2b2b2b,#3f3f3f);
+    display:flex;align-items:center;justify-content:center;margin:14px 0 16px;
+  }
+  .pick-box h4{font-size:16px;margin-bottom:6px;}
+  .pick-box p{font-size:12.5px;color:var(--muted);margin:0 0 14px;flex-grow:1;}
+  .pick-box a.view{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:5px;}
+
+  /* ===== TRUSTED BAR ===== */
+  .trusted{padding:52px 0;text-align:center;border-top:1px solid var(--border);}
+  .trusted p{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9CA3AF;font-weight:600;margin-bottom:26px;}
+  .trusted-logos{display:flex;justify-content:center;align-items:center;gap:52px;flex-wrap:wrap;opacity:.5;}
+  .trusted-logos span{font-family:'Fraunces',serif;font-size:19px;color:var(--navy);font-weight:600;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy);color:#C9D2D8;padding:60px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:34px;margin-bottom:44px;}
+  .foot-brand .logo-text{color:#fff;}
+  .foot-brand p{font-size:13.5px;color:#95A4AD;margin:16px 0 20px;max-width:270px;}
+  .foot-social{display:flex;gap:10px;}
+  .foot-social a{
+    width:34px;height:34px;border-radius:50%;border:1px solid #3B4B57;
+    display:flex;align-items:center;justify-content:center;color:#C9D2D8;
+  }
+  footer h5{color:#fff;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:16px;letter-spacing:.02em;}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+  footer ul a{font-size:13.5px;color:#95A4AD;}
+  footer ul a:hover{color:#fff;}
+  .foot-bottom{
+    border-top:1px solid #33424D;padding-top:22px;
+    display:flex;justify-content:space-between;font-size:12.5px;color:#7C8B94;flex-wrap:wrap;gap:10px;
+  }
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;aspect-ratio:16/9;}
+    .goals-grid{grid-template-columns:repeat(3,1fr);}
+    .ing-grid{grid-template-columns:repeat(3,1fr);}
+    .articles-row{grid-template-columns:1fr;}
+    .trio{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{display:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:34px;}
+    .condition-grid{grid-template-columns:1fr;}
+    .toc{position:static;}
+  }
+
+  /* ===== CONDITION / NICHE PAGE ===== */
+  .breadcrumb{
+    padding:18px 0;font-size:13px;color:var(--muted);
+  }
+  .breadcrumb a{color:var(--muted);}
+  .breadcrumb a:hover{color:var(--green);}
+  .breadcrumb span.sep{margin:0 6px;color:#C7CDD2;}
+  .breadcrumb span.current{color:var(--navy);font-weight:600;}
+
+  .cond-hero{
+    padding:8px 0 48px;border-bottom:1px solid var(--border);
+  }
+  .cond-eyebrow-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .cond-hero h1{font-size:40px;line-height:1.12;max-width:720px;margin-bottom:16px;}
+  .cond-hero .lead{font-size:17px;color:var(--muted);max-width:660px;}
+  .cond-meta-row{display:flex;gap:22px;margin-top:22px;flex-wrap:wrap;}
+  .cond-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+  .cond-meta-item strong{color:var(--navy);font-weight:600;}
+
+  .quick-answer{
+    background:var(--green-tint);border:1px solid #D6E9E2;border-radius:var(--radius-md);
+    padding:20px 24px;margin:28px 0 0;
+  }
+  .quick-answer p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.6;}
+  .quick-answer strong{color:var(--green-dark);}
+
+  .condition-grid{
+    display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;
+  }
+  .cond-main h2{font-size:24px;margin:44px 0 16px;}
+  .cond-main h2:first-child{margin-top:0;}
+  .cond-main p{font-size:15.5px;color:#3A3A3A;margin:0 0 16px;}
+  .cond-main ul{margin:0 0 16px;padding-left:20px;}
+  .cond-main li{font-size:15px;color:#3A3A3A;margin-bottom:8px;}
+
+  .toc{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:18px 20px;margin:24px 0 36px;
+  }
+  .toc h5{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px;font-weight:700;}
+  .toc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .toc a{font-size:14px;color:var(--navy);font-weight:500;}
+  .toc a:hover{color:var(--green);}
+
+  .evidence-table{
+    width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;
+    border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  }
+  .evidence-table th{
+    background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);
+    border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;
+  }
+  .evidence-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .evidence-table tr:last-child td{border-bottom:none;}
+  .ev-badge{
+    display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;
+  }
+  .ev-strong{background:var(--green-tint);color:var(--green-dark);}
+  .ev-moderate{background:var(--blue-tint);color:#2A6FBE;}
+  .ev-limited{background:var(--amber-tint);color:#9C6A26;}
+
+  .stars{color:#E0A93E;font-size:14px;letter-spacing:1px;}
+
+  .sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;}
+  .side-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;
+  }
+  .side-card h5{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:14px;font-weight:700;}
+  .rec-product{
+    background:#fff;border-radius:12px;padding:18px;text-align:center;border:1px solid var(--border);
+  }
+  .rec-media{background:#F7F8FA !important;padding:10px;
+    aspect-ratio:1/0.85;border-radius:10px;background:linear-gradient(155deg,#1a3a68,#2e5a94);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+  .rec-product h4{font-size:15.5px;margin-bottom:4px;}
+  .rec-product .rec-tag{font-size:11.5px;color:var(--muted);margin-bottom:10px;display:block;}
+  .rec-product p{font-size:12.5px;color:var(--muted);margin:0 0 14px;line-height:1.5;}
+
+  .disclaimer-box{
+    background:#FBFBFB;border:1px dashed var(--border);border-radius:10px;padding:14px 16px;
+    font-size:12px;color:#8A8F94;line-height:1.5;
+  }
+
+  .mfg-badges{display:flex;flex-direction:column;gap:8px;}
+  .mfg-badge{
+    display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+    padding:8px 12px;border-radius:8px;
+  }
+  .mfg-badge.on{background:var(--green-tint);color:var(--green-dark);}
+
+  .faq-item{border-top:1px solid var(--border);padding:18px 0;}
+  .faq-item:first-of-type{border-top:none;}
+  .faq-item h4{font-size:15.5px;margin-bottom:8px;color:var(--navy);}
+  .faq-item p{font-size:14.5px;color:var(--muted);margin:0;}
+
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px;}
+
+  .rating-row{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--navy);}
+  .rating-row .stars{color:#E0A93E;font-size:15px;letter-spacing:1px;}
+  .rating-row .rnum{font-weight:700;}
+  .rating-row .rcount{color:var(--muted);font-weight:500;}
+
+
+  .dosage-table{width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .dosage-table th{background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;}
+  .dosage-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .dosage-table tr:last-child td{border-bottom:none;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0 30px;}
+  .who-box{border-radius:12px;padding:18px 20px;}
+  .who-use{background:var(--green-tint);border:1px solid #D6E9E2;}
+  .who-avoid{background:#FDF2F0;border:1px solid #F3D9D4;}
+  .who-box h4{font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .who-box ul{margin:0;padding-left:18px;}
+  .who-box li{font-size:13.5px;margin-bottom:6px;line-height:1.5;color:#3A3A3A;}
+  @media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
+
+
+  .takeaways-box{background:var(--navy);border-radius:14px;padding:24px 26px;margin:32px 0 8px;}
+  .takeaways-box h4{color:#fff;font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .takeaways-box ul{margin:0;padding-left:18px;}
+  .takeaways-box li{color:#D6DEE3;font-size:14px;line-height:1.6;margin-bottom:8px;}
+  .takeaways-box li:last-child{margin-bottom:0;}
+
+
+  .lede-hook{font-size:18px;font-style:italic;color:var(--navy);line-height:1.5;margin:0 0 28px;padding-left:16px;border-left:3px solid var(--green);}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://supplementinsider.example.com/index-en.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Health Goals",
+      "item": "https://supplementinsider.example.com/index-en.html#goals"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Sleep",
+      "item": "https://supplementinsider.example.com/sleep.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sleep",
+  "author": {
+    "@type": "Organization",
+    "name": "Supplement Insider Health Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Supplement Insider",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://supplementinsider.example.com/logo.png"
+    }
+  },
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://supplementinsider.example.com/sleep.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is melatonin safe to take every night?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Short-term use is generally well tolerated, but it's best used at the lowest effective dose and discussed with a doctor for long-term use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do valerian root products vary so much in effectiveness?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preparations differ widely in concentration and standardization, which contributes to the inconsistent trial results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can magnesium help with sleep even without a deficiency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most of the sleep-related research is strongest in people with lower magnesium status, though some benefit is seen more broadly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much melatonin should I take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clinical trials often use doses far lower (0.5\u20133mg) than what's sold in stores \u2014 more isn't necessarily better for sleep onset."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8V17" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="logo-text">Supplement Insider<span>Evidence-Based Wellness</span></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Learn</a>
+      <a href="#">Ingredients</a>
+      <a href="#">Health Goals</a>
+      <a href="#">Conditions</a>
+      <a href="#">Research</a>
+      <a href="#">Compare</a>
+      <a href="#">Reviews</a>
+      <a href="buyers-guide.html">Buyer's Guide</a>
+    </nav>
+    <div class="nav-right">
+      <div class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <a href="#" class="btn btn-primary btn-sm">Newsletter</a>
+    </div>
+  </div>
+</header>
+<div class="wrap breadcrumb">
+  <a href="index-en.html">Home</a><span class="sep">/</span><a href="index-en.html#goals">Health Goals</a><span class="sep">/</span><span class="current">Sleep</span>
+</div>
+
+<section class="cond-hero">
+  <div class="wrap">
+    <div class="cond-eyebrow-row">
+      <span class="eyebrow">Health Goal</span>
+      <div class="rating-row"><span class="stars">★★★★⯪</span><span class="rnum">4.9</span><span class="rcount">(16,900+ reviews)</span></div>
+    </div>
+    <h1>Sleep</h1>
+    <p class="lead">Sleep supplements are among the best-studied categories in the industry — but not all popular ingredients are backed equally.</p>
+    <div class="cond-meta-row">
+      <div class="cond-meta-item">Reviewed for medical accuracy · <strong>Health Editorial Team</strong></div>
+      <div class="cond-meta-item">Updated <strong>May 2026</strong></div>
+      <div class="cond-meta-item">7 min read</div>
+    </div>
+    <div class="quick-answer">
+      <p><strong>Quick answer:</strong> Melatonin has the strongest and most consistent evidence, particularly for shifting sleep timing (jet lag, shift work). Magnesium and L-theanine have solid supporting data for sleep quality and relaxation. Valerian root and chamomile have weaker, more mixed evidence despite widespread traditional use.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0;">
+  <div class="wrap condition-grid">
+
+    <div class="cond-main">
+
+      <div class="toc">
+        <h5>On This Page</h5>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#causes">What Affects Sleep Quality</a></li>
+          <li><a href="#symptoms">Common Symptoms</a></li>
+          <li><a href="#lifestyle">Lifestyle &amp; Nutrition</a></li>
+          <li><a href="#supplements">Supplements With Evidence</a></li>
+          <li><a href="#dosage">Dosage &amp; Side Effects</a></li>
+          <li><a href="#who">Who Should Use This</a></li>
+          <li><a href="#doctor">When to See a Doctor</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <p class="lede-hook">Most people treat poor sleep as something to medicate away, when it's often the last symptom of something else worth understanding first.</p>
+
+      <h2 id="overview">Overview</h2>
+      <p>Poor sleep affects nearly every aspect of health, from cognitive performance to metabolism and immune function. Sleep supplements range from well-studied hormones like melatonin to traditional herbal remedies with much thinner clinical backing.</p>
+
+      <h2 id="causes">What Affects Sleep Quality</h2>
+      <ul>
+        <li><strong>Irregular sleep schedule</strong> — inconsistent bed and wake times disrupt the body's internal circadian clock.</li>
+        <li><strong>Screen exposure at night</strong> — blue light exposure before bed can delay natural melatonin release.</li>
+        <li><strong>Caffeine and stimulants</strong> — even afternoon caffeine intake can measurably reduce sleep quality that night.</li>
+        <li><strong>Stress and racing thoughts</strong> — elevated cortisol and mental activity make it harder to fall and stay asleep.</li>
+        <li><strong>Underlying sleep disorders</strong> — conditions like sleep apnea or restless leg syndrome are common and often undiagnosed.</li>
+      </ul>
+
+      <h2 id="symptoms">Common Symptoms</h2>
+      <ul>
+        <li>Difficulty falling asleep</li>
+        <li>Frequent waking during the night</li>
+        <li>Waking up feeling unrefreshed</li>
+        <li>Daytime fatigue or sleepiness</li>
+        <li>Irregular or inconsistent sleep patterns</li>
+      </ul>
+
+      <h2 id="lifestyle">Lifestyle &amp; Nutrition</h2>
+      <p>A consistent sleep schedule, limiting screens and caffeine in the evening, keeping the bedroom cool and dark, and regular daytime exercise all have strong evidence for improving sleep quality — often more reliably than any single supplement.</p>
+
+      <h2 id="supplements">Supplements With Evidence</h2>
+      <p>Here's how the most common sleep ingredients compare on the evidence.</p>
+
+      <table class="evidence-table">
+        <tr><th>Ingredient</th><th>Proposed Role</th><th>Evidence</th></tr>
+        <tr><td>Melatonin</td><td>Hormone that signals sleep timing to the body; strong evidence for jet lag and shifting sleep schedules</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Magnesium Glycinate</td><td>Mineral involved in nervous system regulation; supports relaxation and sleep quality</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>L-Theanine</td><td>Amino acid from tea leaves studied for promoting relaxation without sedation</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>GABA</td><td>Calming neurotransmitter; oral supplementation's ability to cross into the brain is debated</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>Valerian Root</td><td>Traditional herbal sleep aid with inconsistent trial results</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>Chamomile</td><td>Popular calming tea ingredient with modest, inconsistent clinical support</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>5-HTP</td><td>Serotonin precursor studied for mood and sleep, with limited high-quality human data</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+      </table>
+
+
+      <h2 id="dosage">Dosage &amp; Side Effects</h2>
+      <p>Typical doses reflect amounts commonly used in clinical research — always follow the label on the specific product you're using, and check with a doctor if you're on medication.</p>
+      <table class="dosage-table">
+        <tr><th>Ingredient</th><th>Typical Studied Dose</th><th>Common Side Effects</th></tr>
+        <tr><td>Melatonin</td><td>0.5–3 mg, taken 30–60 min before bed</td><td>Grogginess if dose is too high; vivid dreams in some users</td></tr>
+        <tr><td>Magnesium Glycinate</td><td>200–400 mg before bed</td><td>Generally well tolerated; high doses can cause loose stools</td></tr>
+        <tr><td>L-Theanine</td><td>100–200 mg daily</td><td>Very well tolerated; mild headache in rare cases</td></tr>
+        <tr><td>Valerian Root</td><td>300–600 mg before bed</td><td>Morning grogginess in some users; avoid combining with sedatives</td></tr>
+      </table>
+
+      <h2 id="who">Who Should Use This — and Who Shouldn't</h2>
+      <div class="who-grid">
+        <div class="who-box who-use">
+          <h4>✅ Generally a good fit for</h4>
+          <ul>
+            <li>Adults with occasional difficulty falling asleep</li>
+            <li>Those adjusting to a new time zone or shift schedule</li>
+            <li>People whose sleep issues are linked to stress or racing thoughts</li>
+          </ul>
+        </div>
+        <div class="who-box who-avoid">
+          <h4>⚠️ Best to avoid or check with a doctor first</h4>
+          <ul>
+            <li>Anyone on sedative medication (risk of excess drowsiness)</li>
+            <li>Pregnant or nursing individuals without medical guidance</li>
+            <li>Those needing to be alert shortly after waking (next-day grogginess risk)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="doctor">When to See a Doctor</h2>
+      <p>See a doctor if poor sleep persists for more than a few weeks despite lifestyle changes, or if you experience loud snoring, gasping during sleep, or excessive daytime sleepiness — these can indicate sleep apnea or another disorder that supplements won't resolve.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>Is melatonin safe to take every night?</h4>
+        <p>Short-term use is generally well tolerated, but it's best used at the lowest effective dose and discussed with a doctor for long-term use.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Why do valerian root products vary so much in effectiveness?</h4>
+        <p>Preparations differ widely in concentration and standardization, which contributes to the inconsistent trial results.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can magnesium help with sleep even without a deficiency?</h4>
+        <p>Most of the sleep-related research is strongest in people with lower magnesium status, though some benefit is seen more broadly.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How much melatonin should I take?</h4>
+        <p>Clinical trials often use doses far lower (0.5–3mg) than what's sold in stores — more isn't necessarily better for sleep onset.</p>
+      </div>
+
+      <div class="takeaways-box">
+        <h4>🔑 Key Takeaways</h4>
+        <ul>
+          <li>Melatonin's strongest evidence is for shifting sleep timing, not just "more sleep" in general.</li>
+          <li>Clinical trial doses of melatonin are often lower than what's sold in stores.</li>
+          <li>Magnesium and L-theanine both have solid evidence for relaxation and sleep quality.</li>
+          <li>A consistent schedule and less screen time at night still outperform most supplements.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <aside class="sidebar">
+      <div class="side-card">
+        <h5>Recommended Formula</h5>
+        <div class="rec-product">
+          <div class="rec-media" style="background:linear-gradient(155deg,#1a3a68,#2e5a94);"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAH0AfQDASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAMFAgQGBwEI/8QAXxAAAgECAwMECgwIBw4FBQAAAAECAwQFBhESITEHQVFxExQiMjNhgZGx0RUjNDVScnN1kqGywQhCU1R0k7O0FiRDRmKC0jY3RFVWY3aEhZSVouHjFyZFZPAlJ4PC4v/EABkBAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EACURAQACAgEDBQEBAQEAAAAAAAABAgMREhMhMQQyQVFhIhQjcf/aAAwDAQACEQMRAD8A/ZYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABqulHzaj8JecD6D5tw+FHzmLrUlxqwX9ZAZgidzbrjXpL+uj521a/nNH6aAmBD25afnVD9Yj525Z/nVD9YgJwQdu2f53Q/WIduWfNdUP1iAnBErq2fC4pfTR9VxQfCtT+kgJAYKrTfCpB/1kZKUXwkn5QPoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8AIa1Rp6RehqzqVpPuajRqXtet2SaVRpJPTRI1uy1HWinUnptxXH+lJAWexXkt9zJdUUfHQqPjd1/qX3FLb1qkqltrOT1qW2ur46xkn5zTq1Z+xs3tS19jZvjzxq7mB0btnz3dx0d+vURyt47v4zXer0Xt3Epb+clXvGm91/aNeJtR1IqsnG4jpu0x3ReJNAXFSjT0WlxUer0Xtz3vo4lJc66t7XPp33P0dZqVZyVKlo9NMf2V1aoq8XqSWH4zo2tnFaaXi3IC1qRktrWbWy9Hv4EM4zWq23qlq9/ArMeqSjPNWja2VTa8Xfktab9mrqOr09i4vy7UANmUamqSk961XV0kTjUemk33W5eMrrCpJzy/rJ91YT138fama9CtPtPDHtPX2VlHydlmBayU9Ndt6a6cxjsT1esnu4+Ipb6rNYdjLUmti7hp4t1ImxCrNXuNpSekbGMl16VALmnT14ymv6xMqS/K1PplNb1Zu/tE5NqWHuT8b1RFhVec5YHtSb7JRm5ePRRAv3T04TqfTN2nScqcZK6uItrgqvP0HKYXcVJywXak32R1trXn0S0JcJuakqGFtybc6VxJ9aW5gdTGlX/ABb+6X9dP7iTYv0u4xS5XWk/uOPdzVWHOSk9VhUZ6+N1NGzarXNWN9VUZySjd1EtH8GhqvMwLqtiGLWlbZ9kK818ZousCxu7qy2a05z0466eo4VV6nYdduTaprTuv8xtel6m/a3VxRrS7FWlDST6Hzy9SA9WpyU4KS5zIqMq3le8w9yuJRlKL0TUdC3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYD4MDn73wtTqfoNdeHj8rH7czYvvC1Op+g114ePykftzA17Xwlr8pa/ZkalX3sl811f2pt2vhLT5S1+zI06vvZL5rq/tQJ8Q8Ne/p1n6IkVf3R/t9ehEmIeFvv06y9ESKv7o/2+vQgNGt4Kn/pAvSiqxn3vxz52p+hFrW8FT/0hXpRVYx734587U/QgMMwd/m34tP0TJa3v7dfNMftQIswd/m34lP0TJK3v7c/NMftQA0sP7/Ln6BU/ZGtQ9w4Z88T/AGszZw/vsufoFT9ka1D3DhfzxP8AazAgxD3tx39Lp/ZpE+I+78d+b4+iqQYh7247+l0/RSJ8R934783x9FQCS198bD5tfpRFg/fZf+RqeiJLa++Nh82P0ohwfvsv/I1PREDLB++wHrr+hGeD+5sI+QuvQR4P32A9df0Ikwb3NhHyF16AMJe9j+Z4ftDaufd9f9Mrfu5qT965fM9P9obdz7vr/plb93AiT9ofya/dkb9Lw8/jS+1M0F4B/Jr92RvU/DT+NL7UwPQMj+91T4yOgOfyP73VPjI6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfBgPgwOfvvC1Op+g114ePysftzNi+8JU6n6DXXh4/Kx+3IDXtfCWnylr9mRp1feyXzXV/am5a+EtPlLT7MjTq+9k/mur+1AmxDw19+nWXoiRV/dH+316ES4j4a+/TrL0RIq/uj/AG+vQgNCt4Kn/pCvSirxn3uxz52p+hFpW8FT/wBIV6UVeMe92OfO1P0IDDMHf5t+JT9EyWt7+3PzTH7UCLMHf5u+JT9EyWv7+3PzTH7UANHD++y3+gVP2RrUPcOF/PE/2szZw/vst/oFT9kzWoe4cL+eJ/tZgQYh7247+l0/RSJ8S934783x9FQgxD3tx39Mp+ikT4l74Y783x9FQCS198bH5sfpRDg/fZf+QqeiJNbe+Nj82P0ohwfvsv8AyFT0RA+4P32A9df0Ikwb3NhH6PdegjwfvsA66/oRJg3ubCP0e69AEcvet/M9P9obdz7vr/plb93NSXvY/men+0Nu5931/wBMrfu4EP8AIP5NfuyN+n4efxpfamaK8A/k1+7I3qfh5/Gl9qYHoGR/e6p8ZHQHP5H97qnxkdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPgwAKC+8JU6n6DXS9vh8pH7ci6rUqe0+4T60asqaUty5wKe1Xtlp8pa/ZkadVN4ZLRP3rq/tTrKdOCitIrdpzdB9dOHDZWmmnDmA5jEIvs19ufu6z5vFEirRl2w+5e7Hk3u5tOJ1bguhcSKUV0LjqBxdaM1SjrCW7MCb3cFqt5VY0msPx1OL1WLUtVp1HoFeCcXuRy9zRi3wXHUCizA/bM3LTX2uk141pLh50SVpxeOXD1WjweLT18cX9zN6pbQeusVx6CCdrTevcLf4gKvDZRdTLK1XdWNRb3z9j008W81becHh+Fy2lp7MS5/8AOSfoLidpT17yPmIpWlL4EfMBTYlJLDcf1fe3tNPzU/UyfE5L2Qx9ardh0Xx8VT1rzm9KzpfAj5jDtOlr3i8wEFs17I2O9bsLcn1aojwdPby/ufuepLyaL1FhStKXwI+Y2I2lPRdwt3iAp8HT2sA3PhXfk04kuDRl2rhD0fue5fDm0LKVrBaaRS04Fpa0IxtqWiS0juA5aUJexb7mXvPT5v8AOG3cxfshX3P3ZW5v/bnS06S000WmmnkNjscWtdF08PFoBxf8g/k1+7I36fh5/Gl9qZt4rFxr6ReytNN3VobOB0+y1mqqU1r+MtecDq8j+91T4yOgNTCrajb2qVGmoKW9pG2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAatbizXfErsdwXMV7VnLDs2Tw2De6Kw+lU08Wr3kWWMDx7DKl3LHMzTxqNVR7Anaxo9i0117179dV5gLuL3GRU3kLhVWoV6qXQpMmtaM5U05znJrpkwN5+XzEc+p+Y150Ht66y162YO3037wM63B7n5jnK8d5c1LdPe1vKLMFtrCGmq3vgBFOPiIJxfQU1a1eu6UvOzVq2svhT+kwL6UfERyic5UtZfCl52QTtX8KXnYHSyi+gx2fEcxK1l8Kf0mKdtPXfOX0mB1lKJOo7uBzNG2klxl5ybsE9N8p+dgX8o7uBY269oprR96uY5/CqDdvPacn3fO/EWVGk0tnalp0agWcF1+Yl1WnEr3TkorSc939JlBeV7+F1NQvbiK6FUYFtiujuFobeXl7cxguH1MVsKlGVdxuKtGUadea2nTm4tKWnPo9Hp4iHB+T7NtlUjOryhzracYrCKK187YHotp7nh1EprYZQr21lTo3N07qrHvqrpxhteRbkbIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI7jvUSGteVYwjq3wA07lxUt5nb1IbHFFRiF1q20ytniVSlwYHVynHUjlUhpxOVeNVeGjZjLG588WB0tWpDpRT45OLoqXMnvK6WMrnj9ZHPF6Uk1KOqfFAaVWcN5q1JQJbqdlUbdN1ab6EtUaU1Dmqyf9UD5UcSCbiZSjD8pL6JFOFP8pP6IHyTifaWxrxRFOnD8pL6JFKC5qr+iBcUXTS4oklKlpxRQqENe6upJeKDNihVsqLUnKdWS+G93mA6Kw2Y2+vwpao26dSKfE5qWLpd6QVcalFblPyIDse2KaW9nO3daErubTXEobnHLmonGmpLXnI7SpcVKicpNJve2B6tkmS9q6jsjzbKd92GrT37kej0pxqU4zi9U0BkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN6LVmtc3ChEDOvWjCL3lJiF1ta7xe3bk3vKm4quTe8CK6q66mhPfrppteMnqs1qi1A1qkZ679SJwNl7Se5teUJSfF6+QDUcCOUSx7GnxjHzH3tem+MQKuUSOUS37TpP8V+c+Oxovml5wKaUTBxLt4fQfwvOYPD6H9PzgUcomEoIvJYfQ/pfSI5WFBc0vOBRyppmDoroLqdnSX4r85DO3hHhTAppUF0EcrfoRa1IJcIpeQgk5dLA0qVtL8Zdz4zaoUFFn3VakkJAWeGzdKSaO5y9i6jFU6j1izzyjV0ZaWV24tbwPVac41IqUHqmZHIYLjEqbSctVzo6q2uKdxTUoPyASgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7gR1pabgI69XRMqrupKTZuXEu5K2u23uA0q7NSpFvgiy7A5PgfVbeICnlRkzB27fMXnaq6B2slzAUPa0ugdrS6C9dCK5jF0ormApe15H3sEy0rulRpuc9yRSXt3UrNxh7XT6FxfWB9qThB6Oab6EROujUkmRy2ulgbrrrpMXcLpNCW10mEtrpA35XC6SOVyulGhLa8Zg9rxgb7uqf40fMfYzoVHoppPoe4rWmfHECynb68xBUtNeYit7mtQfcy1j8GW9FrZ3NG57nTYqfBfP1AVMrFcyIp2U1wOjdBPmMJW66AObdOrTe9Mko1nF70Xc7VNb0adxYab4ICWyud60kdNguJTpzj3RxMYypy6GWmG3XdKMnowPUbWvGvSU4+UlObwC8cZKLe5nSJ6rVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABvRamrUerZsVHpBmpNgQXD13EEaW0yepvZnRju1AjVFLmPvY0uY2dDCSA13EjlE2nEwlEDTnFkU0bk4mlfvZt5tcWtAKO/rOvVb/EW6KNKcfEbdRaMgmgNacSOUTYkiOSA1pRI5RNiSMJIDXcTFx8RO0YNARqnqSRt0+YyprebNJAa6tU+Yy7V03rijejFGWygM7Go6kNiffx5+lGy4o06T2K8ZePRlhJARbCZjKknzE8UZaAU9/aJrait5oQTi9VuaOjrU9qDWhRV4bFZoC8wS4b2d+9Hb2FTslvFnnWDzca+nSd3gk9aWgFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwrd6alQ2LptRWho1akukD7JE0FuNOM5t98TRlLTiwNg+NEW1LpYcpdLAzaMJGLlLpZHKUulgfZFfim6jp0s2pylpxZX38m46NtgVdVbyCSPtaUtXvZBKUvhMD7JEUkfJSl0silKXwmBlJGEkYOUvhPzmEpS+EwM2jBowcpfCZg5S+EwJo8TYps0VKXwmSQnL4TAsoSMtTQjOXwn5zLbl8JgbU2Wae1CL6UmUkZSb3yZY0Jy2F3TA24okiaylLpZJGUulgTOO4o8Rhs1y3lOWnEp8Tk9rXXeB9sHpcxO5wGXMef2VSfZ47zuMv1JucU3xA6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBd8EV9UsLvgivrARx4k8eBBHiTx4AZIMIMDFkciRkcgIqhX33essJ8Cvvu9YFLW75kEiev3zIJARSIpEkyOQEbMGZswkBhIwZnIwYBGcDBGcQJYmRjEyAyh3xZW/elbDviyt+8AmRnEwRnED7LgVGJ8S3lwKjE+IGvZeGR3GXu/icPZeGR3GXvCRA6QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBd8EV9YsLvvUV9UCOPEnjwII8SeHADJBnxH1gYyI5EjI5ART4Ffe96ywmV99wYFLW4sgkT1+LIJAQyI5EsiKQEbMJGbMJAYMwZnIwYHxEkSNEkAJYmRjEyAyh3xZW/elbDviyt+9QEyM4mCM4gfZcCoxPiW8uBUYnxA17LwyO4y94SJxFl4ZHb5e8JEDpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEF33qK+qWF3wRX1gI48SeHAgjxJo8AM0GfD6wMWRyJGRyAimV993rLCoV993rApa3fMgkT1uLIJARTIpEsyKQEbMJGbMGBgzBmbMGB8RJEjRJECWJkYxMgMod8WVv3qK2HfIsrfvAJkZxMEZxA+y4FRifEt5cCoxPiBr2Xhkdxl7wkTh7Lw0TuMveEiB0gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACC74Ir6pYXfBFfVAjjxJo8CGPEmjwAyPrPh9YGMiORIyOQEUyuvu9ZYzK6+4MCmrcWQSJ63FkEgIZkciWZFICNmEjNmEgMJGDM2YMD4SR4kaJIgSRM0YRMgMod8Wdv3pWU++LO370CZGcTBGcQPsuBUYnxLeXAqMT4ga9l4ZHcZe8JE4ex8MjuMveEiB0gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACC74Ir6xYXfBFfWAjjxJo8CGPEmhwAyPrPh9fADFkciRkcgIqhXX3BljPgV193rApq3FkEyet3zIJARTIpEsyKQEbMJGbMJAYMwZnIwYHwkiRmcQJYmRjE+gZ0++LK371FbT74srfvQJ0ZxMEZxA+y4FRifEt5cCoxPiBr2XhoncZe7+Jw9l4aJ3GXvCRA6QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBd8EV9YsLvgivqgRx4k8E3wTZBHichy2yvI8nF5HD7mrbXVS5tqdKpTqOEoylWjFb1vXEmI3Oh24Zz/J5jssw5TtL6uti8p7Vte0+eFxTezNPyrXynQsTGp0MWnv3Ecjj83XFxT5Tsl29O4qwo1u3Oy04zajPSmtNVwenjJ8yQzi87YHLB6lFYElL2RUnHfv59d/DTTTn4k6HR1OBX33esgx7MFnhOL4PhlxSrzrYvXlQoSgk4xlFaty1fDq1J73vWVFNW4sgmT1u+ZBICKRFIlkRNatLpegGDjLmjJ+Qjl4z8hZ5zfjl1nPGq9njmJ0baV9V7DCndTjGMVJpJJPRLRHun4P2bKmY8muyvriVbEcMkqVWc5ayqU3q4Tb5+eLf9E6svpbY6c9sqZotbT0ZmDM2UOfr+WF5JxrEKcnGdGyqyhJPRqTjotPHq0c0RudNJnS70kuMWvIZRPzpyC32NYnygW9O7xfELihb21WrOFW5nKL0jsrVN6PfJH6LiaZsXStx2rS/KNpYn0xiZGS7On3xZW/elZT74s7fvUBOjOJgj5cVo29F1ZptLRaLiPIllwKjE+JZ0asa9CNWKaUuCZWYnxAgsvDI7fL3hInEWPhkdvl/wAJEDpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEF3wRX1Swu+CK6sBHF7zk+WV/wDkOp84WX7zTOrjxOT5Zf7gqnzhZfvMC1PdCJa1q/4K8r13Yt7OGZpi7ih0Qvae6cf60d/Wd/zHLcq+A3GO5XrvD244rh9VX2HzXFVqb10XWtV5iwyVj1DM2VrHG6CUe2KftsOenUW6cX1PX6hPeNjnc5/31cjf67+zR0WKY9h2H4xY4TdTqK6voVJ0IxptpqmtZavm3HO5y/vq5G/139miHOP99zJPyV59gnW9Dis78o2V8SzXlHEbW4u3b4Ze1K105WsouMXBJaLn39B2WXc/5azViFbD8GuLmpcUaPZpqrbSprZ1S4vxtGvyk0qSz5kBKlTSeJ1U0orf7Wi4zzi9jljK2JY/cUqapWVtKq0oqLm13sdfHLReUTrUaHM8oOfMq5Jt4VsxYrC2nVWtG3hF1K1X4sFv08b0XjOFofhA5CnXhG7o49h9Gb0jcXOHtU/Om39RtckeSFcQ/wDEHOVGGI5nxhK5i7iG1GypS3whCL3Rezp1LRLn19Iv7W2vbadre21G5oTWkqVampwkvGnuKzqEtXCcTw7GcNpYlhN9b3tnWWtOtRmpRl5enxcUR43eLD8Hvr96aW1tUrb/AOjFv7jx7ELKPI3yk4deYXOdLJmZLjta7tHJuFlcPvZx14Lfr1bS5kdxy430sP5LMeqRaU6lFW6/rzUX9TZaleVoj7RadRMvzHydYEs2Z1ssHuJuCvOyynNfivscpa+fQtOS3HbnIvKNTjiG1RourKxxGD3bK2tG/wCrJJ9Wpefgy2KueUapdNbrOwqzXXJxgvSyb8JfLPsbmylj9vT0tcVjpV0W5V4rSX0o6PyM9i94tlnFPiYcVazFOcP0e9OlPxo89/CCvFa8md5SUtJXdejQS6VtbT+qJJyGZneY8i0KdxU277DtLWvq98kl3EvLHd1xZy/4T95s4ZgeHKXhK9WvJeKMVFfaZ5uLHMZ4rPxLqvbdNwrvwYbLaxPGsRaWlOhToRfjlJyf1RR7he3lpYWk7u9uaVvQprWVSpLZijy78HKhSssjYhidaSpwq3kpTnLgoU4Lf5NWcxfYnivKXnSlZW05UrJTfa9OXe0qa41JLnk16UjTLj6uW0z4hWk8aQ9Xss/YPiF/2nhNriOIzW9yo0EopdLcmtF43oWuCZmwjF7idtaXK7PDXWnLc3pxcXwkuogscq4TZ5dlgdvCtSt6iSrTpz2alZ87lJcdejhzHneYMK/gxmSFOyuJyjCMa9GTfdR3vc9Op+QyrTHeZirTcx5ezQaT1bSS3tt8DCGYcOjLYpyqVtOeEd3nfE5fOuIVY2tpa03sK5XZKmnwUlu6tX9Rd5YwK2eG0q90pTnUipKKeiinw8pSKRFeVlnQYff214n2GTUlxjJaMgxO7o1KUreDk5xnv3btxoQs52WLw7BGpKmmmnpronxWptYlbU6ElODk5VJNvVkxWsWjS0Q3cOr0pUIUI7W1GOr3bjVxPibtta06C247Tk479WaOJ8TO2t9kSgsn7dE7jL3hIHDWPh0dzl7v4FUOkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQXfBFbWZZXfBFZWAji9/E5Pllf/kOp+n2X7zA6qPE5Tlk/uDqfp9l+8QLU90Eu4m32STT/ABn6TznAH/A/lPvcvS7jCcw7V9h3wadwvC0118V5D0WfhJfGfpOS5VMArY7liU8Pbhi2HVFe4fUXFVYb9lfGW7r0FZ+JRLRzk/8A7q5H/wBd/Zohzj/fcyT8lefYRVwx6hmbNvJ1jNFKLr071Vqf5OqqaU4vqf1aFnnD++5kn5K8+wi+ta/8kQcpX93vJ/8AOdX9mjnPwqbidPkpq28IOau7+2oyinva2nLReN7KR0XKV/d7yf8AznV/Zor/AMIvCq+Lck2MQtae3cWsYXlNc/tUlJ6ePZ2iv0OKnyl54oRjRp8i+Y9inFQilcR3JLRfikMuVHPHPyMZl/Xx/sno2UcbtcyZVwzHLSop0ry2hN6PvZaaSi/GpJosJ6Ebj6S/O3K9j+d89ZNqYFDkmzFY1u2KdxSrykpqEoN8yiuKbRffhI4hWp8meC2dxtQubyvRlVg9z1hS2pJ9Umj0XO+ccFyisOWLSuZVMSuVa2tK3pdkqTm/6OvDelr40eOfhX3rljOB4ZzUrerXl1ymor7LOj0teWWrLNOqS2/wUrFqhj+JuPGVG2jLqUptfXE9K5TctwzXk29wnZi7lx7LaSf4taO+Pn3x6mc1+DbYq15NIXP415eVqr6k1BfZZ6TIj1F5682j4Mdf+cRL8sciGYqmWs+UaFzJ0rS/fad1GX4km+4b6NJbupsvvwlLxV88Wdmn7lsY7S6HOcpehIr/AMIDLXsJnR4naw2LTFU68XFboVl4RefSXlZy2b8dr5lxr2UrpqvK2o0p+OUKai35Wm/KehWsXvGWPpzzM1iaS9clOpgn4OVrTg9irfQUXp0Vqjb/AOVE34P1tQtsKxrHKqWtPSlr0QjFzl93mN/lXwyVtyRWVpS3xsHaqXUo7LfnZF+D3WoVMCxXD57MpqvGpKElrrCUNnh0apo5JneG0/ct4jVohmuVLEbtbNlhVtSlLg5TlUfmWhNgeBY1mLFViWMRq06U2nUqVI7Lkl+LGPRzdCPRra0tbdfxe1oUfk6cY+hFLDN9hWxj2Nt6FxcTdXscakHFxk+drfw47/EZRk89OummvuU2bMLq3tOhcW0NqdvqnBcXF9HVobGAYvd21vC3qRVSEFoozWkkugxt8w2s8Z9jVQrKaquk5trZ1XOdRChQrQ0q0oT61v8AOU5cY42hZlh1/Tu4tRThNb3FsjxR7VzRh4vSzRwuMYYrs0m3BOSXUb1x3eKU49GyhFYi3ZaPKylwZUYm95bS4FRifExVQ2L9ujvO5y938DhLHw0Tu8u9/ADpQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEF3wRVV+ctbvgipuHvYEUXvKDlMwy+xjKE7HDrd3Fw7y1qKCaXcwrQlJ7+hJsvYPebMGWidTsSzes5NcG2fNXzHzUNkDyynkzE8K5ZLLE8Ptqk8AqVa13Jxa2LatUpuM1pxSbUWtOnxHQZnwzELnlJypiVC0qVLOzp3SuK0dNmk5R0jr1nYvyGEmWm0yjTiOVXAcVxS0wvFcBVOeK4Ndq6oUZy0jWWmkoa9O5fWamX8w5gxq9uLPG8lXeC0I0HLs1eqp06ktUnBLTnTb6kd5UZXX3esjfbSX5+uMCzvyVYzeXOScLeZcp3lV16mEbelezm+LpvnXUnuS1Wq1Mp8sePXa7WwrknzVVv3uVOvDYpp+OWzw8x7JXfdEE5t7nJtdGo2PKMkZJzJi2b6efuUerQeJ0I7OGYXQetGxT53xTlv8e/e23ppxPLxljNmPcoVe7w3L+JXlnStqNGlVpUtYPSOstPLJn6IkyOTRphyzityhS9IvGnN8m+GVcGyDgmG3FB0K9G0j2anJaONR6ykn49Wy9bMpMwbM7TymZWiNRpyXKzlr+FGTLqypU9u9ofxi06eyR/FXxlqvKjwjL3J/m2eOWEbvLmIUbd3NPss6lLSMYbS1b38NNT9QtmLZvi9RbHXjClscWnbXxWytsTw+5w+7p7dvc05U5x8T6PH6jyCzy3mzIuYO38Mtp4harWO3Si5KrTf4s4ren9+9HsyZlF85THlmkTHxK01iXFX19XzVZRo26x7Ca7Wk6DtZSoz65LT/wCcxaZLyt7DN3d5OFW7acYKHe01639R0qk3xfnZlqROSdcY7QmIc1jmB154k7+yjt9kalOEXpJS6V0lxYVMYrUVSqdsPdo9Y6edm/TfdItbd9wh1J1qYShwmzdtFzqadkktNFzIkvLapOt2WmtddNd+9GzFmcWV5Tvado7ZTjbpVNdrV66srcUe8tpPcU+KPeR5QhsX7fE73LvfQOAsX7fE7/LnfQ6iJHSgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBd8EU9w97Li74Ipbl72TAig95swe41IPujapvcSJNRqfNQ2QPjMJGTMJARVCuv+9ZvV5wpwcqk4wj0yaS+sqcQvLTZet3b/AK6PrJ0Kyv3xBI+Vr2y2n/HLb9dH1kEryz/O7b9dH1jUjORFJmMru0/Orf8AXR9ZFK7tfzq3/Wx9Y1IzZg2jB3Vr+dW/62PrI3d2v51b/rY+saEjaMWyKV3a/nVv+tj6zCV3afndv+uj6xqRMmZxZq9uWn53bfro+s+xvbL88tv10fWNSN2LMtTTV9Y/ntr+vj6zL2QsF/h1p+vh6xqRuU33SLW27xFBQv7GVRRje2rk3uSrxbf1l7bPuUNDZi0SJkUWZpkD7PgU+KPeW8nuKbFGtSRDYv2+J6DlzjT6keeWD9viehZb40+pESOmABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACC74Io7ri+svLvgihunvfWTAhg+6Nqm9xpwfdG1T4FtCYMxQZA+sjkZMwkBr29KnWnWrVYRm41HThtLVRS46dbKHM+MYXhuK4XhFSz7ZvcTqShQo0aMG4xitZ1Ja8IR5349EdDh++nW8dxU9J4vd2+ccS9luVDBsVsKFTsNWFph1zbdkjO0oyl3DnrrBycZPdz6akT5F1n7NmBZXu7LD54Nc4tit/tStcOw6zjVrzhHvptPRRiulmOScyZfzbb3famGTsr2xqqle2F9ZxpXFvJrVbUdODXBrczm+T/FqGYuWDFsf7HKm7nK2GVrOE+MKVVylNL+von06G3TUKf4Rt12vudfKsJXiXPKNxpTb8emq6hsX+cMYyzlTB5YrjitLa3UlTglbRnOrN8IQilrKT6EcauU7LdCpSnjmT8ewCwrSUad/iGERhQ1fDaa1cE/GjazNTo3f4QGVrfEkpW9vg11dYfCfeu6U0pSS+FGG9dB3eJW1rfWNxZ39GlcWlem4VqVVawnBrepJ8w3Ihha4dVpwqUrWyqQnFShKFKDUk96aaW9GMrKx/MrX9RD1Hn19b4nmrPuJZTsMavMu5ey5bW0J0sLkqVa5qVYbUY7WncU4xSSSW9mnhcczYByu2uXLvNN/i+ETwK6urZXUk6qcZJaVGl3bi+9lx0enMNyPSnZWXNZWv6iPqMXZWX5la/qY+o8l5M8BzNnTImH47jvKBmK3rVYSVpGwrxpqmozklOo9G6k209z0SSSNfEMezjiGUaFpc18VqrCMfrYZmG8wSmu2q1CnHuKlNLetdVtbO/cNyPYu07Nf4HbfqY+o+u1tIxcu07bcm/Ax9R5FaY3GlY5fjl/PGKYzaVs129tUjd6xuLelKEnK3qtpSkm1r3SO1zXfXlvygZRsqN1Vp211C/7YpRlpGrs0E47S59HvRGxb5MxKxzJliwx2jhtO2he03UjSnCEpR7prRtLR8C67XoL/B6KfyUfUeCYNj9Sjk/I+W6t7jNjh1fC615eVMJoTqXNVRrShGmnFNwjrq3LqRZ0sQzLUw3H8EylUzXeWXatG4tauIW86d3R9tUa9GlUqJbTcHtR13p6jY9rjb0ddmVvS0fFOmvUTYclTde3jrsUp6QXRFxUkvJrocLyS18JnDErbCcZx25jSqwdTD8YUu2LGTjvTc+6alx51u3Hc2nuu8+Uj+ziTA3oszRFEzRIynwKbFXvLefApsVe8CCwft8T0XLf8n1I84sH7fE9Hy1wpdSEjpgAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQXfBHP3b7qXWdBd8Ec7ePfLrZaogg+6Nym9x5Jj+eMbsc031hbSte16FZwgp0dXuS59ek7fIWOXGNWNeV2qar0prvI6Jxa3fWmbWxWrG5Ui8TOnUIMxQZkuNmE2ZMjfED5h70jXjr3Ua8n59GjzjMHJ3iFWjfYXhmcb/AAvL9/UnO4w+lbwlKKm9akKdV74Rlq93Nqfcx8odthNdu4gqE9XGDpVHtzinzrRrTrOSxLlrwqjUgri7vaVJySnOMNpxXO0tjeTOOVeULzNeQO2LvCsTynjNTLWK4Vado0K9OhGtTqW27SjUpy3SSa1T4p6k2RcnTy7dYli2KYxXxzHsUcO27+tTVPuILuKUILdCC6Di6/LpkJTa/hTjK68O/wD4Iny5ZCf868W8uHf9sjh+p273PuUbDNljb069xc2F9ZVez2GIWstmva1fhRfOnzxe5nJ3uQc5Y1b+xeaOUi4vMHl3NehZYfC1q3MOeNSom3o+fTiVj5cMhv8AnZif/Df+2YPltyI/524l/wAN/wC2OH6bdHjuQrinjFDG8l428uYjTtIWVaLt1cW9zQgtKcZwk9dY80tdTUwXIN9YZueccYzRcYxibw6va1lK3jTptS3xVOKfcRik92/VttspXy2ZF/ytxH/hv/bMHy1ZGf8AOzEf+G/9sjh+m1ZyP5XzY+TTCbrLWdqmE219SlUr21exjcKlPbknOjJtODeiej1Wu87OGQ7nC8uYfh2V8z3+FXtlcTup3VSKrK9q1PCSrwem1q960e7mObXLPkWMdI5qxBJcEsNSX7M+PloyR/lVif8Aw7/tjj+m1s+TKrdWGJ3GKZkrVcw399Qv1idC2jSjb1qCapbFPXRpJtPV6vU38MyTjM81YbmXMObJ4pe2FOtSp0qVlGhQUKkNl6RT1UtXq3v10S3JHMPloyT/AJUYs+rDl/YMo8s+S3wzLjD6sPX9gcf026ahye9p4BgNthWP3Vhi+B0p0rXEqdGLc4Tk3OFSm3pKD1W7Xm1NyGUcZr4ViFPE874vXxK8lSlC6oJUYWzpvWKp0lrHRvvte+4M49cs2TP8occfVYr+yfJcs2Tv8e5gfVaR/sjj+m3f5Ny1c4RieIYvi2N1cZxa/jSpVbiVCNGMadPXYhGEdy4ttnTWj1ubuaeqdVJdahFP60zxu25Zcm1K8YSxjMezJ6Nyt0kuvRa+Y9dwK5s7zC7e6w+rTrWlWmp0Z03rGUXzomI0LKLJEyGLJEwl9k9xS4s95cTe4pcWe8mBBYP2+J6TlnhS6keZ4e/b4npmWe9pdSIsOnABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBd8Ec3ePu2vGdJd8InM3j9sfxvvLVH59xqr2bNeJVW++u6j/AOZo73kwuuwYwqDekbim4eVb1955vKfZMVuKnw605eeTOtwG4la3FC5g99Kan5mejkruunLWdTt7SmGzCnONSEZxesZJNdTPrPPdT62a95U7Fa1avwISl5kTNlZmar2LArya4um4ry7vvJiNyS/Mmfqk6mZLrbk3s7MV4lsp/eUGYsvYNdW9lh1O+xCnjN9YRuaG3Tg7aVSUZSjSbT21rs6KW/e1ruOh5QKU6WY7icotRqKM4PpWiX3HMZkzTRt7ChUoYHQjitrZK0o387icuxpRlHbVLvdtKT0e/R79NSt/dKK+HL4vkLD7PC7u/nHMl86dVwTsbSnOnSStqNbaqtvuVrVa3c0dSoussYBdUMv0cBvMarX+OTSowu6NGNKnFVZU5uTjJvdsuS5tOJNjWdLHE7OraYpl6dZ9ldWjOjiVSj2NuhSo70ovbXtMZb+loq8Fzfc4V7G1beyoSusNsLm0tqs3tKMq05SdVxaabSnJJPdv1KpWU8mYVRxnG4SxHEr3CrKxo39lcWVtGVW7o1ZwjCWzJ6Lvnr0OLMrnk+davChhF/Vq1UqFxcUruiqM7W0rQ2o1qiTemxpJT6NYNd8a9XlCxSpg0rVUKdtfdpuyhe2bVtKFHs8K0YqNNJLZcZLdxU30Gjd5srXONYti9SzirrFsOnaXbVV6SqTjFTrLo1cdrZ4atgZZZy/h2N4vilK3usRr2dlSlWoU7a3jK8u47aitim2lro9prV6JcGauO4JaWWDV8Ts724uKUMSlZwjWtnRnoqKqayi3rGSbcWuG7VM1cBvsPsq1b2Swrt+lUilFwuJUK1GSeqlTmk9HzPVPVdBf4hnSzxeVzQxrAHd2M6lKrQpwvpwrU5U6SpazquLdTagltNrVtapoCynkDDKV9bYdVxHFp3N7iE7K3nQsozpQcYUmp1O61S1q79OCi2aDyfYPD6UYXuI+yEsJeJym7eLs0o7WsOyJ6ptR3NrRtpc5p49njGMVtJW8KtWwjUu69xWha15whUVVU4qDinvUY00lrrrqaGK5jxG/w/D8O7YuKVlZ2dK27XjcSdKbg29tw4avXo5gLjDso21XN2YMGqVMTuaeEU6s4qyt4zr19ipCCSi3p+Nq+o3P4Dzu8JhdYPO8lePEKltKxvKUadWnSi4RVWWj0Wkp6S+Cmn0mvXzhg9bFsTxD+DFaE8Vp1IXijis1tbc4T1g9juNJQ8e56Fdc5hqu2pWuFUq2G0abulHZuZVJunXUFOEpNLVaR8uviA6vFslYZh1jiF1b1cbxelb1HClWs7eCpqPa1OsqlTa3qLdR6acy6TWxfKVlg91e1bu7urrDbe1p3EKluoxnNudOFSm9rcpRc/NsvgzSuc02uIYZKyxHAo19GpUpwvZ0uxtW9Ojq0l3W6lGWj6WiO9zVfXdljdlOhSVvi0qU5x3vsM4bPdQf9JQSfTu6EB8zRY4ZheZK+HYXK9nC2l2OpO6cG5S46rZS0Wj595+mfwcK1SpybwhOTlGleVoQT5l3L087Z+WcQv6mKY5c4lVpxpzuanZJQjq1F+LXqP1T+DxaV7Tk3t514OHbNxVr09Vxg9En5dllqj0mLJIsiizNMsPs3uPO8/Z0tsCxGdlOxrXE4xjJyjUUVvWum89Cm+5PA+WGe3mm9/oyjHzRRrhpFralnktNY7PScm4osYw21xKNF0FX1ag5ataNrj5D1/LHe0fio8U5NafYsrYRD/26l523957VlfvKPxUZ5YiJ7L18OoABkkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEF3wRyeL1Ox0a9T4MZS8yZ1l3wicRmup2LCMQqfBt6r/AOVl6RuSXgmARVbGLSElqp14Jrp1kjsK1s7PErq1a07FWlFdWu76tDmMl0+yZnwyn03MPqev3Hf5yt+w5gnVS7m4pxqeXg/Qehef605ax227PKF32zgNDV6ypa0peTh9WhbtnGcn91sXFxaN7pxVSPWtz+p/Udi2cd41Z0VncDZQ54q7GByh+Uqxj9/3F42ctn+r7RaUemcpPyLT7xSP6LeHA4rYWd/SULy2p1ox3raW9dTI8F5Osn4rYXNbEcEp1tKmzD22cdN2/g/GbtbgdPlun2PL1N8HUnOf16fca5PDOnl59c8jXJtKbby3FdV1W/tGrPkX5Nv8n5LqvKv9o9Hrvuma834zFrp51LkX5OP8RVP98q/2iOXIvyc/4krL/Xav9ovMfzthuHylRtF29XW57D0pxfjlz+Q4zEc649ctqncQtYP8WjBJ+d6s1ritKk3rC0fIxyd82CV/99q+swfI1yeL/wBFr/77V9Zy1bGsYqPWeKXsn8tIxpY7jVF608VvI/8A5W/SW6Eq9WPp1L5G+Tz/ABNW/wB9q+s+f+DvJ7/iWr/vlX+0V+GZ7xe2kleKle0+fajsz86+9Hd4FjdjjVu6tpUe1HwlKe6cOtdHjKWxzXyvW8WcouR/k9X/AKHN9d5V/tE1Pkk5PlwwFvruqv8AaO113mUWZrOPhyU5AX834PruKv8AaJY8l2QV/Nyg+utUf/7HR4niVnhlq7m8rKnDhFcZSfQlzs4bGM84hXk4YdTjaUuaTSlUf3IvWk28K2tFV/ZcmuRaVaNSnliybi9Vtbcl5nLRnollGNOhCnCChCKSjGK0SS4JI8A9lMSuaylcX91UevPVZ0mE317RhGVK7uIPpVRl5wz9qxkj6eyRZImcLl/NdeFWNDE5KpTe5VtNJR6+lHbwkno000+fUytWa+WkWifDKT1Wh+eeU6p2XHcQqdNef1PT7juMSxnE5XVdwv7mMOyS2UqjSS1eh51m6UpzlKbcpSerb4tnRhpxnbDJbcPX8nQdLB8Mp6abNtSX/Kj2HK/g6PxUfkHk4r3NbOeF053FacVXjulUbWi8p+vsq+CofFRhnpxlrS3KHUAA51wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQXfCJ51yg1Ox5ZxWWv8hNefd956Ld8InmHKfPZytiPjSj55o1w+6EW8S8u5PI7WccP8VRy80WemZ6obdna3SW+nNwfVJetHnfJfDbzdRl+TpVJfVp9561jNv23gtzRS1lsbUetb16DrzTq8MccbpLjsEuu08Tt7jXuYzSl8V7n6T0lvxnlMN8es9EwC77bwi3qt6zUdifWtxllj5Wxz8LFs43PdTaxChT+BS187/wCh17ZwmbanZMcrLXvFGPmX/Urjjutfwoq3BnY2tPsGC2tNreqMdfKtfvOPnFzkoLjJqPn3HcX6UKSguEVp5i+RXGpLmajtSk0kt7be5Hl2dc1VcRqTscPqSp2S3SmtzreqPi5y85TsZlRpLCbeek6q2q7T4Q5o+X0Hm8y+LH8yrkv8QikS2dhe383Czta1drjsR1S63wR0mTss+yel9fKUbOL0jBbnVa9EfSeg0aVK3oxo0KUKVOK0jCC0SL3yxXtCKY995eVrJ+YZR17RjHxSrRT9Jo4jl/GbGDqXOH1lTXGcdJpeY9ikyOTM4zWX6UPC2bGFYhc4ZiFK9tZaTpveuaS54vxMv+UbDaFlilK4toRpwuYuUoRWiUk97XXqcqzeJi0bYzE1l7dYXdK9sqN3R8HWgpx8vMfb+9o2FlVu7h6UqUdqXS/EvGzn+TurKeV6MW/B1ZwXVrr95o8pt5KFpaWMXoqsnUmulR3L639RyxT+tOibfzty2M4pdYvfyurmXihBPdCPQv8A5vNWnGU5xhCMpSk9FGK1bZFA9C5PMKpULBYpVipV62qpt/iQ4bvGzotMUhjWJtKpwnJuL19mpV7Dap70qktZeZcDoamWMSsLR1va7inFaydJvVLp0Z0tF90i6tH3COectmvTh5hE9AyZezuMDdKTcqlu3TW/itNY+o4zGqELbGLqhDRQjUeyuhPf950XJ7Jp3sd+zpB+kvk712pTtbSouMu4wqU6k7aMVGLlJupHdzs84zJTlWrQpQ3yqSUY69LeiPfMfq9iwW9muahP0aHiFen2XMGH0+m5p/aT+4titM90XrEdlvkPJmKYZmW0v7ura9jozbcYTbb3NdHjP01lTwND4iPIcOl/GU/GevZT8Bb/ABEc2a027y2rWKxqHUgAwWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBd8Ink3KzU2ctXEfh14L62/uPWbvhE8d5YJ6YIo/CuV9Skb4Perf2y5HkmhrmGvP4Fs/rkj12g9x5XyRw/jeIVeiEI/W39x6hQfcm+b3K4va4TE7ftTEbi35oTez1PevqL7JF1pKvaSfFKpH0P7jXzpb7F5Rukt1WGy+tf9GVmD3PamJUK/4sZaS6nuY91VPbZ6FqeeYzU7Lil1U6asvTod/KSjFy5ktTzerJznKXS2ymNfIywun2XFbWHTVTfk3/cdVitSMKc5zekYpuT6Ec/lmnt4zCXNCEpfVp95t57uHb5dvZxejlT2F/Wegt3top2jbxPH7yd/itxeTe+rNteJcy82hr4VZTxHE6FlDc6s9G+hc78x8uvCM3Ms4pQwjEJ3da3nXfY3CCjJLRt73v8AEdU9o7MI7z3en0adK3oQoUYKFOnFRhFcyQlI4+pnyh+Lhtby1V6jUrZ8qfyeGRXxqz+5HP07S6OpV20pEVSpCEJTnKMYRWspSeiXlPPbrO2LVE1RpW1HxqLk/rZRYliuI4h7su6tWPNBvSK8i3FoxT8qzlj4WGecXpYrikVbS2qFvFwhL4bb1b6jnWZsusr5frYrcRrVoShZRfdTe7b/AKMfWbdqwx72l2mRqErbLVqprSVTaq6eKT3fVoUHKapeyFlP8V0ZJde0drDZjFRilGKWiS4JFNnLDJ4nhSdCO1cUHtwXwlzr/wCdBz1t/e29q/zp51A9MyPiVvc4LQtYziq9vHYnT136a7mulHmS1Taaaa4pktOc6c1OnOUJLepRejXlN715RpjW3GdvaqMu7Rd2j7hHi+FZnxm3qRTuuzxXNWipfXxO9wXN0J04q7tHD+lSlqvMzntjmG8ZIl16pUXNzdGm5vjJwWr8pNHRLckupGnY3dveUVVtqsakPFxXia5jaTM9LqzN9TYy9d7++io+do8ktI7ebMPXRW2vMmz1DPVTZwJx+FVivS/uPN8Ght5qoP4EJy/5dPvN8fassb+6HfYbL+MR3nsWUvc9v8Reg8Yw1/xiO89myg9ba2+IjmytnVgAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARXMdYreeeZ+yXf49aQo2l5a03Gq5vsqktdV4kz0arHahpzmpNcxat5rO4RMbjTy3JOQ8awKF2rqpZ1HWnFxdKq3uSfSl0nWUsKv4rfSi+qaOgqax5iONwo8S9strTuSI1GoctmLAsQvMMlClbSnVhJTglJb+lceg5SWWsfjxwm58iT+89XVxHpPruICM0wiaRM7chRtsSeBe22VxGuqLi4OG9tLQ4+eC4ut3sZebv80z151oc0jB1FzSRMZpj4Jrt5plfDb6jc16tayuKaVNRW1Sa11f/Q0eUm1vZ4BKFK0uJuVWOqjSk9y1fQeqylrzmtd03Wp7Klo1vW8jqzvejj20/KFzheJub0w2+/3efqNOrYX8HpKxu4vx0J+o/UtaFWD0ltrykEtr4UvOa/6p+mfR/X5blY3z4WN3+on6gsKxSb7jDb2XVQl6j9PyUvhS85HNSfO/OT/qn6Oj+vzVSy1j1bvcLuIrpnHZ9JvW2SMVqaO4qUqC6EnN/VuP0FKD8Zg4PxlZ9Vb6TGKrxzDcnYfaSU69Otd1F+UjpH6K+8v1RqRSjGjNRS0SUGkj0FwfSzFwfS/OUnNM+WkREeHn/Y6v5Kp9BkkaNf8AI1foM7pxfSz5svpZHV/EvLsaynSxScq9OjWt7l8ZwptqXWvvOYvMmZgoN9isZ3MVz0k9fM957xsy6WFGT3b2Xj1FoUnHEvz9a5fx1VN+DYgtHv8A4vL1HV4dl3HuxR/+j3y1W7Wiz16hZ1JtOesI+PiWicYpJPcluJn1Mz8K9KHk2DYRmWxvI16WEXmmuk47Gikug7qNhete55rr0Rf9kijF10jO2WbL1rpxObsv4ziFlRo2ttGTVRyltVIrm3c5ymFZIx20xmVzc0reEOxSgvb03q2ug9arXkIrjqzRk51qmqTYjNaI0TWJnbmcOy5eKvFzrUI9Tb+49UyrQ7FClTlNNwiluXEocPtGpKUuPQdhgVs4R7JJdRS1pt5WWoAKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhKnGXFGYAgnbKS3SNaph8pcJx8xYAColhdbXuZw87MHhd3zVaflb9RdACkeFXn5Sj52YvCb38pR+k/UXoAofYm//AClH6T9R89icQ/K0fpP1F+AOelhGItaOrQa8bfqIpYBey/Gt11N+o6YAcq8u3r/lKH0n6jF5bvn/AClv9J+o6wAck8tXz/lLf6T9Ri8sX35S3+k/UdeAOOeVr/8AKW/0n6j5/BW//K230n6jsgBxjyrf/lbb6T9Q/gpfflLf6T9R2YA41ZWvl+NavrlL1Gay1iUe9qWq6pP1HXgDkHlvFH/LW30peoxeWcUf8vbfSl6jsQBxv8FsSfG4t11N+o+fwTvn31zSf9Z+o7MAcjSyjUW+dal9bN2hlmEO/uN39GJ0IArrXB7Sg0+6m10lhFKKSikkuY+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/9k=" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h4>NiteNest</h4>
+          <span class="rec-tag">Sleep Support Formula · 30 Capsules</span>
+          <p>Formulated with melatonin, magnesium glycinate, and L-theanine for restful sleep.</p>
+          <a href="/products/nitenest" class="btn btn-primary btn-sm" style="width:100%;">View Product</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h5>Related Ingredients</h5>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="melatonin.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Melatonin →</a></li>
+          <li><a href="magnesium-glycinate.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Magnesium Glycinate →</a></li>
+          <li><a href="l-theanine.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">L-Theanine →</a></li>
+          <li><a href="valerian-root.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Valerian Root →</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h5>Manufacturing Standards</h5>
+        <div class="mfg-badges">
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Third-party lab tested</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Made in an FDA-registered facility</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>GMP certified</span>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Related Articles</h2>
+      <a href="#" class="view-all">View all articles →</a>
+    </div>
+    <div class="related-grid">
+
+      <a href="memory.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,#EAF4FF,#D5E9FF);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#4DA3FF" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#4DA3FF"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Memory & Focus: Complete Guide</h3>
+          <p>The nootropics with real clinical trial support.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="weight.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--green-tint),#DCEDE6);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#1E5D4E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#1E5D4E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Weight Management: Complete Guide</h3>
+          <p>What's proven to help — and what's mostly marketing.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="inflammation.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--amber-tint),#F3E3C4);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#C98A3E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#C98A3E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Inflammation: Complete Guide</h3>
+          <p>How diet and key compounds affect chronic inflammation.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="logo-text">Supplement Insider</div>
+        </div>
+        <p>We simplify supplement science so you can make informed decisions for a healthier life.</p>
+        <div class="foot-social">
+          <a href="#">f</a><a href="#">in</a><a href="#">yt</a>
+        </div>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="#">Ingredients</a></li><li><a href="#">Health Goals</a></li><li><a href="#">Conditions</a></li><li><a href="#">Research</a></li><li><a href="#">Compare</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Our Team</a></li><li><a href="editorial-policy.html">Editorial Policy</a></li><li><a href="#">Medical Review</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="#">Newsletter</a></li><li><a href="#">Blog</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Calculators</a></li><li><a href="buyers-guide.html">Buyer's Guide</a></li><li><a href="#">FAQs</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li><li><a href="medical-disclaimer.html">Medical Disclaimer</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Supplement Insider. All rights reserved.</span>
+      <span>Built with a focus on transparency and science.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

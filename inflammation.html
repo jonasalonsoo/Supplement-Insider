@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inflammation — Supplement Insider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1E5D4E;
+    --green-dark:#154238;
+    --green-tint:#E9F1EE;
+    --navy:#22313F;
+    --blue:#4DA3FF;
+    --blue-tint:#EAF4FF;
+    --amber:#C98A3E;
+    --amber-tint:#FBF1E4;
+    --bg:#FFFFFF;
+    --card:#F7F8FA;
+    --text:#232323;
+    --muted:#6B7280;
+    --border:#E7E9EC;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--navy);
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14.5px;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:all .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--green);color:#fff;}
+  .btn-primary:hover{background:var(--green-dark);}
+  .btn-outline{background:transparent;border-color:var(--navy);color:var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-sm{padding:9px 18px;font-size:13.5px;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(155deg,var(--green) 0%, #2f7d67 100%);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-text{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--navy);line-height:1.1;}
+  .logo-text span{display:block;font-size:11px;font-weight:500;color:var(--green);letter-spacing:.06em;text-transform:uppercase;font-family:'Inter',sans-serif;}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--navy);opacity:.82;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .icon-btn{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--border);
+    cursor:pointer;
+    color:var(--navy);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(180deg,#FBFCFB 0%, #ffffff 100%);
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  .hero h1{
+    font-size:47px;line-height:1.09;
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--green);
+  }
+  .hero p.lead{
+    font-size:17.5px;color:var(--muted);max-width:490px;margin-bottom:30px;
+  }
+  .search-bar{
+    display:flex;align-items:center;gap:0;
+    background:#fff;border:1.5px solid var(--border);
+    border-radius:14px;
+    padding:6px 6px 6px 20px;
+    box-shadow:0 2px 10px rgba(30,93,78,0.05);
+    margin-bottom:14px;
+    max-width:520px;
+  }
+  .search-bar input{
+    border:none;outline:none;flex:1;font-size:15px;font-family:'Inter',sans-serif;padding:10px 0;color:var(--text);
+  }
+  .search-bar input::placeholder{color:#9CA3AF;}
+  .search-bar button{
+    background:var(--green);border:none;color:#fff;
+    width:40px;height:40px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+  }
+  .search-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+  .search-tags span{
+    font-size:12.5px;color:var(--muted);padding:5px 12px;
+    border:1px solid var(--border);border-radius:999px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+  .hero-visual{
+    position:relative;aspect-ratio:1/0.92;
+    border-radius:28px;
+    background:radial-gradient(circle at 30% 20%, #F3FBF7 0%, var(--green-tint) 55%, #E1EFE9 100%);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(30,93,78,.09) 1.5px, transparent 1.5px);
+    background-size:22px 22px;
+    opacity:.5;
+  }
+  .float-card{
+    position:absolute;background:#fff;border-radius:16px;
+    box-shadow:0 12px 30px rgba(20,50,42,.14);
+    padding:14px 16px;display:flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:600;color:var(--navy);
+  }
+  .fc1{top:14%;left:8%;}
+  .fc2{bottom:16%;right:6%;}
+  .fc-dot{width:9px;height:9px;border-radius:50%;background:var(--green);}
+
+  /* ===== TRUST BAR ===== */
+  .trust{padding:42px 0;border-bottom:1px solid var(--border);}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  .trust-item{display:flex;gap:14px;align-items:flex-start;}
+  .trust-icon{
+    width:42px;height:42px;border-radius:11px;background:var(--green-tint);
+    display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;
+  }
+  .trust-item h4{font-size:14.5px;margin-bottom:3px;}
+  .trust-item p{font-size:13px;color:var(--muted);margin:0;}
+
+  /* ===== SECTION HEADINGS ===== */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;
+  }
+  .section-head h2{font-size:29px;}
+  .section-head .view-all{font-size:13.5px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:5px;}
+
+  /* ===== GOALS ===== */
+  .goals-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  }
+  .goal-card{
+    display:block;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:22px 14px;
+    text-align:center;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+    cursor:pointer;
+  }
+  .goal-card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:0 10px 24px rgba(30,93,78,.08);}
+  .goal-icon{
+    width:44px;height:44px;margin:0 auto 12px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .goal-card p{font-size:13px;font-weight:600;color:var(--navy);margin:0;}
+
+  /* ===== ARTICLES ===== */
+  .articles-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .art-card{
+    display:block;
+    border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
+    background:#fff;transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .art-card:hover{box-shadow:0 16px 32px rgba(20,40,35,.08);transform:translateY(-2px);}
+  .art-media{
+    aspect-ratio:16/10;position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .art-tag{
+    position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);
+    font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;color:var(--navy);
+  }
+  .art-body{padding:20px 22px 22px;}
+  .art-body h3{font-size:17.5px;line-height:1.3;margin-bottom:9px;}
+  .art-body p{font-size:14px;color:var(--muted);margin:0 0 14px;}
+  .art-meta{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#9CA3AF;}
+  .evidence{
+    display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;color:var(--green);
+    background:var(--green-tint);padding:3px 9px;border-radius:999px;
+  }
+
+  /* ===== INGREDIENTS ===== */
+  .ing-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;}
+  .ing-card{text-align:center;cursor:pointer;}
+  .ing-media{
+    aspect-ratio:1/1;border-radius:18px;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .18s ease;
+  }
+  .ing-card:hover .ing-media{transform:translateY(-3px);}
+  .ing-card h4{font-size:14px;color:var(--navy);margin-bottom:2px;}
+  .ing-card span{font-size:12px;color:var(--muted);}
+
+  /* ===== THREE COLUMN: NEWSLETTER / RESEARCH / PICK ===== */
+  .trio{display:grid;grid-template-columns:1.15fr 1.15fr 0.9fr;gap:22px;}
+  .newsletter-box{
+    background:linear-gradient(155deg,var(--green) 0%, #154439 100%);
+    border-radius:var(--radius-lg);
+    padding:34px 30px;color:#fff;position:relative;overflow:hidden;
+  }
+  .newsletter-box::after{
+    content:'';position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;
+    border-radius:50%;background:rgba(255,255,255,.06);
+  }
+  .newsletter-box .eyebrow{color:#B9E4D3;}
+  .newsletter-box h3{color:#fff;font-size:22px;margin:10px 0 20px;line-height:1.25;}
+  .nl-form{display:flex;gap:8px;position:relative;z-index:1;}
+  .nl-form input{
+    flex:1;border:none;border-radius:10px;padding:12px 14px;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;
+  }
+  .nl-form button{
+    background:#fff;color:var(--green-dark);border:none;border-radius:10px;padding:0 18px;font-weight:700;font-size:13.5px;cursor:pointer;
+  }
+  .newsletter-box .fine{font-size:11.5px;color:#BFE1D2;margin-top:12px;position:relative;z-index:1;}
+
+  .research-box{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 26px 10px;
+  }
+  .research-box h3{font-size:19px;margin-bottom:16px;}
+  .research-item{
+    display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);
+  }
+  .research-item:first-of-type{border-top:none;}
+  .r-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:7px;flex-shrink:0;
+  }
+  .research-item h5{font-size:14px;font-weight:600;color:var(--navy);margin:0 0 4px;line-height:1.3;}
+  .research-item span{font-size:12px;color:var(--muted);}
+
+  .pick-box{
+    background:var(--amber-tint);border:1px solid #EFDDBD;border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;
+  }
+  .pick-box .eyebrow{color:var(--amber);}
+  .pick-media{
+    aspect-ratio:1/0.85;border-radius:14px;background:linear-gradient(155deg,#2b2b2b,#3f3f3f);
+    display:flex;align-items:center;justify-content:center;margin:14px 0 16px;
+  }
+  .pick-box h4{font-size:16px;margin-bottom:6px;}
+  .pick-box p{font-size:12.5px;color:var(--muted);margin:0 0 14px;flex-grow:1;}
+  .pick-box a.view{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:5px;}
+
+  /* ===== TRUSTED BAR ===== */
+  .trusted{padding:52px 0;text-align:center;border-top:1px solid var(--border);}
+  .trusted p{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9CA3AF;font-weight:600;margin-bottom:26px;}
+  .trusted-logos{display:flex;justify-content:center;align-items:center;gap:52px;flex-wrap:wrap;opacity:.5;}
+  .trusted-logos span{font-family:'Fraunces',serif;font-size:19px;color:var(--navy);font-weight:600;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy);color:#C9D2D8;padding:60px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:34px;margin-bottom:44px;}
+  .foot-brand .logo-text{color:#fff;}
+  .foot-brand p{font-size:13.5px;color:#95A4AD;margin:16px 0 20px;max-width:270px;}
+  .foot-social{display:flex;gap:10px;}
+  .foot-social a{
+    width:34px;height:34px;border-radius:50%;border:1px solid #3B4B57;
+    display:flex;align-items:center;justify-content:center;color:#C9D2D8;
+  }
+  footer h5{color:#fff;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:16px;letter-spacing:.02em;}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+  footer ul a{font-size:13.5px;color:#95A4AD;}
+  footer ul a:hover{color:#fff;}
+  .foot-bottom{
+    border-top:1px solid #33424D;padding-top:22px;
+    display:flex;justify-content:space-between;font-size:12.5px;color:#7C8B94;flex-wrap:wrap;gap:10px;
+  }
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;aspect-ratio:16/9;}
+    .goals-grid{grid-template-columns:repeat(3,1fr);}
+    .ing-grid{grid-template-columns:repeat(3,1fr);}
+    .articles-row{grid-template-columns:1fr;}
+    .trio{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{display:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:34px;}
+    .condition-grid{grid-template-columns:1fr;}
+    .toc{position:static;}
+  }
+
+  /* ===== CONDITION / NICHE PAGE ===== */
+  .breadcrumb{
+    padding:18px 0;font-size:13px;color:var(--muted);
+  }
+  .breadcrumb a{color:var(--muted);}
+  .breadcrumb a:hover{color:var(--green);}
+  .breadcrumb span.sep{margin:0 6px;color:#C7CDD2;}
+  .breadcrumb span.current{color:var(--navy);font-weight:600;}
+
+  .cond-hero{
+    padding:8px 0 48px;border-bottom:1px solid var(--border);
+  }
+  .cond-eyebrow-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .cond-hero h1{font-size:40px;line-height:1.12;max-width:720px;margin-bottom:16px;}
+  .cond-hero .lead{font-size:17px;color:var(--muted);max-width:660px;}
+  .cond-meta-row{display:flex;gap:22px;margin-top:22px;flex-wrap:wrap;}
+  .cond-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+  .cond-meta-item strong{color:var(--navy);font-weight:600;}
+
+  .quick-answer{
+    background:var(--green-tint);border:1px solid #D6E9E2;border-radius:var(--radius-md);
+    padding:20px 24px;margin:28px 0 0;
+  }
+  .quick-answer p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.6;}
+  .quick-answer strong{color:var(--green-dark);}
+
+  .condition-grid{
+    display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;
+  }
+  .cond-main h2{font-size:24px;margin:44px 0 16px;}
+  .cond-main h2:first-child{margin-top:0;}
+  .cond-main p{font-size:15.5px;color:#3A3A3A;margin:0 0 16px;}
+  .cond-main ul{margin:0 0 16px;padding-left:20px;}
+  .cond-main li{font-size:15px;color:#3A3A3A;margin-bottom:8px;}
+
+  .toc{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:18px 20px;margin:24px 0 36px;
+  }
+  .toc h5{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px;font-weight:700;}
+  .toc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .toc a{font-size:14px;color:var(--navy);font-weight:500;}
+  .toc a:hover{color:var(--green);}
+
+  .evidence-table{
+    width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;
+    border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  }
+  .evidence-table th{
+    background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);
+    border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;
+  }
+  .evidence-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .evidence-table tr:last-child td{border-bottom:none;}
+  .ev-badge{
+    display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;
+  }
+  .ev-strong{background:var(--green-tint);color:var(--green-dark);}
+  .ev-moderate{background:var(--blue-tint);color:#2A6FBE;}
+  .ev-limited{background:var(--amber-tint);color:#9C6A26;}
+
+  .stars{color:#E0A93E;font-size:14px;letter-spacing:1px;}
+
+  .sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;}
+  .side-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;
+  }
+  .side-card h5{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:14px;font-weight:700;}
+  .rec-product{
+    background:#fff;border-radius:12px;padding:18px;text-align:center;border:1px solid var(--border);
+  }
+  .rec-media{background:#F7F8FA !important;padding:10px;
+    aspect-ratio:1/0.85;border-radius:10px;background:linear-gradient(155deg,#1a3a68,#2e5a94);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+  .rec-product h4{font-size:15.5px;margin-bottom:4px;}
+  .rec-product .rec-tag{font-size:11.5px;color:var(--muted);margin-bottom:10px;display:block;}
+  .rec-product p{font-size:12.5px;color:var(--muted);margin:0 0 14px;line-height:1.5;}
+
+  .disclaimer-box{
+    background:#FBFBFB;border:1px dashed var(--border);border-radius:10px;padding:14px 16px;
+    font-size:12px;color:#8A8F94;line-height:1.5;
+  }
+
+  .mfg-badges{display:flex;flex-direction:column;gap:8px;}
+  .mfg-badge{
+    display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+    padding:8px 12px;border-radius:8px;
+  }
+  .mfg-badge.on{background:var(--green-tint);color:var(--green-dark);}
+
+  .faq-item{border-top:1px solid var(--border);padding:18px 0;}
+  .faq-item:first-of-type{border-top:none;}
+  .faq-item h4{font-size:15.5px;margin-bottom:8px;color:var(--navy);}
+  .faq-item p{font-size:14.5px;color:var(--muted);margin:0;}
+
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px;}
+
+  .rating-row{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--navy);}
+  .rating-row .stars{color:#E0A93E;font-size:15px;letter-spacing:1px;}
+  .rating-row .rnum{font-weight:700;}
+  .rating-row .rcount{color:var(--muted);font-weight:500;}
+
+
+  .dosage-table{width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .dosage-table th{background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;}
+  .dosage-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .dosage-table tr:last-child td{border-bottom:none;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0 30px;}
+  .who-box{border-radius:12px;padding:18px 20px;}
+  .who-use{background:var(--green-tint);border:1px solid #D6E9E2;}
+  .who-avoid{background:#FDF2F0;border:1px solid #F3D9D4;}
+  .who-box h4{font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .who-box ul{margin:0;padding-left:18px;}
+  .who-box li{font-size:13.5px;margin-bottom:6px;line-height:1.5;color:#3A3A3A;}
+  @media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
+
+
+  .takeaways-box{background:var(--navy);border-radius:14px;padding:24px 26px;margin:32px 0 8px;}
+  .takeaways-box h4{color:#fff;font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .takeaways-box ul{margin:0;padding-left:18px;}
+  .takeaways-box li{color:#D6DEE3;font-size:14px;line-height:1.6;margin-bottom:8px;}
+  .takeaways-box li:last-child{margin-bottom:0;}
+
+
+  .lede-hook{font-size:18px;font-style:italic;color:var(--navy);line-height:1.5;margin:0 0 28px;padding-left:16px;border-left:3px solid var(--green);}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://supplementinsider.example.com/index-en.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Health Goals",
+      "item": "https://supplementinsider.example.com/index-en.html#goals"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Inflammation",
+      "item": "https://supplementinsider.example.com/inflammation.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Inflammation",
+  "author": {
+    "@type": "Organization",
+    "name": "Supplement Insider Health Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Supplement Insider",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://supplementinsider.example.com/logo.png"
+    }
+  },
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://supplementinsider.example.com/inflammation.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can you test your own inflammation levels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Blood tests like CRP (C-reactive protein) can give a general marker of systemic inflammation, though they don't diagnose a specific cause."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is curcumin better absorbed with black pepper?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Piperine (from black pepper) has been shown to significantly increase curcumin absorption in several studies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can diet alone control chronic inflammation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For many people, diet and lifestyle changes have a larger and more sustainable effect than any single supplement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are anti-inflammatory supplements safe long-term?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most, like curcumin and omega-3s, have good long-term safety data, though very high doses of curcumin can interact with blood thinners."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8V17" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="logo-text">Supplement Insider<span>Evidence-Based Wellness</span></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Learn</a>
+      <a href="#">Ingredients</a>
+      <a href="#">Health Goals</a>
+      <a href="#">Conditions</a>
+      <a href="#">Research</a>
+      <a href="#">Compare</a>
+      <a href="#">Reviews</a>
+      <a href="buyers-guide.html">Buyer's Guide</a>
+    </nav>
+    <div class="nav-right">
+      <div class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <a href="#" class="btn btn-primary btn-sm">Newsletter</a>
+    </div>
+  </div>
+</header>
+<div class="wrap breadcrumb">
+  <a href="index-en.html">Home</a><span class="sep">/</span><a href="index-en.html#goals">Health Goals</a><span class="sep">/</span><span class="current">Inflammation</span>
+</div>
+
+<section class="cond-hero">
+  <div class="wrap">
+    <div class="cond-eyebrow-row">
+      <span class="eyebrow">Health Goal</span>
+      <div class="rating-row"><span class="stars">★★★★⯪</span><span class="rnum">4.6</span><span class="rcount">(11,700+ reviews)</span></div>
+    </div>
+    <h1>Inflammation</h1>
+    <p class="lead">Chronic low-grade inflammation is linked to a wide range of health issues. Here's what the research says about the most common anti-inflammatory ingredients.</p>
+    <div class="cond-meta-row">
+      <div class="cond-meta-item">Medical Editor: <strong>Health Editorial Team</strong></div>
+      <div class="cond-meta-item">Updated <strong>May 2026</strong></div>
+      <div class="cond-meta-item">8 min read</div>
+    </div>
+    <div class="quick-answer">
+      <p><strong>Quick answer:</strong> Curcumin and omega-3 fatty acids have the strongest and most consistent clinical evidence for reducing markers of inflammation. Boswellia and ginger have moderate supporting data. Ingredients like resveratrol and bromelain are popular but have weaker human trial evidence.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0;">
+  <div class="wrap condition-grid">
+
+    <div class="cond-main">
+
+      <div class="toc">
+        <h5>On This Page</h5>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#causes">What Drives Chronic Inflammation</a></li>
+          <li><a href="#symptoms">Common Symptoms</a></li>
+          <li><a href="#lifestyle">Lifestyle &amp; Nutrition</a></li>
+          <li><a href="#supplements">Supplements With Evidence</a></li>
+          <li><a href="#dosage">Dosage &amp; Side Effects</a></li>
+          <li><a href="#who">Who Should Use This</a></li>
+          <li><a href="#doctor">When to See a Doctor</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <p class="lede-hook">Inflammation isn't the enemy — chronic, low-grade inflammation that never turns off is. Knowing the difference changes what's worth taking.</p>
+
+      <h2 id="overview">Overview</h2>
+      <p>Inflammation is a normal, necessary immune response — but when it becomes chronic and low-grade, it's been linked in research to a wide range of conditions, from joint pain to cardiovascular and metabolic issues. Several dietary compounds have been studied specifically for their effect on inflammatory markers.</p>
+
+      <h2 id="causes">What Drives Chronic Inflammation</h2>
+      <ul>
+        <li><strong>Diet high in ultra-processed food</strong> — diets high in refined sugar and processed fats are consistently linked to higher inflammatory markers.</li>
+        <li><strong>Excess body fat</strong> — fat tissue, particularly around the abdomen, actively produces inflammatory signaling molecules.</li>
+        <li><strong>Chronic stress</strong> — prolonged stress hormone elevation is associated with increased systemic inflammation.</li>
+        <li><strong>Poor sleep</strong> — insufficient sleep is linked to elevated inflammatory markers in multiple studies.</li>
+        <li><strong>Sedentary lifestyle</strong> — regular physical activity is one of the most consistent inflammation-lowering interventions.</li>
+      </ul>
+
+      <h2 id="symptoms">Common Symptoms</h2>
+      <ul>
+        <li>Persistent joint or muscle aches</li>
+        <li>Fatigue that doesn't improve with rest</li>
+        <li>Digestive discomfort</li>
+        <li>Skin issues like redness or breakouts</li>
+        <li>General feeling of being run down</li>
+      </ul>
+
+      <h2 id="lifestyle">Lifestyle &amp; Nutrition</h2>
+      <p>An anti-inflammatory dietary pattern — rich in vegetables, fatty fish, olive oil, and fiber, and lower in refined sugar and processed food — has some of the strongest evidence for reducing chronic inflammation. Regular exercise, adequate sleep, and stress management all measurably lower inflammatory markers as well.</p>
+
+      <h2 id="supplements">Supplements With Evidence</h2>
+      <p>Here's how commonly used anti-inflammatory ingredients compare on the evidence.</p>
+
+      <table class="evidence-table">
+        <tr><th>Ingredient</th><th>Proposed Role</th><th>Evidence</th></tr>
+        <tr><td>Curcumin (Turmeric)</td><td>Well-studied compound shown to reduce multiple inflammatory markers in clinical trials</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Omega-3 Fatty Acids</td><td>EPA and DHA are precursors to anti-inflammatory signaling molecules in the body</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Boswellia Serrata</td><td>Plant resin extract studied for inflammatory joint conditions specifically</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Ginger Extract</td><td>Compounds studied for reducing inflammatory markers and muscle soreness</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Quercetin</td><td>Plant flavonoid with antioxidant and anti-inflammatory properties in early human trials</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>Resveratrol</td><td>Popularized by red wine research; human trial results have been inconsistent</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>Bromelain</td><td>Pineapple-derived enzyme studied for inflammation and swelling with limited robust data</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+      </table>
+
+
+      <h2 id="dosage">Dosage &amp; Side Effects</h2>
+      <p>Typical doses reflect amounts commonly used in clinical research — always follow the label on the specific product you're using, and check with a doctor if you're on medication.</p>
+      <table class="dosage-table">
+        <tr><th>Ingredient</th><th>Typical Studied Dose</th><th>Common Side Effects</th></tr>
+        <tr><td>Curcumin</td><td>500–1,000 mg daily with piperine</td><td>Mild GI upset; interacts with blood thinners at high doses</td></tr>
+        <tr><td>Omega-3 Fish Oil</td><td>1,000–3,000 mg daily</td><td>Fishy aftertaste; blood-thinning effect at higher doses</td></tr>
+        <tr><td>Boswellia Serrata</td><td>300–500 mg extract, 2–3x daily</td><td>Mild GI upset in some users</td></tr>
+        <tr><td>Ginger Extract</td><td>250–500 mg, 2x daily</td><td>Mild heartburn in some users</td></tr>
+      </table>
+
+      <h2 id="who">Who Should Use This — and Who Shouldn't</h2>
+      <div class="who-grid">
+        <div class="who-box who-use">
+          <h4>✅ Generally a good fit for</h4>
+          <ul>
+            <li>Adults managing occasional joint or muscle inflammation</li>
+            <li>Those following an anti-inflammatory diet looking for additional support</li>
+            <li>People without a bleeding disorder or blood-thinner prescription</li>
+          </ul>
+        </div>
+        <div class="who-box who-avoid">
+          <h4>⚠️ Best to avoid or check with a doctor first</h4>
+          <ul>
+            <li>Anyone on blood-thinning medication without medical guidance</li>
+            <li>Those with gallbladder issues (curcumin can stimulate bile production)</li>
+            <li>Pregnant or nursing individuals without medical advice</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="doctor">When to See a Doctor</h2>
+      <p>See a doctor for inflammation accompanied by unexplained weight loss, persistent fever, or symptoms lasting more than a few weeks — these may indicate an underlying condition, such as an autoimmune disorder, that requires medical evaluation and treatment beyond diet or supplements.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>Can you test your own inflammation levels?</h4>
+        <p>Blood tests like CRP (C-reactive protein) can give a general marker of systemic inflammation, though they don't diagnose a specific cause.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is curcumin better absorbed with black pepper?</h4>
+        <p>Piperine (from black pepper) has been shown to significantly increase curcumin absorption in several studies.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can diet alone control chronic inflammation?</h4>
+        <p>For many people, diet and lifestyle changes have a larger and more sustainable effect than any single supplement.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are anti-inflammatory supplements safe long-term?</h4>
+        <p>Most, like curcumin and omega-3s, have good long-term safety data, though very high doses of curcumin can interact with blood thinners.</p>
+      </div>
+
+      <div class="takeaways-box">
+        <h4>🔑 Key Takeaways</h4>
+        <ul>
+          <li>Curcumin and omega-3s are two of the best-evidenced anti-inflammatory ingredients available.</li>
+          <li>An anti-inflammatory diet pattern often matters more than any single supplement.</li>
+          <li>Chronic inflammation lasting weeks with no clear cause deserves medical evaluation.</li>
+          <li>Piperine (black pepper extract) meaningfully boosts curcumin absorption.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <aside class="sidebar">
+      <div class="side-card">
+        <h5>Recommended Formula</h5>
+        <div class="rec-product">
+          <div class="rec-media" style="background:linear-gradient(155deg,#1a3a68,#2e5a94);"><img src="data:image/jpeg;base64,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" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h4>Flama Shield</h4>
+          <span class="rec-tag">Anti-Inflammatory Formula · 30 Capsules</span>
+          <p>Formulated with curcumin, omega-3s, boswellia, and ginger extract for inflammatory support.</p>
+          <a href="/products/flama-shield" class="btn btn-primary btn-sm" style="width:100%;">View Product</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h5>Related Ingredients</h5>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="curcumin.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Curcumin →</a></li>
+          <li><a href="omega-3-fatty-acids.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Omega-3 Fatty Acids →</a></li>
+          <li><a href="boswellia.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Boswellia Serrata →</a></li>
+          <li><a href="ginger-extract.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Ginger Extract →</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h5>Manufacturing Standards</h5>
+        <div class="mfg-badges">
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Third-party lab tested</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Made in an FDA-registered facility</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>GMP certified</span>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Related Articles</h2>
+      <a href="#" class="view-all">View all articles →</a>
+    </div>
+    <div class="related-grid">
+
+      <a href="joints.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,#EAF4FF,#D5E9FF);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#4DA3FF" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#4DA3FF"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Joint Health: Complete Guide</h3>
+          <p>Which joint-support ingredients actually reduce pain and stiffness.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="gut-health.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--green-tint),#DCEDE6);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#1E5D4E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#1E5D4E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Gut Health: Complete Guide</h3>
+          <p>What actually supports a healthy gut microbiome.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="heart-blood-pressure.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--amber-tint),#F3E3C4);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#C98A3E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#C98A3E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Heart & Blood Pressure: Complete Guide</h3>
+          <p>Some of the longest-studied nutrients available.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="logo-text">Supplement Insider</div>
+        </div>
+        <p>We simplify supplement science so you can make informed decisions for a healthier life.</p>
+        <div class="foot-social">
+          <a href="#">f</a><a href="#">in</a><a href="#">yt</a>
+        </div>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="#">Ingredients</a></li><li><a href="#">Health Goals</a></li><li><a href="#">Conditions</a></li><li><a href="#">Research</a></li><li><a href="#">Compare</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Our Team</a></li><li><a href="editorial-policy.html">Editorial Policy</a></li><li><a href="#">Medical Review</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="#">Newsletter</a></li><li><a href="#">Blog</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Calculators</a></li><li><a href="buyers-guide.html">Buyer's Guide</a></li><li><a href="#">FAQs</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li><li><a href="medical-disclaimer.html">Medical Disclaimer</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Supplement Insider. All rights reserved.</span>
+      <span>Built with a focus on transparency and science.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

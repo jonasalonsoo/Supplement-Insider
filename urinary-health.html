@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urinary Health — Supplement Insider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1E5D4E;
+    --green-dark:#154238;
+    --green-tint:#E9F1EE;
+    --navy:#22313F;
+    --blue:#4DA3FF;
+    --blue-tint:#EAF4FF;
+    --amber:#C98A3E;
+    --amber-tint:#FBF1E4;
+    --bg:#FFFFFF;
+    --card:#F7F8FA;
+    --text:#232323;
+    --muted:#6B7280;
+    --border:#E7E9EC;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--navy);
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14.5px;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:all .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--green);color:#fff;}
+  .btn-primary:hover{background:var(--green-dark);}
+  .btn-outline{background:transparent;border-color:var(--navy);color:var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-sm{padding:9px 18px;font-size:13.5px;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(155deg,var(--green) 0%, #2f7d67 100%);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-text{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--navy);line-height:1.1;}
+  .logo-text span{display:block;font-size:11px;font-weight:500;color:var(--green);letter-spacing:.06em;text-transform:uppercase;font-family:'Inter',sans-serif;}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--navy);opacity:.82;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .icon-btn{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--border);
+    cursor:pointer;
+    color:var(--navy);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(180deg,#FBFCFB 0%, #ffffff 100%);
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  .hero h1{
+    font-size:47px;line-height:1.09;
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--green);
+  }
+  .hero p.lead{
+    font-size:17.5px;color:var(--muted);max-width:490px;margin-bottom:30px;
+  }
+  .search-bar{
+    display:flex;align-items:center;gap:0;
+    background:#fff;border:1.5px solid var(--border);
+    border-radius:14px;
+    padding:6px 6px 6px 20px;
+    box-shadow:0 2px 10px rgba(30,93,78,0.05);
+    margin-bottom:14px;
+    max-width:520px;
+  }
+  .search-bar input{
+    border:none;outline:none;flex:1;font-size:15px;font-family:'Inter',sans-serif;padding:10px 0;color:var(--text);
+  }
+  .search-bar input::placeholder{color:#9CA3AF;}
+  .search-bar button{
+    background:var(--green);border:none;color:#fff;
+    width:40px;height:40px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+  }
+  .search-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+  .search-tags span{
+    font-size:12.5px;color:var(--muted);padding:5px 12px;
+    border:1px solid var(--border);border-radius:999px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+  .hero-visual{
+    position:relative;aspect-ratio:1/0.92;
+    border-radius:28px;
+    background:radial-gradient(circle at 30% 20%, #F3FBF7 0%, var(--green-tint) 55%, #E1EFE9 100%);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(30,93,78,.09) 1.5px, transparent 1.5px);
+    background-size:22px 22px;
+    opacity:.5;
+  }
+  .float-card{
+    position:absolute;background:#fff;border-radius:16px;
+    box-shadow:0 12px 30px rgba(20,50,42,.14);
+    padding:14px 16px;display:flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:600;color:var(--navy);
+  }
+  .fc1{top:14%;left:8%;}
+  .fc2{bottom:16%;right:6%;}
+  .fc-dot{width:9px;height:9px;border-radius:50%;background:var(--green);}
+
+  /* ===== TRUST BAR ===== */
+  .trust{padding:42px 0;border-bottom:1px solid var(--border);}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  .trust-item{display:flex;gap:14px;align-items:flex-start;}
+  .trust-icon{
+    width:42px;height:42px;border-radius:11px;background:var(--green-tint);
+    display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;
+  }
+  .trust-item h4{font-size:14.5px;margin-bottom:3px;}
+  .trust-item p{font-size:13px;color:var(--muted);margin:0;}
+
+  /* ===== SECTION HEADINGS ===== */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;
+  }
+  .section-head h2{font-size:29px;}
+  .section-head .view-all{font-size:13.5px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:5px;}
+
+  /* ===== GOALS ===== */
+  .goals-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  }
+  .goal-card{
+    display:block;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:22px 14px;
+    text-align:center;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+    cursor:pointer;
+  }
+  .goal-card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:0 10px 24px rgba(30,93,78,.08);}
+  .goal-icon{
+    width:44px;height:44px;margin:0 auto 12px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .goal-card p{font-size:13px;font-weight:600;color:var(--navy);margin:0;}
+
+  /* ===== ARTICLES ===== */
+  .articles-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .art-card{
+    display:block;
+    border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
+    background:#fff;transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .art-card:hover{box-shadow:0 16px 32px rgba(20,40,35,.08);transform:translateY(-2px);}
+  .art-media{
+    aspect-ratio:16/10;position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .art-tag{
+    position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);
+    font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;color:var(--navy);
+  }
+  .art-body{padding:20px 22px 22px;}
+  .art-body h3{font-size:17.5px;line-height:1.3;margin-bottom:9px;}
+  .art-body p{font-size:14px;color:var(--muted);margin:0 0 14px;}
+  .art-meta{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#9CA3AF;}
+  .evidence{
+    display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;color:var(--green);
+    background:var(--green-tint);padding:3px 9px;border-radius:999px;
+  }
+
+  /* ===== INGREDIENTS ===== */
+  .ing-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;}
+  .ing-card{text-align:center;cursor:pointer;}
+  .ing-media{
+    aspect-ratio:1/1;border-radius:18px;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .18s ease;
+  }
+  .ing-card:hover .ing-media{transform:translateY(-3px);}
+  .ing-card h4{font-size:14px;color:var(--navy);margin-bottom:2px;}
+  .ing-card span{font-size:12px;color:var(--muted);}
+
+  /* ===== THREE COLUMN: NEWSLETTER / RESEARCH / PICK ===== */
+  .trio{display:grid;grid-template-columns:1.15fr 1.15fr 0.9fr;gap:22px;}
+  .newsletter-box{
+    background:linear-gradient(155deg,var(--green) 0%, #154439 100%);
+    border-radius:var(--radius-lg);
+    padding:34px 30px;color:#fff;position:relative;overflow:hidden;
+  }
+  .newsletter-box::after{
+    content:'';position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;
+    border-radius:50%;background:rgba(255,255,255,.06);
+  }
+  .newsletter-box .eyebrow{color:#B9E4D3;}
+  .newsletter-box h3{color:#fff;font-size:22px;margin:10px 0 20px;line-height:1.25;}
+  .nl-form{display:flex;gap:8px;position:relative;z-index:1;}
+  .nl-form input{
+    flex:1;border:none;border-radius:10px;padding:12px 14px;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;
+  }
+  .nl-form button{
+    background:#fff;color:var(--green-dark);border:none;border-radius:10px;padding:0 18px;font-weight:700;font-size:13.5px;cursor:pointer;
+  }
+  .newsletter-box .fine{font-size:11.5px;color:#BFE1D2;margin-top:12px;position:relative;z-index:1;}
+
+  .research-box{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 26px 10px;
+  }
+  .research-box h3{font-size:19px;margin-bottom:16px;}
+  .research-item{
+    display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);
+  }
+  .research-item:first-of-type{border-top:none;}
+  .r-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:7px;flex-shrink:0;
+  }
+  .research-item h5{font-size:14px;font-weight:600;color:var(--navy);margin:0 0 4px;line-height:1.3;}
+  .research-item span{font-size:12px;color:var(--muted);}
+
+  .pick-box{
+    background:var(--amber-tint);border:1px solid #EFDDBD;border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;
+  }
+  .pick-box .eyebrow{color:var(--amber);}
+  .pick-media{
+    aspect-ratio:1/0.85;border-radius:14px;background:linear-gradient(155deg,#2b2b2b,#3f3f3f);
+    display:flex;align-items:center;justify-content:center;margin:14px 0 16px;
+  }
+  .pick-box h4{font-size:16px;margin-bottom:6px;}
+  .pick-box p{font-size:12.5px;color:var(--muted);margin:0 0 14px;flex-grow:1;}
+  .pick-box a.view{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:5px;}
+
+  /* ===== TRUSTED BAR ===== */
+  .trusted{padding:52px 0;text-align:center;border-top:1px solid var(--border);}
+  .trusted p{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9CA3AF;font-weight:600;margin-bottom:26px;}
+  .trusted-logos{display:flex;justify-content:center;align-items:center;gap:52px;flex-wrap:wrap;opacity:.5;}
+  .trusted-logos span{font-family:'Fraunces',serif;font-size:19px;color:var(--navy);font-weight:600;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy);color:#C9D2D8;padding:60px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:34px;margin-bottom:44px;}
+  .foot-brand .logo-text{color:#fff;}
+  .foot-brand p{font-size:13.5px;color:#95A4AD;margin:16px 0 20px;max-width:270px;}
+  .foot-social{display:flex;gap:10px;}
+  .foot-social a{
+    width:34px;height:34px;border-radius:50%;border:1px solid #3B4B57;
+    display:flex;align-items:center;justify-content:center;color:#C9D2D8;
+  }
+  footer h5{color:#fff;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:16px;letter-spacing:.02em;}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+  footer ul a{font-size:13.5px;color:#95A4AD;}
+  footer ul a:hover{color:#fff;}
+  .foot-bottom{
+    border-top:1px solid #33424D;padding-top:22px;
+    display:flex;justify-content:space-between;font-size:12.5px;color:#7C8B94;flex-wrap:wrap;gap:10px;
+  }
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;aspect-ratio:16/9;}
+    .goals-grid{grid-template-columns:repeat(3,1fr);}
+    .ing-grid{grid-template-columns:repeat(3,1fr);}
+    .articles-row{grid-template-columns:1fr;}
+    .trio{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{display:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:34px;}
+    .condition-grid{grid-template-columns:1fr;}
+    .toc{position:static;}
+  }
+
+  /* ===== CONDITION / NICHE PAGE ===== */
+  .breadcrumb{
+    padding:18px 0;font-size:13px;color:var(--muted);
+  }
+  .breadcrumb a{color:var(--muted);}
+  .breadcrumb a:hover{color:var(--green);}
+  .breadcrumb span.sep{margin:0 6px;color:#C7CDD2;}
+  .breadcrumb span.current{color:var(--navy);font-weight:600;}
+
+  .cond-hero{
+    padding:8px 0 48px;border-bottom:1px solid var(--border);
+  }
+  .cond-eyebrow-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .cond-hero h1{font-size:40px;line-height:1.12;max-width:720px;margin-bottom:16px;}
+  .cond-hero .lead{font-size:17px;color:var(--muted);max-width:660px;}
+  .cond-meta-row{display:flex;gap:22px;margin-top:22px;flex-wrap:wrap;}
+  .cond-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+  .cond-meta-item strong{color:var(--navy);font-weight:600;}
+
+  .quick-answer{
+    background:var(--green-tint);border:1px solid #D6E9E2;border-radius:var(--radius-md);
+    padding:20px 24px;margin:28px 0 0;
+  }
+  .quick-answer p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.6;}
+  .quick-answer strong{color:var(--green-dark);}
+
+  .condition-grid{
+    display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;
+  }
+  .cond-main h2{font-size:24px;margin:44px 0 16px;}
+  .cond-main h2:first-child{margin-top:0;}
+  .cond-main p{font-size:15.5px;color:#3A3A3A;margin:0 0 16px;}
+  .cond-main ul{margin:0 0 16px;padding-left:20px;}
+  .cond-main li{font-size:15px;color:#3A3A3A;margin-bottom:8px;}
+
+  .toc{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:18px 20px;margin:24px 0 36px;
+  }
+  .toc h5{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px;font-weight:700;}
+  .toc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .toc a{font-size:14px;color:var(--navy);font-weight:500;}
+  .toc a:hover{color:var(--green);}
+
+  .evidence-table{
+    width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;
+    border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  }
+  .evidence-table th{
+    background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);
+    border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;
+  }
+  .evidence-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .evidence-table tr:last-child td{border-bottom:none;}
+  .ev-badge{
+    display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;
+  }
+  .ev-strong{background:var(--green-tint);color:var(--green-dark);}
+  .ev-moderate{background:var(--blue-tint);color:#2A6FBE;}
+  .ev-limited{background:var(--amber-tint);color:#9C6A26;}
+
+  .stars{color:#E0A93E;font-size:14px;letter-spacing:1px;}
+
+  .sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;}
+  .side-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;
+  }
+  .side-card h5{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:14px;font-weight:700;}
+  .rec-product{
+    background:#fff;border-radius:12px;padding:18px;text-align:center;border:1px solid var(--border);
+  }
+  .rec-media{background:#F7F8FA !important;padding:10px;
+    aspect-ratio:1/0.85;border-radius:10px;background:linear-gradient(155deg,#1a3a68,#2e5a94);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+  .rec-product h4{font-size:15.5px;margin-bottom:4px;}
+  .rec-product .rec-tag{font-size:11.5px;color:var(--muted);margin-bottom:10px;display:block;}
+  .rec-product p{font-size:12.5px;color:var(--muted);margin:0 0 14px;line-height:1.5;}
+
+  .disclaimer-box{
+    background:#FBFBFB;border:1px dashed var(--border);border-radius:10px;padding:14px 16px;
+    font-size:12px;color:#8A8F94;line-height:1.5;
+  }
+
+  .mfg-badges{display:flex;flex-direction:column;gap:8px;}
+  .mfg-badge{
+    display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+    padding:8px 12px;border-radius:8px;
+  }
+  .mfg-badge.on{background:var(--green-tint);color:var(--green-dark);}
+
+  .faq-item{border-top:1px solid var(--border);padding:18px 0;}
+  .faq-item:first-of-type{border-top:none;}
+  .faq-item h4{font-size:15.5px;margin-bottom:8px;color:var(--navy);}
+  .faq-item p{font-size:14.5px;color:var(--muted);margin:0;}
+
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px;}
+
+  .rating-row{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--navy);}
+  .rating-row .stars{color:#E0A93E;font-size:15px;letter-spacing:1px;}
+  .rating-row .rnum{font-weight:700;}
+  .rating-row .rcount{color:var(--muted);font-weight:500;}
+
+
+  .dosage-table{width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .dosage-table th{background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;}
+  .dosage-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .dosage-table tr:last-child td{border-bottom:none;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0 30px;}
+  .who-box{border-radius:12px;padding:18px 20px;}
+  .who-use{background:var(--green-tint);border:1px solid #D6E9E2;}
+  .who-avoid{background:#FDF2F0;border:1px solid #F3D9D4;}
+  .who-box h4{font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .who-box ul{margin:0;padding-left:18px;}
+  .who-box li{font-size:13.5px;margin-bottom:6px;line-height:1.5;color:#3A3A3A;}
+  @media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
+
+
+  .takeaways-box{background:var(--navy);border-radius:14px;padding:24px 26px;margin:32px 0 8px;}
+  .takeaways-box h4{color:#fff;font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .takeaways-box ul{margin:0;padding-left:18px;}
+  .takeaways-box li{color:#D6DEE3;font-size:14px;line-height:1.6;margin-bottom:8px;}
+  .takeaways-box li:last-child{margin-bottom:0;}
+
+
+  .lede-hook{font-size:18px;font-style:italic;color:var(--navy);line-height:1.5;margin:0 0 28px;padding-left:16px;border-left:3px solid var(--green);}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://supplementinsider.example.com/index-en.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Health Goals",
+      "item": "https://supplementinsider.example.com/index-en.html#goals"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Urinary Health",
+      "item": "https://supplementinsider.example.com/urinary-health.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Urinary Health",
+  "author": {
+    "@type": "Organization",
+    "name": "Supplement Insider Health Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Supplement Insider",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://supplementinsider.example.com/logo.png"
+    }
+  },
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://supplementinsider.example.com/urinary-health.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can cranberry supplements treat an active UTI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 cranberry and D-mannose are studied for prevention, not for treating an existing infection, which typically needs antibiotics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is saw palmetto only for men?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Its research is focused on prostate-related urinary symptoms, so it's primarily studied and used in men."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much water should I drink for bladder health?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "General guidance is roughly 6-8 cups daily, adjusted for activity level and climate, though individual needs vary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do pelvic floor exercises really help?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Kegel exercises have strong evidence for improving mild urinary incontinence, particularly in women."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8V17" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="logo-text">Supplement Insider<span>Evidence-Based Wellness</span></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Learn</a>
+      <a href="#">Ingredients</a>
+      <a href="#">Health Goals</a>
+      <a href="#">Conditions</a>
+      <a href="#">Research</a>
+      <a href="#">Compare</a>
+      <a href="#">Reviews</a>
+      <a href="buyers-guide.html">Buyer's Guide</a>
+    </nav>
+    <div class="nav-right">
+      <div class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <a href="#" class="btn btn-primary btn-sm">Newsletter</a>
+    </div>
+  </div>
+</header>
+<div class="wrap breadcrumb">
+  <a href="index-en.html">Home</a><span class="sep">/</span><a href="index-en.html#goals">Health Goals</a><span class="sep">/</span><span class="current">Urinary Health</span>
+</div>
+
+<section class="cond-hero">
+  <div class="wrap">
+    <div class="cond-eyebrow-row">
+      <span class="eyebrow">Health Goal</span>
+      <div class="rating-row"><span class="stars">★★★★⯪</span><span class="rnum">4.5</span><span class="rcount">(12,100+ reviews)</span></div>
+    </div>
+    <h1>Urinary Health</h1>
+    <p class="lead">From UTI prevention to bladder control, urinary health supplements cover a wide range of concerns with very different levels of evidence.</p>
+    <div class="cond-meta-row">
+      <div class="cond-meta-item">Medical Editor: <strong>Health Editorial Team</strong></div>
+      <div class="cond-meta-item">Updated <strong>May 2026</strong></div>
+      <div class="cond-meta-item">8 min read</div>
+    </div>
+    <div class="quick-answer">
+      <p><strong>Quick answer:</strong> Cranberry extract and D-mannose have reasonable evidence for reducing recurrent UTI frequency, though neither treats an active infection. Pumpkin seed extract and saw palmetto have moderate evidence for bladder and prostate-related symptoms, respectively.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0;">
+  <div class="wrap condition-grid">
+
+    <div class="cond-main">
+
+      <div class="toc">
+        <h5>On This Page</h5>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#causes">What Affects Urinary Health</a></li>
+          <li><a href="#symptoms">Common Symptoms</a></li>
+          <li><a href="#lifestyle">Lifestyle &amp; Nutrition</a></li>
+          <li><a href="#supplements">Supplements With Evidence</a></li>
+          <li><a href="#dosage">Dosage &amp; Side Effects</a></li>
+          <li><a href="#who">Who Should Use This</a></li>
+          <li><a href="#doctor">When to See a Doctor</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <p class="lede-hook">Most urinary discomfort gets treated the same way for everyone — even though the cause is rarely the same from person to person.</p>
+
+      <h2 id="overview">Overview</h2>
+      <p>Urinary health concerns range from recurrent urinary tract infections to overactive bladder and, in men, prostate-related urinary symptoms. Several natural ingredients have been studied for these specific concerns, with evidence quality varying by the exact issue being addressed.</p>
+
+      <h2 id="causes">What Affects Urinary Health</h2>
+      <ul>
+        <li><strong>Hydration levels</strong> — insufficient fluid intake is linked to higher UTI risk and bladder irritation.</li>
+        <li><strong>Bacterial exposure</strong> — certain bacteria strains are responsible for the majority of urinary tract infections.</li>
+        <li><strong>Pelvic floor strength</strong> — weaker pelvic floor muscles are linked to urgency and mild incontinence, especially after childbirth or with age.</li>
+        <li><strong>Prostate enlargement</strong> — in men, age-related prostate growth can compress the urethra and affect urine flow.</li>
+        <li><strong>Bladder irritants</strong> — caffeine, alcohol, and acidic foods can worsen urgency and frequency for some people.</li>
+      </ul>
+
+      <h2 id="symptoms">Common Symptoms</h2>
+      <ul>
+        <li>Frequent or urgent need to urinate</li>
+        <li>Burning sensation during urination</li>
+        <li>Difficulty starting or maintaining urine flow (men)</li>
+        <li>Occasional leakage or urgency</li>
+        <li>Cloudy or strong-smelling urine</li>
+      </ul>
+
+      <h2 id="lifestyle">Lifestyle &amp; Nutrition</h2>
+      <p>Adequate hydration, pelvic floor exercises (Kegels), limiting bladder irritants like caffeine and alcohol, and maintaining a healthy weight all have supporting evidence for urinary health, alongside any targeted supplement use.</p>
+
+      <h2 id="supplements">Supplements With Evidence</h2>
+      <p>Here's how commonly used urinary health ingredients compare on the evidence.</p>
+
+      <table class="evidence-table">
+        <tr><th>Ingredient</th><th>Proposed Role</th><th>Evidence</th></tr>
+        <tr><td>D-Mannose</td><td>Sugar compound studied for preventing certain bacteria from adhering to the bladder wall</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Cranberry Extract</td><td>Well-known for UTI prevention; works similarly to D-mannose, evidence is moderate but consistent</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Pumpkin Seed Extract</td><td>Studied for overactive bladder and urinary frequency in both men and women</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Saw Palmetto</td><td>Studied specifically for prostate-related urinary symptoms in men</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Soy Germ Isoflavones</td><td>Studied for bladder health, with a smaller but growing evidence base</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>Magnesium</td><td>Involved in bladder muscle function; direct evidence for urinary symptoms is limited</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>Vitamin D</td><td>Low levels are associated with pelvic floor issues in observational studies</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+      </table>
+
+
+      <h2 id="dosage">Dosage &amp; Side Effects</h2>
+      <p>Typical doses reflect amounts commonly used in clinical research — always follow the label on the specific product you're using, and check with a doctor if you're on medication.</p>
+      <table class="dosage-table">
+        <tr><th>Ingredient</th><th>Typical Studied Dose</th><th>Common Side Effects</th></tr>
+        <tr><td>D-Mannose</td><td>1.5–2 g daily, or at first sign of discomfort</td><td>Generally well tolerated; mild GI upset at high doses</td></tr>
+        <tr><td>Cranberry Extract</td><td>36 mg PAC standardized extract daily</td><td>Mild stomach upset; avoid with warfarin without medical guidance</td></tr>
+        <tr><td>Pumpkin Seed Extract</td><td>500 mg daily</td><td>Generally well tolerated</td></tr>
+        <tr><td>Saw Palmetto</td><td>320 mg daily</td><td>Mild GI upset; occasional headache</td></tr>
+      </table>
+
+      <h2 id="who">Who Should Use This — and Who Shouldn't</h2>
+      <div class="who-grid">
+        <div class="who-box who-use">
+          <h4>✅ Generally a good fit for</h4>
+          <ul>
+            <li>Adults prone to occasional urinary discomfort</li>
+            <li>Men with mild age-related urinary symptoms (saw palmetto)</li>
+            <li>Those looking for a preventive, non-antibiotic approach</li>
+          </ul>
+        </div>
+        <div class="who-box who-avoid">
+          <h4>⚠️ Best to avoid or check with a doctor first</h4>
+          <ul>
+            <li>Anyone with symptoms of an active UTI (needs medical treatment, not just supplements)</li>
+            <li>Those on blood-thinning medication (cranberry at high doses)</li>
+            <li>Pregnant or nursing individuals without medical guidance</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="doctor">When to See a Doctor</h2>
+      <p>See a doctor promptly for symptoms of an active urinary tract infection (burning, urgency, cloudy urine, possible fever) — these require medical evaluation and often antibiotics; supplements are for prevention and general support, not treatment of an active infection.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>Can cranberry supplements treat an active UTI?</h4>
+        <p>No — cranberry and D-mannose are studied for prevention, not for treating an existing infection, which typically needs antibiotics.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is saw palmetto only for men?</h4>
+        <p>Its research is focused on prostate-related urinary symptoms, so it's primarily studied and used in men.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How much water should I drink for bladder health?</h4>
+        <p>General guidance is roughly 6-8 cups daily, adjusted for activity level and climate, though individual needs vary.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do pelvic floor exercises really help?</h4>
+        <p>Yes — Kegel exercises have strong evidence for improving mild urinary incontinence, particularly in women.</p>
+      </div>
+
+      <div class="takeaways-box">
+        <h4>🔑 Key Takeaways</h4>
+        <ul>
+          <li>Cranberry and D-mannose are for prevention, not treating an active infection.</li>
+          <li>Pumpkin seed extract and saw palmetto have real evidence for specific urinary symptoms.</li>
+          <li>Hydration and pelvic floor exercises remain foundational, supplements or not.</li>
+          <li>Active UTI symptoms need medical treatment, not just supplements.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <aside class="sidebar">
+      <div class="side-card">
+        <h5>Recommended Formula</h5>
+        <div class="rec-product">
+          <div class="rec-media" style="background:linear-gradient(155deg,#1a3a68,#2e5a94);"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAH0AfQDASIAAhEBAxEB/8QAHQABAAEFAQEBAAAAAAAAAAAAAAMCBAUGBwEICf/EAFkQAAEDAwEEAwoICAoIBgIDAAEAAgMEBREGBxIhMRNBURQiMjNhcXKBkcEINEJSobGy0RUWI3SCkpOzJENEU1Ric4OU8BcmNWOEoqPCJUVVZNLiKOE2dcP/xAAbAQEBAAMBAQEAAAAAAAAAAAAAAQIEBgUDB//EADIRAQABAwIDBgUCBwEAAAAAAAABAgMRBBIFIVEGEyIxQXEzQmGBsdHwFCMyYpGh4cH/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERWs9fBE4tyXuHzUF0ixb7nJn8nAMdriozX1bj4UbPM3KDMIsI6qmwS6rf1nvWgchn6lRJUHOHVNQeOPCxybvfUgzyZC1zp2EtG9Od5zBxkPyhkK3kqouiMgY84idJ4Z6nYwg2reb84e1N9nzm+1am6WPpzFuO8c2Lwu1ucq2dUt6EP3OcL5OfzTjCDdN9nz2+1N9nz2+1aNNUBr3tAPeuiH6/3KIVBLmt4jefKz9QZQb9vs+e32r0OaeRHtXOX1zmxF+TwgZLjznGFUap/SlnSOH5cxf8ucoOioua/hGTow/pHeLMnM9uFILjKHloqJAQ/c4PPZlB0ZFzyO8VAwRV1AyGnxh6zhTx3ysAyK+YecA9ePrQb4i0huo7i3GKqJ/kfFj6vMVLHq6rYfytPBIO1jiCg3JFrtJq2hkIbPFL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ZH/jNGP96F0pAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBWN7bmgc75rgVfKmaNssT43jLXAgoNW3gq2OGeatK0SUVQ6nm4OHgnqcO0KJtQB1oMxGVKCsVFV461csqmEc1BeLwq36YHrQzBBITlUu5KIzBUOmVFbyoZOa8dMoXyoEit5MYXsko7VBJKO1BRKoHL2SXtUD5vKg8cOKoPNUulCjdKg9PmRRmTivOkQTs58lK3mFatkUglQXbVI1WYlVQn8qC9BXjiMKzNS0cyFbzVzQMAoLmpcFabwLlay1e8eajbPg5J4INo0gwy32mA5NJcfUCuirV9BWqSnpTcKlpbLM3EbSOLWdvrW0ICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiILW5UFNcIeiqWZx4Lhwc0+QrUblpy70zi6icyri6hndePbwK3hEHL5jcaX4zQVUWOsxHHtChbdmA4L909h4LqyhnpKSfx9NDL6cYP1oObMu3DhID61WLu7HhhbxPp6yTeMtdL+izd+pWz9I6ecOFvDfRkcPeg1H8Lu7QqTdnHrC2p+irC45EM7fNO5QSaEszvBmrmeaYH6wg1k3Rx6wqHXJ3zgtgk2f0R8Xcq1nn3T7lC7Z5GfBvM488LT70GvvryflBRurf6y2L/R32XuX9gPvVJ2dO6r2/wDw4+9BrT6vPWonVXlWznZzJ/627/D/AP2VP+jiX/1s/wCH/wDsg1d1T5VGagdbltf+jaQ/+dn/AA//ANl6Nmmed8k9VOPvQaiakDrTuwDrC28bM4+u9z+qAfeq2bM6T5d3q3eZjQg03u4DsXhuIHYt7j2bWYY36yvf+m0e5Tx7OtOt8IVj/Sn+4IOdm59gCifc3HrwupRaD0xHjNvdJ6czz71cx6Q01GQW2em4doJ+soOOSXDPAyfSkMlTUHdp6eeY/wBRhd9S7lT2a004xDbKNnmhb9yvGMYxu6xrWjsAwg4vQaY1NWuHR2ySFp+VOQwfTxW8aX0PBROZVXWRtXUN4tjHi2H/ALj51uSICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiD//2Q==" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h4>Urovance</h4>
+          <span class="rec-tag">Urinary Support Formula · 30 Capsules</span>
+          <p>Formulated with D-mannose, cranberry extract, and pumpkin seed extract.</p>
+          <a href="http://geturovance.com/dtc?src=yOj909O" target="_blank" rel="noopener noreferrer sponsored" class="btn btn-primary btn-sm" style="width:100%;">View Product</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h5>Related Ingredients</h5>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="d-mannose.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">D-Mannose →</a></li>
+          <li><a href="cranberry-extract.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Cranberry Extract →</a></li>
+          <li><a href="pumpkin-seed-extract.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Pumpkin Seed Extract →</a></li>
+          <li><a href="saw-palmetto.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Saw Palmetto →</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h5>Manufacturing Standards</h5>
+        <div class="mfg-badges">
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Third-party lab tested</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Made in an FDA-registered facility</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>GMP certified</span>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Related Articles</h2>
+      <a href="#" class="view-all">View all articles →</a>
+    </div>
+    <div class="related-grid">
+
+      <a href="mens-health.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,#EAF4FF,#D5E9FF);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#4DA3FF" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#4DA3FF"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Men's Health & Vitality: Complete Guide</h3>
+          <p>An honest look at libido, stamina, and testosterone ingredients.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="blood-sugar.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--green-tint),#DCEDE6);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#1E5D4E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#1E5D4E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Blood Sugar Support: Complete Guide</h3>
+          <p>One of the best-evidenced categories in the industry.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="heart-blood-pressure.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--amber-tint),#F3E3C4);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#C98A3E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#C98A3E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Heart & Blood Pressure: Complete Guide</h3>
+          <p>Some of the longest-studied nutrients available.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="logo-text">Supplement Insider</div>
+        </div>
+        <p>We simplify supplement science so you can make informed decisions for a healthier life.</p>
+        <div class="foot-social">
+          <a href="#">f</a><a href="#">in</a><a href="#">yt</a>
+        </div>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="#">Ingredients</a></li><li><a href="#">Health Goals</a></li><li><a href="#">Conditions</a></li><li><a href="#">Research</a></li><li><a href="#">Compare</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Our Team</a></li><li><a href="editorial-policy.html">Editorial Policy</a></li><li><a href="#">Medical Review</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="#">Newsletter</a></li><li><a href="#">Blog</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Calculators</a></li><li><a href="buyers-guide.html">Buyer's Guide</a></li><li><a href="#">FAQs</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li><li><a href="medical-disclaimer.html">Medical Disclaimer</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Supplement Insider. All rights reserved.</span>
+      <span>Built with a focus on transparency and science.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

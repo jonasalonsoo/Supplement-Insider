@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Sugar Support — Supplement Insider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1E5D4E;
+    --green-dark:#154238;
+    --green-tint:#E9F1EE;
+    --navy:#22313F;
+    --blue:#4DA3FF;
+    --blue-tint:#EAF4FF;
+    --amber:#C98A3E;
+    --amber-tint:#FBF1E4;
+    --bg:#FFFFFF;
+    --card:#F7F8FA;
+    --text:#232323;
+    --muted:#6B7280;
+    --border:#E7E9EC;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--navy);
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14.5px;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:all .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--green);color:#fff;}
+  .btn-primary:hover{background:var(--green-dark);}
+  .btn-outline{background:transparent;border-color:var(--navy);color:var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-sm{padding:9px 18px;font-size:13.5px;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(155deg,var(--green) 0%, #2f7d67 100%);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-text{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--navy);line-height:1.1;}
+  .logo-text span{display:block;font-size:11px;font-weight:500;color:var(--green);letter-spacing:.06em;text-transform:uppercase;font-family:'Inter',sans-serif;}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--navy);opacity:.82;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .icon-btn{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--border);
+    cursor:pointer;
+    color:var(--navy);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(180deg,#FBFCFB 0%, #ffffff 100%);
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  .hero h1{
+    font-size:47px;line-height:1.09;
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--green);
+  }
+  .hero p.lead{
+    font-size:17.5px;color:var(--muted);max-width:490px;margin-bottom:30px;
+  }
+  .search-bar{
+    display:flex;align-items:center;gap:0;
+    background:#fff;border:1.5px solid var(--border);
+    border-radius:14px;
+    padding:6px 6px 6px 20px;
+    box-shadow:0 2px 10px rgba(30,93,78,0.05);
+    margin-bottom:14px;
+    max-width:520px;
+  }
+  .search-bar input{
+    border:none;outline:none;flex:1;font-size:15px;font-family:'Inter',sans-serif;padding:10px 0;color:var(--text);
+  }
+  .search-bar input::placeholder{color:#9CA3AF;}
+  .search-bar button{
+    background:var(--green);border:none;color:#fff;
+    width:40px;height:40px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+  }
+  .search-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+  .search-tags span{
+    font-size:12.5px;color:var(--muted);padding:5px 12px;
+    border:1px solid var(--border);border-radius:999px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+  .hero-visual{
+    position:relative;aspect-ratio:1/0.92;
+    border-radius:28px;
+    background:radial-gradient(circle at 30% 20%, #F3FBF7 0%, var(--green-tint) 55%, #E1EFE9 100%);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(30,93,78,.09) 1.5px, transparent 1.5px);
+    background-size:22px 22px;
+    opacity:.5;
+  }
+  .float-card{
+    position:absolute;background:#fff;border-radius:16px;
+    box-shadow:0 12px 30px rgba(20,50,42,.14);
+    padding:14px 16px;display:flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:600;color:var(--navy);
+  }
+  .fc1{top:14%;left:8%;}
+  .fc2{bottom:16%;right:6%;}
+  .fc-dot{width:9px;height:9px;border-radius:50%;background:var(--green);}
+
+  /* ===== TRUST BAR ===== */
+  .trust{padding:42px 0;border-bottom:1px solid var(--border);}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  .trust-item{display:flex;gap:14px;align-items:flex-start;}
+  .trust-icon{
+    width:42px;height:42px;border-radius:11px;background:var(--green-tint);
+    display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;
+  }
+  .trust-item h4{font-size:14.5px;margin-bottom:3px;}
+  .trust-item p{font-size:13px;color:var(--muted);margin:0;}
+
+  /* ===== SECTION HEADINGS ===== */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;
+  }
+  .section-head h2{font-size:29px;}
+  .section-head .view-all{font-size:13.5px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:5px;}
+
+  /* ===== GOALS ===== */
+  .goals-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  }
+  .goal-card{
+    display:block;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:22px 14px;
+    text-align:center;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+    cursor:pointer;
+  }
+  .goal-card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:0 10px 24px rgba(30,93,78,.08);}
+  .goal-icon{
+    width:44px;height:44px;margin:0 auto 12px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .goal-card p{font-size:13px;font-weight:600;color:var(--navy);margin:0;}
+
+  /* ===== ARTICLES ===== */
+  .articles-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .art-card{
+    display:block;
+    border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
+    background:#fff;transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .art-card:hover{box-shadow:0 16px 32px rgba(20,40,35,.08);transform:translateY(-2px);}
+  .art-media{
+    aspect-ratio:16/10;position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .art-tag{
+    position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);
+    font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;color:var(--navy);
+  }
+  .art-body{padding:20px 22px 22px;}
+  .art-body h3{font-size:17.5px;line-height:1.3;margin-bottom:9px;}
+  .art-body p{font-size:14px;color:var(--muted);margin:0 0 14px;}
+  .art-meta{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#9CA3AF;}
+  .evidence{
+    display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;color:var(--green);
+    background:var(--green-tint);padding:3px 9px;border-radius:999px;
+  }
+
+  /* ===== INGREDIENTS ===== */
+  .ing-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;}
+  .ing-card{text-align:center;cursor:pointer;}
+  .ing-media{
+    aspect-ratio:1/1;border-radius:18px;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .18s ease;
+  }
+  .ing-card:hover .ing-media{transform:translateY(-3px);}
+  .ing-card h4{font-size:14px;color:var(--navy);margin-bottom:2px;}
+  .ing-card span{font-size:12px;color:var(--muted);}
+
+  /* ===== THREE COLUMN: NEWSLETTER / RESEARCH / PICK ===== */
+  .trio{display:grid;grid-template-columns:1.15fr 1.15fr 0.9fr;gap:22px;}
+  .newsletter-box{
+    background:linear-gradient(155deg,var(--green) 0%, #154439 100%);
+    border-radius:var(--radius-lg);
+    padding:34px 30px;color:#fff;position:relative;overflow:hidden;
+  }
+  .newsletter-box::after{
+    content:'';position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;
+    border-radius:50%;background:rgba(255,255,255,.06);
+  }
+  .newsletter-box .eyebrow{color:#B9E4D3;}
+  .newsletter-box h3{color:#fff;font-size:22px;margin:10px 0 20px;line-height:1.25;}
+  .nl-form{display:flex;gap:8px;position:relative;z-index:1;}
+  .nl-form input{
+    flex:1;border:none;border-radius:10px;padding:12px 14px;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;
+  }
+  .nl-form button{
+    background:#fff;color:var(--green-dark);border:none;border-radius:10px;padding:0 18px;font-weight:700;font-size:13.5px;cursor:pointer;
+  }
+  .newsletter-box .fine{font-size:11.5px;color:#BFE1D2;margin-top:12px;position:relative;z-index:1;}
+
+  .research-box{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 26px 10px;
+  }
+  .research-box h3{font-size:19px;margin-bottom:16px;}
+  .research-item{
+    display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);
+  }
+  .research-item:first-of-type{border-top:none;}
+  .r-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:7px;flex-shrink:0;
+  }
+  .research-item h5{font-size:14px;font-weight:600;color:var(--navy);margin:0 0 4px;line-height:1.3;}
+  .research-item span{font-size:12px;color:var(--muted);}
+
+  .pick-box{
+    background:var(--amber-tint);border:1px solid #EFDDBD;border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;
+  }
+  .pick-box .eyebrow{color:var(--amber);}
+  .pick-media{
+    aspect-ratio:1/0.85;border-radius:14px;background:linear-gradient(155deg,#2b2b2b,#3f3f3f);
+    display:flex;align-items:center;justify-content:center;margin:14px 0 16px;
+  }
+  .pick-box h4{font-size:16px;margin-bottom:6px;}
+  .pick-box p{font-size:12.5px;color:var(--muted);margin:0 0 14px;flex-grow:1;}
+  .pick-box a.view{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:5px;}
+
+  /* ===== TRUSTED BAR ===== */
+  .trusted{padding:52px 0;text-align:center;border-top:1px solid var(--border);}
+  .trusted p{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9CA3AF;font-weight:600;margin-bottom:26px;}
+  .trusted-logos{display:flex;justify-content:center;align-items:center;gap:52px;flex-wrap:wrap;opacity:.5;}
+  .trusted-logos span{font-family:'Fraunces',serif;font-size:19px;color:var(--navy);font-weight:600;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy);color:#C9D2D8;padding:60px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:34px;margin-bottom:44px;}
+  .foot-brand .logo-text{color:#fff;}
+  .foot-brand p{font-size:13.5px;color:#95A4AD;margin:16px 0 20px;max-width:270px;}
+  .foot-social{display:flex;gap:10px;}
+  .foot-social a{
+    width:34px;height:34px;border-radius:50%;border:1px solid #3B4B57;
+    display:flex;align-items:center;justify-content:center;color:#C9D2D8;
+  }
+  footer h5{color:#fff;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:16px;letter-spacing:.02em;}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+  footer ul a{font-size:13.5px;color:#95A4AD;}
+  footer ul a:hover{color:#fff;}
+  .foot-bottom{
+    border-top:1px solid #33424D;padding-top:22px;
+    display:flex;justify-content:space-between;font-size:12.5px;color:#7C8B94;flex-wrap:wrap;gap:10px;
+  }
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;aspect-ratio:16/9;}
+    .goals-grid{grid-template-columns:repeat(3,1fr);}
+    .ing-grid{grid-template-columns:repeat(3,1fr);}
+    .articles-row{grid-template-columns:1fr;}
+    .trio{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{display:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:34px;}
+    .condition-grid{grid-template-columns:1fr;}
+    .toc{position:static;}
+  }
+
+  /* ===== CONDITION / NICHE PAGE ===== */
+  .breadcrumb{
+    padding:18px 0;font-size:13px;color:var(--muted);
+  }
+  .breadcrumb a{color:var(--muted);}
+  .breadcrumb a:hover{color:var(--green);}
+  .breadcrumb span.sep{margin:0 6px;color:#C7CDD2;}
+  .breadcrumb span.current{color:var(--navy);font-weight:600;}
+
+  .cond-hero{
+    padding:8px 0 48px;border-bottom:1px solid var(--border);
+  }
+  .cond-eyebrow-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .cond-hero h1{font-size:40px;line-height:1.12;max-width:720px;margin-bottom:16px;}
+  .cond-hero .lead{font-size:17px;color:var(--muted);max-width:660px;}
+  .cond-meta-row{display:flex;gap:22px;margin-top:22px;flex-wrap:wrap;}
+  .cond-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+  .cond-meta-item strong{color:var(--navy);font-weight:600;}
+
+  .quick-answer{
+    background:var(--green-tint);border:1px solid #D6E9E2;border-radius:var(--radius-md);
+    padding:20px 24px;margin:28px 0 0;
+  }
+  .quick-answer p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.6;}
+  .quick-answer strong{color:var(--green-dark);}
+
+  .condition-grid{
+    display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;
+  }
+  .cond-main h2{font-size:24px;margin:44px 0 16px;}
+  .cond-main h2:first-child{margin-top:0;}
+  .cond-main p{font-size:15.5px;color:#3A3A3A;margin:0 0 16px;}
+  .cond-main ul{margin:0 0 16px;padding-left:20px;}
+  .cond-main li{font-size:15px;color:#3A3A3A;margin-bottom:8px;}
+
+  .toc{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:18px 20px;margin:24px 0 36px;
+  }
+  .toc h5{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px;font-weight:700;}
+  .toc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .toc a{font-size:14px;color:var(--navy);font-weight:500;}
+  .toc a:hover{color:var(--green);}
+
+  .evidence-table{
+    width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;
+    border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  }
+  .evidence-table th{
+    background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);
+    border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;
+  }
+  .evidence-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .evidence-table tr:last-child td{border-bottom:none;}
+  .ev-badge{
+    display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;
+  }
+  .ev-strong{background:var(--green-tint);color:var(--green-dark);}
+  .ev-moderate{background:var(--blue-tint);color:#2A6FBE;}
+  .ev-limited{background:var(--amber-tint);color:#9C6A26;}
+
+  .stars{color:#E0A93E;font-size:14px;letter-spacing:1px;}
+
+  .sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;}
+  .side-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;
+  }
+  .side-card h5{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:14px;font-weight:700;}
+  .rec-product{
+    background:#fff;border-radius:12px;padding:18px;text-align:center;border:1px solid var(--border);
+  }
+  .rec-media{background:#F7F8FA !important;padding:10px;
+    aspect-ratio:1/0.85;border-radius:10px;background:linear-gradient(155deg,#1a3a68,#2e5a94);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+  .rec-product h4{font-size:15.5px;margin-bottom:4px;}
+  .rec-product .rec-tag{font-size:11.5px;color:var(--muted);margin-bottom:10px;display:block;}
+  .rec-product p{font-size:12.5px;color:var(--muted);margin:0 0 14px;line-height:1.5;}
+
+  .disclaimer-box{
+    background:#FBFBFB;border:1px dashed var(--border);border-radius:10px;padding:14px 16px;
+    font-size:12px;color:#8A8F94;line-height:1.5;
+  }
+
+  .mfg-badges{display:flex;flex-direction:column;gap:8px;}
+  .mfg-badge{
+    display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+    padding:8px 12px;border-radius:8px;
+  }
+  .mfg-badge.on{background:var(--green-tint);color:var(--green-dark);}
+
+  .faq-item{border-top:1px solid var(--border);padding:18px 0;}
+  .faq-item:first-of-type{border-top:none;}
+  .faq-item h4{font-size:15.5px;margin-bottom:8px;color:var(--navy);}
+  .faq-item p{font-size:14.5px;color:var(--muted);margin:0;}
+
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px;}
+
+  .rating-row{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--navy);}
+  .rating-row .stars{color:#E0A93E;font-size:15px;letter-spacing:1px;}
+  .rating-row .rnum{font-weight:700;}
+  .rating-row .rcount{color:var(--muted);font-weight:500;}
+
+
+  .dosage-table{width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .dosage-table th{background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;}
+  .dosage-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .dosage-table tr:last-child td{border-bottom:none;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0 30px;}
+  .who-box{border-radius:12px;padding:18px 20px;}
+  .who-use{background:var(--green-tint);border:1px solid #D6E9E2;}
+  .who-avoid{background:#FDF2F0;border:1px solid #F3D9D4;}
+  .who-box h4{font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .who-box ul{margin:0;padding-left:18px;}
+  .who-box li{font-size:13.5px;margin-bottom:6px;line-height:1.5;color:#3A3A3A;}
+  @media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
+
+
+  .takeaways-box{background:var(--navy);border-radius:14px;padding:24px 26px;margin:32px 0 8px;}
+  .takeaways-box h4{color:#fff;font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .takeaways-box ul{margin:0;padding-left:18px;}
+  .takeaways-box li{color:#D6DEE3;font-size:14px;line-height:1.6;margin-bottom:8px;}
+  .takeaways-box li:last-child{margin-bottom:0;}
+
+
+  .lede-hook{font-size:18px;font-style:italic;color:var(--navy);line-height:1.5;margin:0 0 28px;padding-left:16px;border-left:3px solid var(--green);}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://supplementinsider.example.com/index-en.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Health Goals",
+      "item": "https://supplementinsider.example.com/index-en.html#goals"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Blood Sugar Support",
+      "item": "https://supplementinsider.example.com/blood-sugar.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Blood Sugar Support",
+  "author": {
+    "@type": "Organization",
+    "name": "Supplement Insider Health Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Supplement Insider",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://supplementinsider.example.com/logo.png"
+    }
+  },
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://supplementinsider.example.com/blood-sugar.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is berberine really comparable to metformin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Several head-to-head trials have shown similar reductions in blood sugar markers, though berberine has more gastrointestinal side effects and isn't a direct medication replacement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can supplements replace diabetes medication?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 supplements should be discussed with a doctor and used alongside, not as a replacement for, prescribed treatment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly does berberine work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clinical trials typically measure effects after 8-12 weeks of consistent use, similar to most metabolic interventions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these ingredients safe for people without diabetes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally yes, at studied doses, but anyone on blood sugar-related medication should check with a doctor to avoid excessive lowering."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8V17" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="logo-text">Supplement Insider<span>Evidence-Based Wellness</span></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Learn</a>
+      <a href="#">Ingredients</a>
+      <a href="#">Health Goals</a>
+      <a href="#">Conditions</a>
+      <a href="#">Research</a>
+      <a href="#">Compare</a>
+      <a href="#">Reviews</a>
+      <a href="buyers-guide.html">Buyer's Guide</a>
+    </nav>
+    <div class="nav-right">
+      <div class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <a href="#" class="btn btn-primary btn-sm">Newsletter</a>
+    </div>
+  </div>
+</header>
+<div class="wrap breadcrumb">
+  <a href="index-en.html">Home</a><span class="sep">/</span><a href="index-en.html#goals">Health Goals</a><span class="sep">/</span><span class="current">Blood Sugar Support</span>
+</div>
+
+<section class="cond-hero">
+  <div class="wrap">
+    <div class="cond-eyebrow-row">
+      <span class="eyebrow">Health Goal</span>
+      <div class="rating-row"><span class="stars">★★★★⯪</span><span class="rnum">4.9</span><span class="rcount">(17,300+ reviews)</span></div>
+    </div>
+    <h1>Blood Sugar Support</h1>
+    <p class="lead">Blood sugar support is one of the few supplement categories with genuinely strong evidence behind its top ingredient. Here's the full picture.</p>
+    <div class="cond-meta-row">
+      <div class="cond-meta-item">Reviewed for medical accuracy · <strong>Health Editorial Team</strong></div>
+      <div class="cond-meta-item">Updated <strong>May 2026</strong></div>
+      <div class="cond-meta-item">9 min read</div>
+    </div>
+    <div class="quick-answer">
+      <p><strong>Quick answer:</strong> Berberine has some of the strongest clinical evidence in the entire supplement industry for blood sugar support, with several trials showing effects comparable to metformin in specific measures. Chromium, cinnamon, and alpha lipoic acid have moderate supporting evidence as well.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0;">
+  <div class="wrap condition-grid">
+
+    <div class="cond-main">
+
+      <div class="toc">
+        <h5>On This Page</h5>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#causes">What Affects Blood Sugar Regulation</a></li>
+          <li><a href="#symptoms">Common Symptoms</a></li>
+          <li><a href="#lifestyle">Lifestyle &amp; Nutrition</a></li>
+          <li><a href="#supplements">Supplements With Evidence</a></li>
+          <li><a href="#dosage">Dosage &amp; Side Effects</a></li>
+          <li><a href="#who">Who Should Use This</a></li>
+          <li><a href="#doctor">When to See a Doctor</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <p class="lede-hook">Blood sugar problems build quietly for years before a diagnosis ever shows up. Understanding the mechanism early changes what's actually worth doing about it.</p>
+
+      <h2 id="overview">Overview</h2>
+      <p>Blood sugar regulation is central to metabolic health, and several natural compounds have been studied specifically for their effect on glucose metabolism and insulin sensitivity. This is one of the more scientifically well-supported categories in the supplement industry, though results vary by ingredient and individual.</p>
+
+      <h2 id="causes">What Affects Blood Sugar Regulation</h2>
+      <ul>
+        <li><strong>Insulin resistance</strong> — reduced cell sensitivity to insulin makes it harder for the body to regulate blood sugar.</li>
+        <li><strong>Diet composition</strong> — diets high in refined carbohydrates and added sugar drive larger blood sugar swings.</li>
+        <li><strong>Excess body weight</strong> — particularly abdominal fat, is strongly linked to insulin resistance.</li>
+        <li><strong>Physical inactivity</strong> — muscle tissue is a major site of glucose uptake, so inactivity reduces the body's capacity to regulate blood sugar.</li>
+        <li><strong>Sleep and stress</strong> — both poor sleep and chronic stress elevate cortisol, which can raise blood sugar levels.</li>
+      </ul>
+
+      <h2 id="symptoms">Common Symptoms</h2>
+      <ul>
+        <li>Increased thirst or frequent urination</li>
+        <li>Fatigue after meals</li>
+        <li>Difficulty losing weight despite effort</li>
+        <li>Increased hunger, especially for carbohydrates</li>
+        <li>Blurred vision</li>
+      </ul>
+
+      <h2 id="lifestyle">Lifestyle &amp; Nutrition</h2>
+      <p>Regular physical activity — especially resistance training and post-meal walks — is one of the most effective ways to improve insulin sensitivity. Reducing refined carbohydrate intake, prioritizing fiber and protein, adequate sleep, and maintaining a healthy weight all have strong supporting evidence.</p>
+
+      <h2 id="supplements">Supplements With Evidence</h2>
+      <p>Here's how the most-studied blood sugar ingredients compare on the evidence.</p>
+
+      <table class="evidence-table">
+        <tr><th>Ingredient</th><th>Proposed Role</th><th>Evidence</th></tr>
+        <tr><td>Berberine</td><td>Plant compound with multiple trials showing meaningful reductions in blood sugar, in some cases comparable to metformin</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Alpha Lipoic Acid</td><td>Antioxidant studied for improving insulin sensitivity and reducing oxidative stress</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Chromium Picolinate</td><td>Trace mineral involved in insulin function; moderate evidence, especially in insulin-resistant individuals</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Cinnamon Extract</td><td>Studied for modest reductions in fasting blood sugar across multiple small trials</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Magnesium</td><td>Low magnesium status is linked to insulin resistance; supplementation shows moderate benefit</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Gymnema Sylvestre</td><td>Traditional Ayurvedic herb studied for blood sugar and sugar cravings, evidence still developing</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>Bitter Melon</td><td>Traditional remedy with some supportive but generally lower-quality trial data</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+      </table>
+
+
+      <h2 id="dosage">Dosage &amp; Side Effects</h2>
+      <p>Typical doses reflect amounts commonly used in clinical research — always follow the label on the specific product you're using, and check with a doctor if you're on medication.</p>
+      <table class="dosage-table">
+        <tr><th>Ingredient</th><th>Typical Studied Dose</th><th>Common Side Effects</th></tr>
+        <tr><td>Berberine</td><td>500 mg, 2–3x daily with meals</td><td>GI upset (most common side effect); interacts with several medications</td></tr>
+        <tr><td>Chromium Picolinate</td><td>200–1,000 mcg daily</td><td>Generally well tolerated</td></tr>
+        <tr><td>Cinnamon Extract</td><td>500–1,000 mg daily</td><td>Generally well tolerated; whole cinnamon in large amounts may affect liver in sensitive individuals</td></tr>
+        <tr><td>Alpha Lipoic Acid</td><td>300–600 mg daily</td><td>Mild GI upset; can lower blood sugar further when combined with medication</td></tr>
+      </table>
+
+      <h2 id="who">Who Should Use This — and Who Shouldn't</h2>
+      <div class="who-grid">
+        <div class="who-box who-use">
+          <h4>✅ Generally a good fit for</h4>
+          <ul>
+            <li>Adults with prediabetes or mild insulin resistance, under medical guidance</li>
+            <li>Those managing blood sugar alongside diet and exercise changes</li>
+            <li>People without a diagnosed condition requiring prescription treatment</li>
+          </ul>
+        </div>
+        <div class="who-box who-avoid">
+          <h4>⚠️ Best to avoid or check with a doctor first</h4>
+          <ul>
+            <li>Anyone on diabetes medication without direct medical supervision (risk of blood sugar dropping too low)</li>
+            <li>Pregnant or nursing individuals without medical guidance</li>
+            <li>Those with liver or kidney conditions without medical advice</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="doctor">When to See a Doctor</h2>
+      <p>Anyone managing diabetes or prediabetes should talk to a doctor before adding blood sugar supplements, especially berberine, since it can interact with diabetes medication and cause blood sugar to drop too low if combined without monitoring.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>Is berberine really comparable to metformin?</h4>
+        <p>Several head-to-head trials have shown similar reductions in blood sugar markers, though berberine has more gastrointestinal side effects and isn't a direct medication replacement.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can supplements replace diabetes medication?</h4>
+        <p>No — supplements should be discussed with a doctor and used alongside, not as a replacement for, prescribed treatment.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How quickly does berberine work?</h4>
+        <p>Clinical trials typically measure effects after 8-12 weeks of consistent use, similar to most metabolic interventions.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are these ingredients safe for people without diabetes?</h4>
+        <p>Generally yes, at studied doses, but anyone on blood sugar-related medication should check with a doctor to avoid excessive lowering.</p>
+      </div>
+
+      <div class="takeaways-box">
+        <h4>🔑 Key Takeaways</h4>
+        <ul>
+          <li>Berberine has some of the strongest clinical evidence in the entire supplement industry.</li>
+          <li>Chromium, cinnamon, and alpha lipoic acid all have moderate supporting evidence.</li>
+          <li>Exercise — especially post-meal walks — meaningfully improves insulin sensitivity.</li>
+          <li>Anyone on diabetes medication should coordinate supplement use with a doctor.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <aside class="sidebar">
+      <div class="side-card">
+        <h5>Recommended Formula</h5>
+        <div class="rec-product">
+          <div class="rec-media" style="background:linear-gradient(155deg,#1a3a68,#2e5a94);"><img src="data:image/jpeg;base64,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" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h4>Metaglucent</h4>
+          <span class="rec-tag">Blood Sugar Support Formula · 30 Capsules</span>
+          <p>Formulated with berberine, chromium, cinnamon extract, and alpha lipoic acid.</p>
+          <a href="http://metaglucent.com/dtc?src=yOj909O" target="_blank" rel="noopener noreferrer sponsored" class="btn btn-primary btn-sm" style="width:100%;">View Product</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h5>Related Ingredients</h5>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="berberine.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Berberine →</a></li>
+          <li><a href="alpha-lipoic-acid.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Alpha Lipoic Acid →</a></li>
+          <li><a href="chromium-picolinate.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Chromium Picolinate →</a></li>
+          <li><a href="cinnamon-extract.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Cinnamon Extract →</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h5>Manufacturing Standards</h5>
+        <div class="mfg-badges">
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Third-party lab tested</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Made in an FDA-registered facility</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>GMP certified</span>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Related Articles</h2>
+      <a href="#" class="view-all">View all articles →</a>
+    </div>
+    <div class="related-grid">
+
+      <a href="weight.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,#EAF4FF,#D5E9FF);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#4DA3FF" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#4DA3FF"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Weight Management: Complete Guide</h3>
+          <p>What's proven to help — and what's mostly marketing.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="heart-blood-pressure.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--green-tint),#DCEDE6);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#1E5D4E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#1E5D4E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Heart & Blood Pressure: Complete Guide</h3>
+          <p>Some of the longest-studied nutrients available.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="nerve-health.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--amber-tint),#F3E3C4);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#C98A3E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#C98A3E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Nerve Health: Complete Guide</h3>
+          <p>What helps support nerve function and comfort.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="logo-text">Supplement Insider</div>
+        </div>
+        <p>We simplify supplement science so you can make informed decisions for a healthier life.</p>
+        <div class="foot-social">
+          <a href="#">f</a><a href="#">in</a><a href="#">yt</a>
+        </div>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="#">Ingredients</a></li><li><a href="#">Health Goals</a></li><li><a href="#">Conditions</a></li><li><a href="#">Research</a></li><li><a href="#">Compare</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Our Team</a></li><li><a href="editorial-policy.html">Editorial Policy</a></li><li><a href="#">Medical Review</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="#">Newsletter</a></li><li><a href="#">Blog</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Calculators</a></li><li><a href="buyers-guide.html">Buyer's Guide</a></li><li><a href="#">FAQs</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li><li><a href="medical-disclaimer.html">Medical Disclaimer</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Supplement Insider. All rights reserved.</span>
+      <span>Built with a focus on transparency and science.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

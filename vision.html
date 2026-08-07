@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vision & Eye Health — Supplement Insider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1E5D4E;
+    --green-dark:#154238;
+    --green-tint:#E9F1EE;
+    --navy:#22313F;
+    --blue:#4DA3FF;
+    --blue-tint:#EAF4FF;
+    --amber:#C98A3E;
+    --amber-tint:#FBF1E4;
+    --bg:#FFFFFF;
+    --card:#F7F8FA;
+    --text:#232323;
+    --muted:#6B7280;
+    --border:#E7E9EC;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--navy);
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14.5px;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:all .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--green);color:#fff;}
+  .btn-primary:hover{background:var(--green-dark);}
+  .btn-outline{background:transparent;border-color:var(--navy);color:var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-sm{padding:9px 18px;font-size:13.5px;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(155deg,var(--green) 0%, #2f7d67 100%);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-text{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--navy);line-height:1.1;}
+  .logo-text span{display:block;font-size:11px;font-weight:500;color:var(--green);letter-spacing:.06em;text-transform:uppercase;font-family:'Inter',sans-serif;}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--navy);opacity:.82;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .icon-btn{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--border);
+    cursor:pointer;
+    color:var(--navy);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(180deg,#FBFCFB 0%, #ffffff 100%);
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  .hero h1{
+    font-size:47px;line-height:1.09;
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--green);
+  }
+  .hero p.lead{
+    font-size:17.5px;color:var(--muted);max-width:490px;margin-bottom:30px;
+  }
+  .search-bar{
+    display:flex;align-items:center;gap:0;
+    background:#fff;border:1.5px solid var(--border);
+    border-radius:14px;
+    padding:6px 6px 6px 20px;
+    box-shadow:0 2px 10px rgba(30,93,78,0.05);
+    margin-bottom:14px;
+    max-width:520px;
+  }
+  .search-bar input{
+    border:none;outline:none;flex:1;font-size:15px;font-family:'Inter',sans-serif;padding:10px 0;color:var(--text);
+  }
+  .search-bar input::placeholder{color:#9CA3AF;}
+  .search-bar button{
+    background:var(--green);border:none;color:#fff;
+    width:40px;height:40px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+  }
+  .search-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+  .search-tags span{
+    font-size:12.5px;color:var(--muted);padding:5px 12px;
+    border:1px solid var(--border);border-radius:999px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+  .hero-visual{
+    position:relative;aspect-ratio:1/0.92;
+    border-radius:28px;
+    background:radial-gradient(circle at 30% 20%, #F3FBF7 0%, var(--green-tint) 55%, #E1EFE9 100%);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(30,93,78,.09) 1.5px, transparent 1.5px);
+    background-size:22px 22px;
+    opacity:.5;
+  }
+  .float-card{
+    position:absolute;background:#fff;border-radius:16px;
+    box-shadow:0 12px 30px rgba(20,50,42,.14);
+    padding:14px 16px;display:flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:600;color:var(--navy);
+  }
+  .fc1{top:14%;left:8%;}
+  .fc2{bottom:16%;right:6%;}
+  .fc-dot{width:9px;height:9px;border-radius:50%;background:var(--green);}
+
+  /* ===== TRUST BAR ===== */
+  .trust{padding:42px 0;border-bottom:1px solid var(--border);}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  .trust-item{display:flex;gap:14px;align-items:flex-start;}
+  .trust-icon{
+    width:42px;height:42px;border-radius:11px;background:var(--green-tint);
+    display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;
+  }
+  .trust-item h4{font-size:14.5px;margin-bottom:3px;}
+  .trust-item p{font-size:13px;color:var(--muted);margin:0;}
+
+  /* ===== SECTION HEADINGS ===== */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;
+  }
+  .section-head h2{font-size:29px;}
+  .section-head .view-all{font-size:13.5px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:5px;}
+
+  /* ===== GOALS ===== */
+  .goals-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  }
+  .goal-card{
+    display:block;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:22px 14px;
+    text-align:center;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+    cursor:pointer;
+  }
+  .goal-card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:0 10px 24px rgba(30,93,78,.08);}
+  .goal-icon{
+    width:44px;height:44px;margin:0 auto 12px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .goal-card p{font-size:13px;font-weight:600;color:var(--navy);margin:0;}
+
+  /* ===== ARTICLES ===== */
+  .articles-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .art-card{
+    display:block;
+    border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
+    background:#fff;transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .art-card:hover{box-shadow:0 16px 32px rgba(20,40,35,.08);transform:translateY(-2px);}
+  .art-media{
+    aspect-ratio:16/10;position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .art-tag{
+    position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);
+    font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;color:var(--navy);
+  }
+  .art-body{padding:20px 22px 22px;}
+  .art-body h3{font-size:17.5px;line-height:1.3;margin-bottom:9px;}
+  .art-body p{font-size:14px;color:var(--muted);margin:0 0 14px;}
+  .art-meta{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#9CA3AF;}
+  .evidence{
+    display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;color:var(--green);
+    background:var(--green-tint);padding:3px 9px;border-radius:999px;
+  }
+
+  /* ===== INGREDIENTS ===== */
+  .ing-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;}
+  .ing-card{text-align:center;cursor:pointer;}
+  .ing-media{
+    aspect-ratio:1/1;border-radius:18px;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .18s ease;
+  }
+  .ing-card:hover .ing-media{transform:translateY(-3px);}
+  .ing-card h4{font-size:14px;color:var(--navy);margin-bottom:2px;}
+  .ing-card span{font-size:12px;color:var(--muted);}
+
+  /* ===== THREE COLUMN: NEWSLETTER / RESEARCH / PICK ===== */
+  .trio{display:grid;grid-template-columns:1.15fr 1.15fr 0.9fr;gap:22px;}
+  .newsletter-box{
+    background:linear-gradient(155deg,var(--green) 0%, #154439 100%);
+    border-radius:var(--radius-lg);
+    padding:34px 30px;color:#fff;position:relative;overflow:hidden;
+  }
+  .newsletter-box::after{
+    content:'';position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;
+    border-radius:50%;background:rgba(255,255,255,.06);
+  }
+  .newsletter-box .eyebrow{color:#B9E4D3;}
+  .newsletter-box h3{color:#fff;font-size:22px;margin:10px 0 20px;line-height:1.25;}
+  .nl-form{display:flex;gap:8px;position:relative;z-index:1;}
+  .nl-form input{
+    flex:1;border:none;border-radius:10px;padding:12px 14px;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;
+  }
+  .nl-form button{
+    background:#fff;color:var(--green-dark);border:none;border-radius:10px;padding:0 18px;font-weight:700;font-size:13.5px;cursor:pointer;
+  }
+  .newsletter-box .fine{font-size:11.5px;color:#BFE1D2;margin-top:12px;position:relative;z-index:1;}
+
+  .research-box{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 26px 10px;
+  }
+  .research-box h3{font-size:19px;margin-bottom:16px;}
+  .research-item{
+    display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);
+  }
+  .research-item:first-of-type{border-top:none;}
+  .r-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:7px;flex-shrink:0;
+  }
+  .research-item h5{font-size:14px;font-weight:600;color:var(--navy);margin:0 0 4px;line-height:1.3;}
+  .research-item span{font-size:12px;color:var(--muted);}
+
+  .pick-box{
+    background:var(--amber-tint);border:1px solid #EFDDBD;border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;
+  }
+  .pick-box .eyebrow{color:var(--amber);}
+  .pick-media{
+    aspect-ratio:1/0.85;border-radius:14px;background:linear-gradient(155deg,#2b2b2b,#3f3f3f);
+    display:flex;align-items:center;justify-content:center;margin:14px 0 16px;
+  }
+  .pick-box h4{font-size:16px;margin-bottom:6px;}
+  .pick-box p{font-size:12.5px;color:var(--muted);margin:0 0 14px;flex-grow:1;}
+  .pick-box a.view{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:5px;}
+
+  /* ===== TRUSTED BAR ===== */
+  .trusted{padding:52px 0;text-align:center;border-top:1px solid var(--border);}
+  .trusted p{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9CA3AF;font-weight:600;margin-bottom:26px;}
+  .trusted-logos{display:flex;justify-content:center;align-items:center;gap:52px;flex-wrap:wrap;opacity:.5;}
+  .trusted-logos span{font-family:'Fraunces',serif;font-size:19px;color:var(--navy);font-weight:600;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy);color:#C9D2D8;padding:60px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:34px;margin-bottom:44px;}
+  .foot-brand .logo-text{color:#fff;}
+  .foot-brand p{font-size:13.5px;color:#95A4AD;margin:16px 0 20px;max-width:270px;}
+  .foot-social{display:flex;gap:10px;}
+  .foot-social a{
+    width:34px;height:34px;border-radius:50%;border:1px solid #3B4B57;
+    display:flex;align-items:center;justify-content:center;color:#C9D2D8;
+  }
+  footer h5{color:#fff;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:16px;letter-spacing:.02em;}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+  footer ul a{font-size:13.5px;color:#95A4AD;}
+  footer ul a:hover{color:#fff;}
+  .foot-bottom{
+    border-top:1px solid #33424D;padding-top:22px;
+    display:flex;justify-content:space-between;font-size:12.5px;color:#7C8B94;flex-wrap:wrap;gap:10px;
+  }
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;aspect-ratio:16/9;}
+    .goals-grid{grid-template-columns:repeat(3,1fr);}
+    .ing-grid{grid-template-columns:repeat(3,1fr);}
+    .articles-row{grid-template-columns:1fr;}
+    .trio{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{display:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:34px;}
+    .condition-grid{grid-template-columns:1fr;}
+    .toc{position:static;}
+  }
+
+  /* ===== CONDITION / NICHE PAGE ===== */
+  .breadcrumb{
+    padding:18px 0;font-size:13px;color:var(--muted);
+  }
+  .breadcrumb a{color:var(--muted);}
+  .breadcrumb a:hover{color:var(--green);}
+  .breadcrumb span.sep{margin:0 6px;color:#C7CDD2;}
+  .breadcrumb span.current{color:var(--navy);font-weight:600;}
+
+  .cond-hero{
+    padding:8px 0 48px;border-bottom:1px solid var(--border);
+  }
+  .cond-eyebrow-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .cond-hero h1{font-size:40px;line-height:1.12;max-width:720px;margin-bottom:16px;}
+  .cond-hero .lead{font-size:17px;color:var(--muted);max-width:660px;}
+  .cond-meta-row{display:flex;gap:22px;margin-top:22px;flex-wrap:wrap;}
+  .cond-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+  .cond-meta-item strong{color:var(--navy);font-weight:600;}
+
+  .quick-answer{
+    background:var(--green-tint);border:1px solid #D6E9E2;border-radius:var(--radius-md);
+    padding:20px 24px;margin:28px 0 0;
+  }
+  .quick-answer p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.6;}
+  .quick-answer strong{color:var(--green-dark);}
+
+  .condition-grid{
+    display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;
+  }
+  .cond-main h2{font-size:24px;margin:44px 0 16px;}
+  .cond-main h2:first-child{margin-top:0;}
+  .cond-main p{font-size:15.5px;color:#3A3A3A;margin:0 0 16px;}
+  .cond-main ul{margin:0 0 16px;padding-left:20px;}
+  .cond-main li{font-size:15px;color:#3A3A3A;margin-bottom:8px;}
+
+  .toc{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:18px 20px;margin:24px 0 36px;
+  }
+  .toc h5{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px;font-weight:700;}
+  .toc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .toc a{font-size:14px;color:var(--navy);font-weight:500;}
+  .toc a:hover{color:var(--green);}
+
+  .evidence-table{
+    width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;
+    border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  }
+  .evidence-table th{
+    background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);
+    border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;
+  }
+  .evidence-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .evidence-table tr:last-child td{border-bottom:none;}
+  .ev-badge{
+    display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;
+  }
+  .ev-strong{background:var(--green-tint);color:var(--green-dark);}
+  .ev-moderate{background:var(--blue-tint);color:#2A6FBE;}
+  .ev-limited{background:var(--amber-tint);color:#9C6A26;}
+
+  .stars{color:#E0A93E;font-size:14px;letter-spacing:1px;}
+
+  .sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;}
+  .side-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;
+  }
+  .side-card h5{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:14px;font-weight:700;}
+  .rec-product{
+    background:#fff;border-radius:12px;padding:18px;text-align:center;border:1px solid var(--border);
+  }
+  .rec-media{background:#F7F8FA !important;padding:10px;
+    aspect-ratio:1/0.85;border-radius:10px;background:linear-gradient(155deg,#1a3a68,#2e5a94);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+  .rec-product h4{font-size:15.5px;margin-bottom:4px;}
+  .rec-product .rec-tag{font-size:11.5px;color:var(--muted);margin-bottom:10px;display:block;}
+  .rec-product p{font-size:12.5px;color:var(--muted);margin:0 0 14px;line-height:1.5;}
+
+  .disclaimer-box{
+    background:#FBFBFB;border:1px dashed var(--border);border-radius:10px;padding:14px 16px;
+    font-size:12px;color:#8A8F94;line-height:1.5;
+  }
+
+  .mfg-badges{display:flex;flex-direction:column;gap:8px;}
+  .mfg-badge{
+    display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+    padding:8px 12px;border-radius:8px;
+  }
+  .mfg-badge.on{background:var(--green-tint);color:var(--green-dark);}
+
+  .faq-item{border-top:1px solid var(--border);padding:18px 0;}
+  .faq-item:first-of-type{border-top:none;}
+  .faq-item h4{font-size:15.5px;margin-bottom:8px;color:var(--navy);}
+  .faq-item p{font-size:14.5px;color:var(--muted);margin:0;}
+
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px;}
+
+  .rating-row{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--navy);}
+  .rating-row .stars{color:#E0A93E;font-size:15px;letter-spacing:1px;}
+  .rating-row .rnum{font-weight:700;}
+  .rating-row .rcount{color:var(--muted);font-weight:500;}
+
+
+  .dosage-table{width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:13.5px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .dosage-table th{background:var(--card);text-align:left;padding:12px 14px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--border);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;}
+  .dosage-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:#3A3A3A;vertical-align:top;}
+  .dosage-table tr:last-child td{border-bottom:none;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0 30px;}
+  .who-box{border-radius:12px;padding:18px 20px;}
+  .who-use{background:var(--green-tint);border:1px solid #D6E9E2;}
+  .who-avoid{background:#FDF2F0;border:1px solid #F3D9D4;}
+  .who-box h4{font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .who-box ul{margin:0;padding-left:18px;}
+  .who-box li{font-size:13.5px;margin-bottom:6px;line-height:1.5;color:#3A3A3A;}
+  @media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
+
+
+  .takeaways-box{background:var(--navy);border-radius:14px;padding:24px 26px;margin:32px 0 8px;}
+  .takeaways-box h4{color:#fff;font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .takeaways-box ul{margin:0;padding-left:18px;}
+  .takeaways-box li{color:#D6DEE3;font-size:14px;line-height:1.6;margin-bottom:8px;}
+  .takeaways-box li:last-child{margin-bottom:0;}
+
+
+  .lede-hook{font-size:18px;font-style:italic;color:var(--navy);line-height:1.5;margin:0 0 28px;padding-left:16px;border-left:3px solid var(--green);}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://supplementinsider.example.com/index-en.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Health Goals",
+      "item": "https://supplementinsider.example.com/index-en.html#goals"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Vision &amp; Eye Health",
+      "item": "https://supplementinsider.example.com/vision.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vision &amp; Eye Health",
+  "author": {
+    "@type": "Organization",
+    "name": "Supplement Insider Health Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Supplement Insider",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://supplementinsider.example.com/logo.png"
+    }
+  },
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://supplementinsider.example.com/vision.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can eye vitamins reverse vision loss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The strongest evidence (the AREDS2 trial) shows certain nutrients may slow the progression of intermediate-to-advanced AMD in specific patients \u2014 they do not restore vision that has already been lost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are eye health supplements safe to take long-term?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most of the ingredients above have a reasonable long-term safety profile at studied doses, but high-dose zinc and vitamin A should be discussed with a doctor, especially alongside other supplements or medications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long before I'd notice a difference?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Antioxidant and carotenoid levels in the eye build up gradually; most studies measure outcomes over months to years, not days or weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I still need regular eye exams if I take supplements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Supplements can be a supportive part of an eye health routine, but they don't replace monitoring by an eye care professional."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8V17" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="logo-text">Supplement Insider<span>Evidence-Based Wellness</span></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Learn</a>
+      <a href="#">Ingredients</a>
+      <a href="#">Health Goals</a>
+      <a href="#">Conditions</a>
+      <a href="#">Research</a>
+      <a href="#">Compare</a>
+      <a href="#">Reviews</a>
+      <a href="buyers-guide.html">Buyer's Guide</a>
+    </nav>
+    <div class="nav-right">
+      <div class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <a href="#" class="btn btn-primary btn-sm">Newsletter</a>
+    </div>
+  </div>
+</header>
+<div class="wrap breadcrumb">
+  <a href="index-en.html">Home</a><span class="sep">/</span><a href="index-en.html#goals">Health Goals</a><span class="sep">/</span><span class="current">Vision & Eye Health</span>
+</div>
+
+<section class="cond-hero">
+  <div class="wrap">
+    <div class="cond-eyebrow-row">
+      <span class="eyebrow">Health Goal</span>
+      <div class="rating-row"><span class="stars">★★★★⯪</span><span class="rnum">4.8</span><span class="rcount">(12,400+ reviews)</span></div>
+    </div>
+    <h1>Vision &amp; Eye Health</h1>
+    <p class="lead">What actually supports healthy eyes as you age — and what the research says about the vitamins, minerals, and plant extracts most commonly used for vision support.</p>
+    <div class="cond-meta-row">
+      <div class="cond-meta-item">Reviewed for medical accuracy · <strong>Health Editorial Team</strong></div>
+      <div class="cond-meta-item">Updated <strong>May 2026</strong></div>
+      <div class="cond-meta-item">9 min read</div>
+    </div>
+    <div class="quick-answer">
+      <p><strong>Quick answer:</strong> No supplement reverses existing vision loss, but several nutrients — lutein, zeaxanthin, zinc, and vitamins A, C, and E in particular — have real clinical evidence (including the AREDS2 trial) for slowing age-related macular changes. Other ingredients used for general "eye health," like bilberry, ginkgo, and eyebright, have weaker or more limited evidence.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0;">
+  <div class="wrap condition-grid">
+
+    <div class="cond-main">
+
+      <div class="toc">
+        <h5>On This Page</h5>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#causes">What Affects Eye Health</a></li>
+          <li><a href="#symptoms">Common Symptoms</a></li>
+          <li><a href="#lifestyle">Lifestyle &amp; Nutrition</a></li>
+          <li><a href="#supplements">Supplements With Evidence</a></li>
+          <li><a href="#dosage">Dosage &amp; Side Effects</a></li>
+          <li><a href="#who">Who Should Use This</a></li>
+          <li><a href="#doctor">When to See a Doctor</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <p class="lede-hook">Most people don't think about their eyes until something changes. By the time symptoms show up, some of that change is already permanent — which is exactly why prevention matters more than any bottle on a shelf.</p>
+
+      <h2 id="overview">Overview</h2>
+      <p>Eye health naturally changes with age. The retina, lens, and macula are all exposed to years of light, oxidative stress, and reduced blood flow, which is why conditions like age-related macular degeneration (AMD), cataracts, dry eye, and night-vision decline become more common after age 50. Diet and specific micronutrients play a measurable role in how that process unfolds, though supplements work best as a complement to — not a replacement for — regular eye exams.</p>
+
+      <h2 id="causes">What Affects Eye Health</h2>
+      <ul>
+        <li><strong>Oxidative stress</strong> — the retina is one of the most metabolically active tissues in the body and is highly exposed to light-driven oxidative damage.</li>
+        <li><strong>Blue light exposure</strong> — cumulative exposure from sunlight and screens is thought to contribute to lens and retinal changes over time.</li>
+        <li><strong>Reduced micronutrient status</strong> — low dietary intake of carotenoids (lutein, zeaxanthin), zinc, and antioxidant vitamins is associated with higher AMD risk in observational studies.</li>
+        <li><strong>Poor circulation</strong> — reduced blood flow to the optic nerve and retina may affect night vision and overall eye fatigue.</li>
+        <li><strong>Underlying conditions</strong> — diabetes, high blood pressure, and smoking are established risk factors for several eye conditions.</li>
+      </ul>
+
+      <h2 id="symptoms">Common Symptoms</h2>
+      <ul>
+        <li>Difficulty seeing in low light or at night</li>
+        <li>Eye strain or fatigue after screen use</li>
+        <li>Blurred or distorted central vision</li>
+        <li>Increased sensitivity to glare</li>
+        <li>Dry, gritty, or irritated eyes</li>
+      </ul>
+
+      <h2 id="lifestyle">Lifestyle &amp; Nutrition</h2>
+      <p>Before considering supplements, the strongest evidence points to a small set of consistent habits: eating leafy greens and colorful vegetables (natural sources of lutein and zeaxanthin), wearing UV-protective sunglasses, taking regular breaks from screens (the 20-20-20 rule), not smoking, and managing blood sugar and blood pressure. These factors influence long-term eye health more than any single ingredient.</p>
+
+      <h2 id="supplements">Supplements With Evidence</h2>
+      <p>Below is a breakdown of the ingredients most commonly found in eye-health formulas, including their proposed mechanism and how strong the supporting research actually is.</p>
+
+      <table class="evidence-table">
+        <tr><th>Ingredient</th><th>Proposed Role</th><th>Evidence</th></tr>
+        <tr><td>Lutein &amp; Zeaxanthin</td><td>Carotenoids that accumulate in the macula and may filter high-energy blue light</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Zinc</td><td>Cofactor for retinal enzymes; part of the original AREDS formula for AMD</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Vitamin A</td><td>Essential for the visual cycle and low-light (night) vision</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Vitamin C &amp; E</td><td>Antioxidants studied alongside zinc in the AREDS/AREDS2 trials</td><td><span class="ev-badge ev-strong">Strong</span></td></tr>
+        <tr><td>Astaxanthin</td><td>Antioxidant carotenoid studied for eye fatigue and focusing ability</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Bilberry Extract</td><td>Anthocyanins studied for night vision and retinal blood flow</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Alpha Lipoic Acid</td><td>Antioxidant studied in diabetic-retinopathy-related eye research</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Saffron Extract</td><td>Carotenoid-related compounds studied in early macular degeneration</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Copper</td><td>Included in AREDS2 to offset copper depletion from high-dose zinc</td><td><span class="ev-badge ev-moderate">Moderate</span></td></tr>
+        <tr><td>Taurine</td><td>Amino acid concentrated in the retina; role in supplements is less established</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>Ginkgo Biloba</td><td>May support blood flow to the optic nerve and retina</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+        <tr><td>Eyebright (Euphrasia)</td><td>Traditional remedy for eye irritation; modern clinical evidence is sparse</td><td><span class="ev-badge ev-limited">Limited</span></td></tr>
+      </table>
+
+
+      <h2 id="dosage">Dosage &amp; Side Effects</h2>
+      <p>Typical doses reflect amounts commonly used in clinical research — always follow the label on the specific product you're using, and check with a doctor if you're on medication.</p>
+      <table class="dosage-table">
+        <tr><th>Ingredient</th><th>Typical Studied Dose</th><th>Common Side Effects</th></tr>
+        <tr><td>Lutein & Zeaxanthin</td><td>10 mg / 2 mg daily (AREDS2 dose)</td><td>Generally well tolerated; skin yellowing (carotenemia) at very high doses</td></tr>
+        <tr><td>Bilberry Extract</td><td>80–160 mg standardized extract, 1–2x daily</td><td>Mild GI upset; may have mild blood-thinning effect at high doses</td></tr>
+        <tr><td>Zinc</td><td>11–40 mg daily (AREDS2 range)</td><td>Nausea if taken without food; long-term high doses can lower copper levels</td></tr>
+        <tr><td>Vitamin A</td><td>Up to 900 mcg RAE daily (UL for adults)</td><td>Toxicity risk at very high doses; avoid high-dose supplements during pregnancy</td></tr>
+      </table>
+
+      <h2 id="who">Who Should Use This — and Who Shouldn't</h2>
+      <div class="who-grid">
+        <div class="who-box who-use">
+          <h4>✅ Generally a good fit for</h4>
+          <ul>
+            <li>Adults concerned about age-related vision changes</li>
+            <li>Those with a family history of macular degeneration</li>
+            <li>People with low dietary intake of leafy greens or colorful vegetables</li>
+          </ul>
+        </div>
+        <div class="who-box who-avoid">
+          <h4>⚠️ Best to avoid or check with a doctor first</h4>
+          <ul>
+            <li>Pregnant or nursing without medical guidance (due to vitamin A)</li>
+            <li>Anyone on blood thinners without checking with a doctor (bilberry)</li>
+            <li>Those already taking a high-dose multivitamin (risk of doubling up on zinc/vitamin A)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="doctor">When to See a Doctor</h2>
+      <p>See an eye care professional promptly if you notice sudden vision changes, flashes of light, a sudden increase in floaters, eye pain, or a curtain-like shadow in your visual field. Supplements are not a substitute for a comprehensive eye exam, particularly for anyone over 50 or with diabetes, high blood pressure, or a family history of AMD or glaucoma.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>Can eye vitamins reverse vision loss?</h4>
+        <p>No. The strongest evidence (the AREDS2 trial) shows certain nutrients may slow the progression of intermediate-to-advanced AMD in specific patients — they do not restore vision that has already been lost.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are eye health supplements safe to take long-term?</h4>
+        <p>Most of the ingredients above have a reasonable long-term safety profile at studied doses, but high-dose zinc and vitamin A should be discussed with a doctor, especially alongside other supplements or medications.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How long before I'd notice a difference?</h4>
+        <p>Antioxidant and carotenoid levels in the eye build up gradually; most studies measure outcomes over months to years, not days or weeks.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I still need regular eye exams if I take supplements?</h4>
+        <p>Yes. Supplements can be a supportive part of an eye health routine, but they don't replace monitoring by an eye care professional.</p>
+      </div>
+
+      <div class="takeaways-box">
+        <h4>🔑 Key Takeaways</h4>
+        <ul>
+          <li>No supplement reverses vision already lost — the strongest evidence is for slowing progression, not reversing damage.</li>
+          <li>Lutein, zeaxanthin, and zinc have the most consistent clinical support, largely from the AREDS2 trial.</li>
+          <li>Diet and UV protection still matter more than any single ingredient.</li>
+          <li>Regular eye exams remain essential, supplements or not.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <aside class="sidebar">
+      <div class="side-card">
+        <h5>Recommended Formula</h5>
+        <div class="rec-product">
+          <div class="rec-media"><img src="data:image/jpeg;base64,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" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h4>VisiVra</h4>
+          <span class="rec-tag">Eye Health Formula · 30 Capsules</span>
+          <p>Formulated with lutein, zeaxanthin, astaxanthin, bilberry, and antioxidant vitamins A, C &amp; E.</p>
+          <a href="https://visivra.online/dtc?src=yOj909O" target="_blank" rel="noopener noreferrer sponsored" class="btn btn-primary btn-sm" style="width:100%;">View Product</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h5>Related Ingredients</h5>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="lutein-zeaxanthin.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Lutein &amp; Zeaxanthin →</a></li>
+          <li><a href="bilberry.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Bilberry Extract →</a></li>
+          <li><a href="astaxanthin.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Astaxanthin →</a></li>
+          <li><a href="ginkgo-biloba.html" style="font-size:13.5px;font-weight:600;color:var(--navy);">Ginkgo Biloba →</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h5>Manufacturing Standards</h5>
+        <div class="mfg-badges">
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Third-party lab tested</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Made in an FDA-registered facility</span>
+          <span class="mfg-badge on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>GMP certified</span>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Related Articles</h2>
+      <a href="#" class="view-all">View all articles →</a>
+    </div>
+    <div class="related-grid">
+
+      <a href="memory.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,#EAF4FF,#D5E9FF);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#4DA3FF" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#4DA3FF"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Memory & Focus: Complete Guide</h3>
+          <p>The nootropics with real clinical trial support.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="heart-blood-pressure.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--green-tint),#DCEDE6);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#1E5D4E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#1E5D4E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Heart & Blood Pressure: Complete Guide</h3>
+          <p>Some of the longest-studied nutrients available.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+
+      <a href="nerve-health.html" class="art-card">
+        <div class="art-media" style="background:linear-gradient(155deg,var(--amber-tint),#F3E3C4);">
+          <span class="art-tag">Health Goal</span>
+          <svg width="30%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#C98A3E" stroke-width="2.5"/><circle cx="50" cy="50" r="6" fill="#C98A3E"/></svg>
+        </div>
+        <div class="art-body">
+          <h3>Nerve Health: Complete Guide</h3>
+          <p>What helps support nerve function and comfort.</p>
+          <div class="art-meta"><span>Read the full guide →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 6 6 12.5C6 16.6 8.7 20 12 20C15.3 20 18 16.6 18 12.5C18 6 12 2 12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="logo-text">Supplement Insider</div>
+        </div>
+        <p>We simplify supplement science so you can make informed decisions for a healthier life.</p>
+        <div class="foot-social">
+          <a href="#">f</a><a href="#">in</a><a href="#">yt</a>
+        </div>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="#">Ingredients</a></li><li><a href="#">Health Goals</a></li><li><a href="#">Conditions</a></li><li><a href="#">Research</a></li><li><a href="#">Compare</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Our Team</a></li><li><a href="editorial-policy.html">Editorial Policy</a></li><li><a href="#">Medical Review</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="#">Newsletter</a></li><li><a href="#">Blog</a></li><li><a href="#">Research Hub</a></li><li><a href="#">Calculators</a></li><li><a href="buyers-guide.html">Buyer's Guide</a></li><li><a href="#">FAQs</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li><li><a href="medical-disclaimer.html">Medical Disclaimer</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Supplement Insider. All rights reserved.</span>
+      <span>Built with a focus on transparency and science.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
