@@ -249,7 +249,7 @@
 
   /* ===== INGREDIENTS ===== */
   .ing-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;}
-  .ing-card{text-align:center;cursor:pointer;}
+  .ing-card{display:block;text-align:center;cursor:pointer;}
   .ing-media{
     aspect-ratio:1/1;border-radius:18px;margin-bottom:12px;
     display:flex;align-items:center;justify-content:center;
@@ -1002,30 +1002,30 @@
       <a href="#ingredients" class="view-all">View all ingredients →</a>
     </div>
     <div class="ing-grid">
-      <div class="ing-card">
+      <a href="bilberry.html" class="ing-card" style="text-decoration:none;">
         <div class="ing-media" style="background:linear-gradient(155deg,#EAF4FF,#D5E9FF);"><svg width="36%" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="28" stroke="#4DA3FF" stroke-width="2.5"/></svg></div>
         <h4>Bilberry</h4><span>9 articles</span>
-      </div>
-      <div class="ing-card">
+      </a>
+      <a href="lutein-zeaxanthin.html" class="ing-card" style="text-decoration:none;">
         <div class="ing-media" style="background:linear-gradient(155deg,var(--green-tint),#DCEDE6);"><svg width="36%" viewBox="0 0 100 100" fill="none"><rect x="30" y="30" width="40" height="40" rx="8" stroke="#1E5D4E" stroke-width="2.5"/></svg></div>
         <h4>Lutein &amp; Zeaxanthin</h4><span>11 articles</span>
-      </div>
-      <div class="ing-card">
+      </a>
+      <a href="ashwagandha.html" class="ing-card" style="text-decoration:none;">
         <div class="ing-media" style="background:linear-gradient(155deg,var(--amber-tint),#F3E3C4);"><svg width="36%" viewBox="0 0 100 100" fill="none"><path d="M50 20C40 30 30 45 30 60C30 72 39 80 50 80C61 80 70 72 70 60C70 45 60 30 50 20Z" stroke="#C98A3E" stroke-width="2.5"/></svg></div>
         <h4>Ashwagandha</h4><span>24 articles</span>
-      </div>
-      <div class="ing-card">
+      </a>
+      <a href="tribulus-terrestris.html" class="ing-card" style="text-decoration:none;">
         <div class="ing-media" style="background:linear-gradient(155deg,#EAF4FF,#D5E9FF);"><svg width="36%" viewBox="0 0 100 100" fill="none"><path d="M50 25L58 45L80 48L64 62L69 84L50 73L31 84L36 62L20 48L42 45L50 25Z" stroke="#4DA3FF" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
         <h4>Tribulus Terrestris</h4><span>14 articles</span>
-      </div>
-      <div class="ing-card">
+      </a>
+      <a href="ginkgo-biloba.html" class="ing-card" style="text-decoration:none;">
         <div class="ing-media" style="background:linear-gradient(155deg,var(--green-tint),#DCEDE6);"><svg width="36%" viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="20" ry="30" stroke="#1E5D4E" stroke-width="2.5"/></svg></div>
         <h4>Ginkgo Biloba</h4><span>16 articles</span>
-      </div>
-      <div class="ing-card">
+      </a>
+      <a href="l-citrulline.html" class="ing-card" style="text-decoration:none;">
         <div class="ing-media" style="background:linear-gradient(155deg,var(--amber-tint),#F3E3C4);"><svg width="36%" viewBox="0 0 100 100" fill="none"><circle cx="40" cy="45" r="12" stroke="#C98A3E" stroke-width="2.5"/><circle cx="62" cy="55" r="9" stroke="#C98A3E" stroke-width="2.5"/><circle cx="48" cy="68" r="7" stroke="#C98A3E" stroke-width="2.5"/></svg></div>
         <h4>L-Citrulline</h4><span>10 articles</span>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1036,8 +1036,10 @@
     <div class="newsletter-box">
       <p class="eyebrow">Newsletter</p>
       <h3>Stay updated with the latest supplement research</h3>
-      <form class="nl-form" onsubmit="return false;">
-        <input type="email" placeholder="Your email address">
+      <form class="nl-form" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
+        <input type="email" name="EMAIL" placeholder="Your email address" required>
+        <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="locale" value="en">
         <button type="submit">Subscribe</button>
       </form>
       <p class="fine">We respect your privacy. Unsubscribe anytime.</p>
