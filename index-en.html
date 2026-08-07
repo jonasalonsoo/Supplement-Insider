@@ -1081,7 +1081,7 @@
         var form = e.target;
         var email = document.getElementById('nlEmailInput').value;
         document.getElementById('nlEmailDisplay').textContent = email;
-        fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+        fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
         setTimeout(function() {
           var formState = document.getElementById('nlFormState');
           var successState = document.getElementById('nlSuccessState');
@@ -1095,9 +1095,6 @@
             requestAnimationFrame(function() { successState.style.opacity = 1; });
           }, 250);
         }, 200);
-      });
-          }, 250);
-        }, 600);
       });
     </script>
 
@@ -1183,7 +1180,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispindexen').textContent = document.getElementById('fnlEmailindexen').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormindexen').style.display = 'none';
       document.getElementById('fnlSuccessindexen').style.display = 'block';

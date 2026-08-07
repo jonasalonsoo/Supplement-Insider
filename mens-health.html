@@ -747,7 +747,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispmenshealth').textContent = document.getElementById('inlEmailmenshealth').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormmenshealth').style.display = 'none';
             document.getElementById('inlSuccessmenshealth').style.display = 'block';
@@ -903,7 +903,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispmenshealth').textContent = document.getElementById('fnlEmailmenshealth').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormmenshealth').style.display = 'none';
       document.getElementById('fnlSuccessmenshealth').style.display = 'block';

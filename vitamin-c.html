@@ -706,7 +706,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispvitaminc').textContent = document.getElementById('fnlEmailvitaminc').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormvitaminc').style.display = 'none';
       document.getElementById('fnlSuccessvitaminc').style.display = 'block';

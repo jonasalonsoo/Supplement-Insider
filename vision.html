@@ -746,7 +746,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispvision').textContent = document.getElementById('inlEmailvision').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormvision').style.display = 'none';
             document.getElementById('inlSuccessvision').style.display = 'block';
@@ -886,7 +886,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispvision').textContent = document.getElementById('fnlEmailvision').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormvision').style.display = 'none';
       document.getElementById('fnlSuccessvision').style.display = 'block';

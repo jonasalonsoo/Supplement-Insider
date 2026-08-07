@@ -741,7 +741,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispbloodsugar').textContent = document.getElementById('inlEmailbloodsugar').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormbloodsugar').style.display = 'none';
             document.getElementById('inlSuccessbloodsugar').style.display = 'block';
@@ -881,7 +881,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispbloodsugar').textContent = document.getElementById('fnlEmailbloodsugar').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormbloodsugar').style.display = 'none';
       document.getElementById('fnlSuccessbloodsugar').style.display = 'block';

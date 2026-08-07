@@ -720,7 +720,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispalphalipoicacid').textContent = document.getElementById('fnlEmailalphalipoicacid').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormalphalipoicacid').style.display = 'none';
       document.getElementById('fnlSuccessalphalipoicacid').style.display = 'block';

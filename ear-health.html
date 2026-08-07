@@ -741,7 +741,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispearhealth').textContent = document.getElementById('inlEmailearhealth').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormearhealth').style.display = 'none';
             document.getElementById('inlSuccessearhealth').style.display = 'block';
@@ -881,7 +881,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispearhealth').textContent = document.getElementById('fnlEmailearhealth').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormearhealth').style.display = 'none';
       document.getElementById('fnlSuccessearhealth').style.display = 'block';

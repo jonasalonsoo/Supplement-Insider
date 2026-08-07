@@ -1081,7 +1081,7 @@
         var form = e.target;
         var email = document.getElementById('nlEmailInput').value;
         document.getElementById('nlEmailDisplay').textContent = email;
-        fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+        fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
         setTimeout(function() {
           var formState = document.getElementById('nlFormState');
           var successState = document.getElementById('nlSuccessState');
@@ -1095,9 +1095,6 @@
             requestAnimationFrame(function() { successState.style.opacity = 1; });
           }, 250);
         }, 200);
-      });
-          }, 250);
-        }, 600);
       });
     </script>
 
@@ -1165,28 +1162,28 @@
 
 <div class="footer-nl">
   <div class="wrap footer-nl-inner">
-    <div id="fnlFormindex">
+    <div id="fnlFormindexen">
       <h4>Get the latest supplement research in your inbox</h4>
       <p>Join 25,000+ readers. No spam, unsubscribe anytime.</p>
-      <form class="footer-nl-form" id="fnlFormElindex" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
-        <input type="email" name="EMAIL" id="fnlEmailindex" placeholder="Your email address" required>
+      <form class="footer-nl-form" id="fnlFormElindexen" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==">
+        <input type="email" name="EMAIL" id="fnlEmailindexen" placeholder="Your email address" required>
         <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
         <input type="hidden" name="locale" value="en">
         <button type="submit">Subscribe</button>
       </form>
     </div>
-    <div id="fnlSuccessindex" class="footer-nl-success" style="display:none;">✓ You're on the list! Check <strong id="fnlEmailDispindex"></strong> to confirm.</div>
+    <div id="fnlSuccessindexen" class="footer-nl-success" style="display:none;">✓ You're on the list! Check <strong id="fnlEmailDispindexen"></strong> to confirm.</div>
   </div>
 </div>
 <script>
-  document.getElementById('fnlFormElindex').addEventListener('submit', function(e) {
+  document.getElementById('fnlFormElindexen').addEventListener('submit', function(e) {
     e.preventDefault();
     var form = e.target;
-    document.getElementById('fnlEmailDispindex').textContent = document.getElementById('fnlEmailindex').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    document.getElementById('fnlEmailDispindexen').textContent = document.getElementById('fnlEmailindexen').value;
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
-      document.getElementById('fnlFormindex').style.display = 'none';
-      document.getElementById('fnlSuccessindex').style.display = 'block';
+      document.getElementById('fnlFormindexen').style.display = 'none';
+      document.getElementById('fnlSuccessindexen').style.display = 'block';
     }, 200);
   });
 </script>

@@ -706,7 +706,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispomega3fattyacids').textContent = document.getElementById('fnlEmailomega3fattyacids').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormomega3fattyacids').style.display = 'none';
       document.getElementById('fnlSuccessomega3fattyacids').style.display = 'block';

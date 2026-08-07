@@ -604,7 +604,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDisptermsofservice').textContent = document.getElementById('fnlEmailtermsofservice').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormtermsofservice').style.display = 'none';
       document.getElementById('fnlSuccesstermsofservice').style.display = 'block';

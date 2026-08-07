@@ -750,7 +750,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispheartbloodpressure').textContent = document.getElementById('inlEmailheartbloodpressure').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormheartbloodpressure').style.display = 'none';
             document.getElementById('inlSuccessheartbloodpressure').style.display = 'block';
@@ -892,7 +892,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispheartbloodpressure').textContent = document.getElementById('fnlEmailheartbloodpressure').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormheartbloodpressure').style.display = 'none';
       document.getElementById('fnlSuccessheartbloodpressure').style.display = 'block';

@@ -699,7 +699,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispomega3dha').textContent = document.getElementById('fnlEmailomega3dha').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormomega3dha').style.display = 'none';
       document.getElementById('fnlSuccessomega3dha').style.display = 'block';

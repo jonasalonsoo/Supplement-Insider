@@ -750,7 +750,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispnervehealth').textContent = document.getElementById('inlEmailnervehealth').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormnervehealth').style.display = 'none';
             document.getElementById('inlSuccessnervehealth').style.display = 'block';
@@ -892,7 +892,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispnervehealth').textContent = document.getElementById('fnlEmailnervehealth').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormnervehealth').style.display = 'none';
       document.getElementById('fnlSuccessnervehealth').style.display = 'block';

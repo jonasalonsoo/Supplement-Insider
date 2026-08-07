@@ -706,7 +706,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispvitaminb12').textContent = document.getElementById('fnlEmailvitaminb12').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormvitaminb12').style.display = 'none';
       document.getElementById('fnlSuccessvitaminb12').style.display = 'block';

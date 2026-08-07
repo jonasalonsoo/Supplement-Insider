@@ -699,7 +699,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispcranberryextract').textContent = document.getElementById('fnlEmailcranberryextract').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormcranberryextract').style.display = 'none';
       document.getElementById('fnlSuccesscranberryextract').style.display = 'block';

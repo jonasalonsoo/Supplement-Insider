@@ -741,7 +741,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispmemory').textContent = document.getElementById('inlEmailmemory').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormmemory').style.display = 'none';
             document.getElementById('inlSuccessmemory').style.display = 'block';
@@ -897,7 +897,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispmemory').textContent = document.getElementById('fnlEmailmemory').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormmemory').style.display = 'none';
       document.getElementById('fnlSuccessmemory').style.display = 'block';

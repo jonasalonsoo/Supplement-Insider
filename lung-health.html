@@ -750,7 +750,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDisplunghealth').textContent = document.getElementById('inlEmaillunghealth').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormlunghealth').style.display = 'none';
             document.getElementById('inlSuccesslunghealth').style.display = 'block';
@@ -892,7 +892,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDisplunghealth').textContent = document.getElementById('fnlEmaillunghealth').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormlunghealth').style.display = 'none';
       document.getElementById('fnlSuccesslunghealth').style.display = 'block';

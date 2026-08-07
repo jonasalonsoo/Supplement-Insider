@@ -750,7 +750,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispweight').textContent = document.getElementById('inlEmailweight').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormweight').style.display = 'none';
             document.getElementById('inlSuccessweight').style.display = 'block';
@@ -906,7 +906,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispweight').textContent = document.getElementById('fnlEmailweight').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormweight').style.display = 'none';
       document.getElementById('fnlSuccessweight').style.display = 'block';

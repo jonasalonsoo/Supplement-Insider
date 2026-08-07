@@ -750,7 +750,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispjoints').textContent = document.getElementById('inlEmailjoints').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormjoints').style.display = 'none';
             document.getElementById('inlSuccessjoints').style.display = 'block';
@@ -892,7 +892,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispjoints').textContent = document.getElementById('fnlEmailjoints').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormjoints').style.display = 'none';
       document.getElementById('fnlSuccessjoints').style.display = 'block';

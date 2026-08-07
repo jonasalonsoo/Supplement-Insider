@@ -741,7 +741,7 @@
           e.preventDefault();
           var form = e.target;
           document.getElementById('inlEmailDispurinaryhealth').textContent = document.getElementById('inlEmailurinaryhealth').value;
-          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+          fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
           setTimeout(function() {
             document.getElementById('inlFormurinaryhealth').style.display = 'none';
             document.getElementById('inlSuccessurinaryhealth').style.display = 'block';
@@ -881,7 +881,7 @@
     e.preventDefault();
     var form = e.target;
     document.getElementById('fnlEmailDispurinaryhealth').textContent = document.getElementById('fnlEmailurinaryhealth').value;
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }).catch(function(){});
+    fetch(form.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) }).catch(function(){});
     setTimeout(function() {
       document.getElementById('fnlFormurinaryhealth').style.display = 'none';
       document.getElementById('fnlSuccessurinaryhealth').style.display = 'block';
