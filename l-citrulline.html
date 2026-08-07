@@ -473,6 +473,27 @@
     box-shadow:0 2px 6px rgba(0,0,0,.15);white-space:nowrap;
   }
 
+
+  .footer-nl{background:#182B37;border-top:1px solid #33424D;padding:36px 0;}
+  .footer-nl-inner{max-width:560px;margin:0 auto;text-align:center;}
+  .footer-nl h4{color:#fff;font-size:17px;margin-bottom:6px;}
+  .footer-nl p{color:#95A4AD;font-size:13px;margin:0 0 18px;}
+  .footer-nl-form{display:flex;gap:8px;}
+  .footer-nl-form input{flex:1;border:1px solid #3B4B57;background:#1F3542;color:#fff;border-radius:10px;padding:12px 14px;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;}
+  .footer-nl-form input::placeholder{color:#7C8B94;}
+  .footer-nl-form button{background:var(--green);color:#fff;border:none;border-radius:10px;padding:0 20px;font-weight:700;font-size:13.5px;cursor:pointer;white-space:nowrap;}
+  .footer-nl-success{color:#fff;font-size:14px;}
+  .footer-nl-success strong{color:#B9E4D3;}
+
+  .inline-nl{background:var(--green-tint);border:1px solid #D6E9E2;border-radius:14px;padding:26px 28px;margin:32px 0;text-align:center;}
+  .inline-nl h4{font-size:17px;color:var(--navy);margin-bottom:6px;}
+  .inline-nl p{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+  .inline-nl-form{display:flex;gap:8px;max-width:440px;margin:0 auto;}
+  .inline-nl-form input{flex:1;border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;}
+  .inline-nl-form button{background:var(--green);color:#fff;border:none;border-radius:10px;padding:0 20px;font-weight:700;font-size:13.5px;cursor:pointer;white-space:nowrap;}
+  .inline-nl-success{color:var(--navy);font-size:14px;}
+  .inline-nl-success strong{color:var(--green-dark);}
+
 </style>
 <script type="application/ld+json">
 {
@@ -654,6 +675,32 @@
     </div>
   </div>
 </section>
+
+<div class="footer-nl">
+  <div class="wrap footer-nl-inner">
+    <div id="fnlFormlcitrulline">
+      <h4>Get the latest supplement research in your inbox</h4>
+      <p>Join 25,000+ readers. No spam, unsubscribe anytime.</p>
+      <form class="footer-nl-form" id="fnlFormEllcitrulline" method="POST" action="https://c2a7878c.sibforms.com/serve/MUIFAL_lXwFM8CgULk04quDnkG-oeDCuEXA3z9kbqPo7GHIzu0mcqkUz5_hgaF8-8hljZNdrglVXBUe8NP3HIgN79f74Os7RosnHC3hD4E-IOsVkk02-s6dFW-8U4U_sxQc3-O90Ufi6AS9vNHForOL6VnP9kQA9HUsuLB6CdmNz0EBy4JuABF9vf4UttZaoE_Th6sR7KUPQfRmNzw==" target="fnlFramelcitrulline">
+        <input type="email" name="EMAIL" id="fnlEmaillcitrulline" placeholder="Your email address" required>
+        <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="locale" value="en">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div id="fnlSuccesslcitrulline" class="footer-nl-success" style="display:none;">✓ You're on the list! Check <strong id="fnlEmailDisplcitrulline"></strong> to confirm.</div>
+    <iframe name="fnlFramelcitrulline" style="display:none;" title="newsletter"></iframe>
+  </div>
+</div>
+<script>
+  document.getElementById('fnlFormEllcitrulline').addEventListener('submit', function() {
+    document.getElementById('fnlEmailDisplcitrulline').textContent = document.getElementById('fnlEmaillcitrulline').value;
+    setTimeout(function() {
+      document.getElementById('fnlFormlcitrulline').style.display = 'none';
+      document.getElementById('fnlSuccesslcitrulline').style.display = 'block';
+    }, 600);
+  });
+</script>
 
 <footer>
   <div class="wrap">
