@@ -1,0 +1,21 @@
+function doPost(e) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var action = e.parameter.action || 'subscribe';
+  var email = e.parameter.EMAIL;
+  var timestamp = new Date();
+
+  if (action === 'unsubscribe') {
+    var sheet = ss.getSheetByName('Unsubscribe Requests');
+    if (!sheet) {
+      sheet = ss.insertSheet('Unsubscribe Requests');
+      sheet.appendRow(['Timestamp', 'Email']);
+    }
+    sheet.appendRow([timestamp, email]);
+  } else {
+    var sheet = ss.getSheets()[0];
+    sheet.appendRow([timestamp, email]);
+  }
+
+  return ContentService.createTextOutput(JSON.stringify({result: "success"}))
+    .setMimeType(ContentService.MimeType.JSON);
+}
